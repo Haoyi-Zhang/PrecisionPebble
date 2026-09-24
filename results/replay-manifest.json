@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "expected_cases": 364,
+  "checked_cases": 364,
+  "complete": true,
+  "cumulative_charged_units": 166841,
+  "cumulative_case_cpu_seconds": 2.7715453049999996,
+  "total_invocation_cpu_seconds": 3.3424122279999997,
+  "max_rss_kib": 112296,
+  "invocations": [
+    {
+      "new_cases": 64,
+      "cpu_seconds": 0.04370031900000004,
+      "max_rss_kib": 95528
+    },
+    {
+      "new_cases": 64,
+      "cpu_seconds": 0.055342679000000006,
+      "max_rss_kib": 93996
+    },
+    {
+      "new_cases": 64,
+      "cpu_seconds": 0.06366919100000001,
+      "max_rss_kib": 94112
+    },
+    {
+      "new_cases": 64,
+      "cpu_seconds": 0.07084773999999994,
+      "max_rss_kib": 93992
+    },
+    {
+      "new_cases": 64,
+      "cpu_seconds": 2.2605825139999998,
+      "max_rss_kib": 112296
+    },
+    {
+      "new_cases": 44,
+      "cpu_seconds": 0.848269785,
+      "max_rss_kib": 102572
+    }
+  ],
+  "limits": {
+    "address_limit_bytes": 3221225472,
+    "affinity": [
+      0
+    ],
+    "workers": 1,
+    "campaign_unit_cap": 600000,
+    "campaign_cpu_cap_seconds": 2700.0,
+    "oracle_state_cap": 50000,
+    "oracle_cpu_cap_seconds": 15.0
+  }
+}

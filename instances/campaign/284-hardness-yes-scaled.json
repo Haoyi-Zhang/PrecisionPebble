@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "name": "hardness-yes-scaled",
+  "group": "hardness",
+  "capacity": 472,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "c1",
+  "root_states": [
+    32
+  ],
+  "metadata": {
+    "family": "partition-floor",
+    "values": [
+      1,
+      1
+    ],
+    "scaled": true,
+    "has_partition": true,
+    "constants": {
+      "S": 2,
+      "C1": 4,
+      "M": 5,
+      "C2": 19,
+      "K": 20,
+      "B": 59,
+      "L": 55,
+      "H": 40
+    },
+    "compulsory_floor": 2440
+  },
+  "nodes": {
+    "L0": {
+      "kind": "source",
+      "weights": {
+        "8": 55,
+        "16": 110,
+        "32": 220,
+        "64": 440
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "m0": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {},
+      "operands": [
+        "L0"
+      ],
+      "recipes": [
+        {
+          "name": "low-0",
+          "inputs": [
+            64
+          ],
+          "output": 8,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "high-0",
+          "inputs": [
+            64
+          ],
+          "output": 16,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "H0": {
+      "kind": "source",
+      "weights": {
+        "8": 40,
+        "16": 80,
+        "32": 160,
+        "64": 320
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "f0": {
+      "kind": "op",
+      "weights": {
+        "8": 48,
+        "16": 56,
+        "32": 72,
+        "64": 104
+      },
+      "semantic": {},
+      "operands": [
+        "m0",
+        "H0"
+      ],
+      "recipes": [
+        {
+          "name": "finish-low-0",
+          "inputs": [
+            8,
+            64
+          ],
+          "output": 16,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "finish-high-0",
+          "inputs": [
+            16,
+            64
+          ],
+          "output": 8,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "L1": {
+      "kind": "source",
+      "weights": {
+        "8": 55,
+        "16": 110,
+        "32": 220,
+        "64": 440
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "m1": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {},
+      "operands": [
+        "L1"
+      ],
+      "recipes": [
+        {
+          "name": "low-1",
+          "inputs": [
+            64
+          ],
+          "output": 8,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "high-1",
+          "inputs": [
+            64
+          ],
+          "output": 16,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "H1": {
+      "kind": "source",
+      "weights": {
+        "8": 40,
+        "16": 80,
+        "32": 160,
+        "64": 320
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "f1": {
+      "kind": "op",
+      "weights": {
+        "8": 48,
+        "16": 56,
+        "32": 72,
+        "64": 104
+      },
+      "semantic": {},
+      "operands": [
+        "m1",
+        "H1"
+      ],
+      "recipes": [
+        {
+          "name": "finish-low-1",
+          "inputs": [
+            8,
+            64
+          ],
+          "output": 16,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "finish-high-1",
+          "inputs": [
+            16,
+            64
+          ],
+          "output": 8,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "c0": {
+      "kind": "op",
+      "weights": {
+        "8": 40,
+        "16": 80,
+        "32": 160,
+        "64": 320
+      },
+      "semantic": {},
+      "operands": [
+        "f0",
+        "f1"
+      ],
+      "recipes": [
+        {
+          "name": "comb-0-8-8",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 32,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "comb-0-8-16",
+          "inputs": [
+            8,
+            16
+          ],
+          "output": 32,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "comb-0-16-8",
+          "inputs": [
+            16,
+            8
+          ],
+          "output": 32,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "comb-0-16-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "Ls": {
+      "kind": "source",
+      "weights": {
+        "8": 55,
+        "16": 110,
+        "32": 220,
+        "64": 440
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "ms": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {},
+      "operands": [
+        "Ls"
+      ],
+      "recipes": [
+        {
+          "name": "sentinel-middle",
+          "inputs": [
+            64
+          ],
+          "output": 8,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "Hs": {
+      "kind": "source",
+      "weights": {
+        "8": 40,
+        "16": 80,
+        "32": 160,
+        "64": 320
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "fs": {
+      "kind": "op",
+      "weights": {
+        "8": 40,
+        "16": 80,
+        "32": 160,
+        "64": 320
+      },
+      "semantic": {},
+      "operands": [
+        "ms",
+        "Hs"
+      ],
+      "recipes": [
+        {
+          "name": "sentinel-final",
+          "inputs": [
+            8,
+            64
+          ],
+          "output": 8,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "c1": {
+      "kind": "op",
+      "weights": {
+        "8": 40,
+        "16": 80,
+        "32": 160,
+        "64": 320
+      },
+      "semantic": {},
+      "operands": [
+        "c0",
+        "fs"
+      ],
+      "recipes": [
+        {
+          "name": "comb-1-32-8",
+          "inputs": [
+            32,
+            8
+          ],
+          "output": 32,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

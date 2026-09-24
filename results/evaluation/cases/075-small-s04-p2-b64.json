@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "name": "small-s04-p2-b64",
+  "group": "small",
+  "instance_file": "campaign/075-small-s04-p2-b64.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 4,
+    "capacity": 64,
+    "recipes": 4,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 2,
+      "shape": "(((), ()),)"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": null,
+    "root_state": null,
+    "spill_edges": [],
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "small-s04-p2-b64",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 64,
+      "root": "v3",
+      "root_state": null,
+      "terminal_cost": null,
+      "states": {
+        "v2|32|64": {
+          "cost": null,
+          "choice": null
+        },
+        "v2|64|64": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|32|64": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|64|64": {
+          "cost": null,
+          "choice": null
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 4,
+      "checked_alternatives": 4,
+      "terminal_cost": null,
+      "root_state": null
+    }
+  },
+  "contiguous": {
+    "cost": null,
+    "root_state": null
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": null,
+    "events": [],
+    "discovered_states": 6,
+    "expanded_states": 6,
+    "cpu_seconds": 6.179700000008559e-05
+  },
+  "oracle_event_check": null,
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 4,
+    "certificate_alternatives": 4,
+    "oracle_states": 6,
+    "event_units": 0,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 14,
+    "cpu_seconds": 0.0002998410000001339
+  }
+}

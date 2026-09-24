@@ -1,0 +1,1661 @@
+{
+  "schema": 1,
+  "name": "integer-dot-g2-a7-b32",
+  "group": "integer",
+  "instance_file": "campaign/330-integer-dot-g2-a7-b32.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 7,
+    "capacity": 64,
+    "recipes": 17,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "integer-dot",
+      "operator_family": "dot",
+      "groups": 2,
+      "source_length": 2,
+      "bound": 7,
+      "capacity_multiplier": 32,
+      "semantic_patterns": [
+        "zero",
+        "positive",
+        "negative",
+        "alternating",
+        "pseudorandom-9137"
+      ]
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 66,
+      "work": [
+        16624,
+        1
+      ]
+    },
+    "root_state": 16,
+    "spill_edges": [],
+    "events": [
+      {
+        "event": "load",
+        "node": "s0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e0",
+        "recipe": "product-64-to-16",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "s2",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s3",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e1",
+        "recipe": "product-64-to-16",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "r0_0",
+        "recipe": "reduce-16-to-16",
+        "output": 16
+      },
+      {
+        "event": "store",
+        "node": "r0_0"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 66,
+        "work": [
+          16624,
+          1
+        ]
+      },
+      "peak": 40,
+      "error": null,
+      "final_root_state": 16,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "s0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "s1",
+            "state": 64
+          },
+          "resident_before": 16,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "e0",
+            "recipe": "product-64-to-16",
+            "output": 16
+          },
+          "resident_before": 32,
+          "event_peak": 36,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            8288,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "load",
+            "node": "s2",
+            "state": 64
+          },
+          "resident_before": 4,
+          "event_peak": 20,
+          "resident_after": 20,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "load",
+            "node": "s3",
+            "state": 64
+          },
+          "resident_before": 20,
+          "event_peak": 36,
+          "resident_after": 36,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "compute",
+            "node": "e1",
+            "recipe": "product-64-to-16",
+            "output": 16
+          },
+          "resident_before": 36,
+          "event_peak": 40,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            8288,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "compute",
+            "node": "r0_0",
+            "recipe": "reduce-16-to-16",
+            "output": 16
+          },
+          "resident_before": 8,
+          "event_peak": 10,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            48,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "store",
+            "node": "r0_0"
+          },
+          "resident_before": 2,
+          "event_peak": 2,
+          "resident_after": 2,
+          "added_io": 2,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "integer-dot-g2-a7-b32",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 64,
+      "root": "r0_0",
+      "root_state": 16,
+      "terminal_cost": {
+        "io": 66,
+        "work": [
+          16624,
+          1
+        ]
+      },
+      "states": {
+        "e0|8|62": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8304,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 62,
+                "residual_before": 62,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|8|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8304,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|16|60": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8288,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 60,
+                "residual_before": 60,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|16|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8288,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|32|56": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8256,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 56,
+                "residual_before": 56,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|32|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8256,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|64|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8192,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e0|64|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8192,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|8|62": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8304,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 62,
+                "residual_before": 62,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|8|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8304,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|16|60": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8288,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 60,
+                "residual_before": 60,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|16|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8288,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|32|56": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8256,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 56,
+                "residual_before": 56,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|32|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8256,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|64|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8192,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "e1|64|64": {
+          "cost": {
+            "io": 32,
+            "work": [
+              8192,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "product-64-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "r0_0|16|64": {
+          "cost": {
+            "io": 64,
+            "work": [
+              16624,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 60,
+                "residual_before": 60,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r0_0|32|64": {
+          "cost": {
+            "io": 64,
+            "work": [
+              16608,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-32-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 32,
+                "budget": 56,
+                "residual_before": 56,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|64|64": {
+          "cost": {
+            "io": 64,
+            "work": [
+              16576,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-64-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 64,
+                "residual_before": 64,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "s0|64|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|40": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|44": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|46": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|48": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|56": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|60": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|62": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|64": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|40": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|44": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|46": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|48": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|56": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|60": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|62": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|64": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|40": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|44": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|46": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|48": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|56": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|60": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|62": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|64": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|40": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|44": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|46": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|48": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|56": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|60": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|62": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|64": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 55,
+      "checked_alternatives": 104,
+      "terminal_cost": {
+        "io": 66,
+        "work": [
+          16624,
+          1
+        ]
+      },
+      "root_state": 16
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 66,
+      "work": [
+        16624,
+        1
+      ]
+    },
+    "root_state": 16
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": {
+    "cost": {
+      "io": 72,
+      "work": [
+        16576,
+        1
+      ]
+    },
+    "root_state": 64,
+    "events": [
+      {
+        "event": "load",
+        "node": "s0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e0",
+        "recipe": "product-64-to-64",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "s2",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s3",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e1",
+        "recipe": "product-64-to-64",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "r0_0",
+        "recipe": "reduce-64-to-64",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "r0_0"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 72,
+        "work": [
+          16576,
+          1
+        ]
+      },
+      "peak": 64,
+      "error": null,
+      "final_root_state": 64,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "s0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "s1",
+            "state": 64
+          },
+          "resident_before": 16,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "e0",
+            "recipe": "product-64-to-64",
+            "output": 64
+          },
+          "resident_before": 32,
+          "event_peak": 48,
+          "resident_after": 16,
+          "added_io": 0,
+          "added_work": [
+            8192,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "load",
+            "node": "s2",
+            "state": 64
+          },
+          "resident_before": 16,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "load",
+            "node": "s3",
+            "state": 64
+          },
+          "resident_before": 32,
+          "event_peak": 48,
+          "resident_after": 48,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "compute",
+            "node": "e1",
+            "recipe": "product-64-to-64",
+            "output": 64
+          },
+          "resident_before": 48,
+          "event_peak": 64,
+          "resident_after": 32,
+          "added_io": 0,
+          "added_work": [
+            8192,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "compute",
+            "node": "r0_0",
+            "recipe": "reduce-64-to-64",
+            "output": 64
+          },
+          "resident_before": 32,
+          "event_peak": 40,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            192,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "store",
+            "node": "r0_0"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "semantic": {
+      "applicable": true,
+      "valid": true,
+      "patterns": [
+        {
+          "pattern": "zero",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "positive",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "negative",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "alternating",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "pseudorandom-9137",
+          "valid": true,
+          "error": null
+        }
+      ]
+    },
+    "optimizer_states": 17
+  },
+  "semantic": {
+    "applicable": true,
+    "valid": true,
+    "patterns": [
+      {
+        "pattern": "zero",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "positive",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "negative",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "alternating",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "pseudorandom-9137",
+        "valid": true,
+        "error": null
+      }
+    ]
+  },
+  "metrics": {
+    "optimizer_states": 55,
+    "certificate_alternatives": 104,
+    "oracle_states": 0,
+    "event_units": 8,
+    "semantic_units": 15,
+    "fixed64_optimizer_states": 17,
+    "charged_units": 199,
+    "cpu_seconds": 0.0038633710000000043
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "name": "integer-abs-g4-a127-b17",
+  "group": "integer",
+  "instance_file": "campaign/355-integer-abs-g4-a127-b17.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 15,
+    "capacity": 68,
+    "recipes": 39,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "integer-abs",
+      "operator_family": "abs",
+      "groups": 4,
+      "source_length": 4,
+      "bound": 127,
+      "capacity_multiplier": 17,
+      "semantic_patterns": [
+        "zero",
+        "positive",
+        "negative",
+        "alternating",
+        "pseudorandom-9137"
+      ]
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": null,
+    "root_state": null,
+    "spill_edges": [],
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "integer-abs-g4-a127-b17",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 68,
+      "root": "r1_0",
+      "root_state": null,
+      "terminal_cost": null,
+      "states": {
+        "e0|8|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|64|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|64|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|64|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|64|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|8|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|64|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|8|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|64|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_0|16|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_0|32|68": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_0|64|68": {
+          "cost": null,
+          "choice": null
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 27,
+      "checked_alternatives": 184,
+      "terminal_cost": null,
+      "root_state": null
+    }
+  },
+  "contiguous": {
+    "cost": null,
+    "root_state": null
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": {
+    "cost": null,
+    "root_state": null,
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "semantic": {
+      "applicable": false,
+      "valid": true,
+      "patterns": []
+    },
+    "optimizer_states": 3
+  },
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 27,
+    "certificate_alternatives": 184,
+    "oracle_states": 0,
+    "event_units": 0,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 3,
+    "charged_units": 214,
+    "cpu_seconds": 0.001701262999999953
+  }
+}

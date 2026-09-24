@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "name": "integer-abs-g2-a127-b24",
+  "group": "integer",
+  "capacity": 48,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "r0_0",
+  "root_states": [
+    16,
+    32,
+    64
+  ],
+  "metadata": {
+    "family": "integer-abs",
+    "operator_family": "abs",
+    "groups": 2,
+    "source_length": 2,
+    "bound": 127,
+    "capacity_multiplier": 24,
+    "semantic_patterns": [
+      "zero",
+      "positive",
+      "negative",
+      "alternating",
+      "pseudorandom-9137"
+    ]
+  },
+  "nodes": {
+    "s0": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 0,
+        "length": 2,
+        "interval": [
+          -127,
+          127
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -127,
+        127
+      ]
+    },
+    "s1": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 1,
+        "length": 2,
+        "interval": [
+          -127,
+          127
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -127,
+        127
+      ]
+    },
+    "e0": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "absdiff",
+        "length": 2,
+        "interval": [
+          0,
+          254
+        ]
+      },
+      "operands": [
+        "s0",
+        "s1"
+      ],
+      "recipes": [
+        {
+          "name": "absdiff-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            352,
+            1
+          ],
+          "semantic": {
+            "kind": "absdiff"
+          }
+        },
+        {
+          "name": "absdiff-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            320,
+            1
+          ],
+          "semantic": {
+            "kind": "absdiff"
+          }
+        },
+        {
+          "name": "absdiff-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "absdiff"
+          }
+        }
+      ]
+    },
+    "s2": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 2,
+        "length": 2,
+        "interval": [
+          -127,
+          127
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -127,
+        127
+      ]
+    },
+    "s3": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 3,
+        "length": 2,
+        "interval": [
+          -127,
+          127
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -127,
+        127
+      ]
+    },
+    "e1": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "absdiff",
+        "length": 2,
+        "interval": [
+          0,
+          254
+        ]
+      },
+      "operands": [
+        "s2",
+        "s3"
+      ],
+      "recipes": [
+        {
+          "name": "absdiff-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            352,
+            1
+          ],
+          "semantic": {
+            "kind": "absdiff"
+          }
+        },
+        {
+          "name": "absdiff-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            320,
+            1
+          ],
+          "semantic": {
+            "kind": "absdiff"
+          }
+        },
+        {
+          "name": "absdiff-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "absdiff"
+          }
+        }
+      ]
+    },
+    "r0_0": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 2,
+        "32": 4,
+        "64": 8
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 1,
+        "interval": [
+          0,
+          1016
+        ]
+      },
+      "operands": [
+        "e0",
+        "e1"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            32,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            48,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            64,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            112,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            96,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            240,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            224,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    }
+  }
+}

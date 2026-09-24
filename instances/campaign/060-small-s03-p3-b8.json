@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "name": "small-s03-p3-b8",
+  "group": "small",
+  "capacity": 8,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v3",
+  "root_states": [
+    16,
+    32
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 3,
+    "shape": "((((),),),)"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 6,
+        "16": 12,
+        "32": 24,
+        "64": 48
+      },
+      "semantic": {},
+      "source_states": [
+        16,
+        32
+      ]
+    },
+    "v1": {
+      "kind": "op",
+      "weights": {
+        "8": 3,
+        "16": 6,
+        "32": 12,
+        "64": 24
+      },
+      "semantic": {},
+      "operands": [
+        "v0"
+      ],
+      "recipes": [
+        {
+          "name": "p16-v1",
+          "inputs": [
+            16
+          ],
+          "output": 16,
+          "work": [
+            51,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32to16-v1",
+          "inputs": [
+            32
+          ],
+          "output": 16,
+          "work": [
+            75,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32-v1",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            99,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v2": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 2,
+        "32": 4,
+        "64": 8
+      },
+      "semantic": {},
+      "operands": [
+        "v1"
+      ],
+      "recipes": [
+        {
+          "name": "p16-v2",
+          "inputs": [
+            16
+          ],
+          "output": 16,
+          "work": [
+            17,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32to16-v2",
+          "inputs": [
+            32
+          ],
+          "output": 16,
+          "work": [
+            25,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32-v2",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            33,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v3": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 2,
+        "32": 4,
+        "64": 8
+      },
+      "semantic": {},
+      "operands": [
+        "v2"
+      ],
+      "recipes": [
+        {
+          "name": "p16-v3",
+          "inputs": [
+            16
+          ],
+          "output": 16,
+          "work": [
+            17,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32to16-v3",
+          "inputs": [
+            32
+          ],
+          "output": 16,
+          "work": [
+            25,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32-v3",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            33,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

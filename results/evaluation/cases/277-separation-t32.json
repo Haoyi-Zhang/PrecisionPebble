@@ -1,0 +1,1164 @@
+{
+  "schema": 1,
+  "name": "separation-t32",
+  "group": "separation",
+  "instance_file": "campaign/277-separation-t32.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 10,
+    "capacity": 256,
+    "recipes": 5,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "separation",
+      "t": 32,
+      "x": 64,
+      "r": 32,
+      "expected_prepared_io": 736,
+      "expected_contiguous_io": 800,
+      "compulsory_floor": 608
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 736,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "root_state": 64,
+    "spill_edges": [
+      [
+        "b",
+        "d"
+      ]
+    ],
+    "events": [
+      {
+        "event": "load",
+        "node": "sb1",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "sb2",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "b",
+        "recipe": "combine-b",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "b"
+      },
+      {
+        "event": "delete",
+        "node": "b"
+      },
+      {
+        "event": "load",
+        "node": "sa",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "A",
+        "recipe": "shrink-A",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "sc1",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "sc2",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "c",
+        "recipe": "combine-c",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "b",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "d",
+        "recipe": "reduce-d",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "z",
+        "recipe": "root",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "z"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 736,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 256,
+      "error": null,
+      "final_root_state": 64,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "sb1",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "sb2",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 192,
+          "resident_after": 192,
+          "added_io": 128,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "b",
+            "recipe": "combine-b",
+            "output": 64
+          },
+          "resident_before": 192,
+          "event_peak": 256,
+          "resident_after": 64,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "store",
+            "node": "b"
+          },
+          "resident_before": 64,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "delete",
+            "node": "b"
+          },
+          "resident_before": 64,
+          "event_peak": 64,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "load",
+            "node": "sa",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 224,
+          "resident_after": 224,
+          "added_io": 224,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "compute",
+            "node": "A",
+            "recipe": "shrink-A",
+            "output": 64
+          },
+          "resident_before": 224,
+          "event_peak": 256,
+          "resident_after": 32,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "load",
+            "node": "sc1",
+            "state": 64
+          },
+          "resident_before": 32,
+          "event_peak": 96,
+          "resident_after": 96,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 8,
+          "event": {
+            "event": "load",
+            "node": "sc2",
+            "state": 64
+          },
+          "resident_before": 96,
+          "event_peak": 192,
+          "resident_after": 192,
+          "added_io": 96,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 9,
+          "event": {
+            "event": "compute",
+            "node": "c",
+            "recipe": "combine-c",
+            "output": 64
+          },
+          "resident_before": 192,
+          "event_peak": 256,
+          "resident_after": 96,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 10,
+          "event": {
+            "event": "load",
+            "node": "b",
+            "state": 64
+          },
+          "resident_before": 96,
+          "event_peak": 160,
+          "resident_after": 160,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 11,
+          "event": {
+            "event": "compute",
+            "node": "d",
+            "recipe": "reduce-d",
+            "output": 64
+          },
+          "resident_before": 160,
+          "event_peak": 192,
+          "resident_after": 64,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 12,
+          "event": {
+            "event": "compute",
+            "node": "z",
+            "recipe": "root",
+            "output": 64
+          },
+          "resident_before": 64,
+          "event_peak": 96,
+          "resident_after": 32,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 13,
+          "event": {
+            "event": "store",
+            "node": "z"
+          },
+          "resident_before": 32,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 32,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "separation-t32",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 256,
+      "root": "z",
+      "root_state": 64,
+      "terminal_cost": {
+        "io": 736,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "states": {
+        "A|64|224": {
+          "cost": null,
+          "choice": null
+        },
+        "A|64|256": {
+          "cost": {
+            "io": 224,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "shrink-A",
+            "output": 64,
+            "children": [
+              {
+                "id": "sa",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 256,
+                "cut": false,
+                "weight": 224
+              }
+            ]
+          }
+        },
+        "b|64|160": {
+          "cost": null,
+          "choice": null
+        },
+        "b|64|192": {
+          "cost": null,
+          "choice": null
+        },
+        "b|64|224": {
+          "cost": null,
+          "choice": null
+        },
+        "b|64|256": {
+          "cost": {
+            "io": 192,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "combine-b",
+            "output": 64,
+            "children": [
+              {
+                "id": "sb1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 256,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "sb2",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 192,
+                "residual_before": 192,
+                "cut": false,
+                "weight": 128
+              }
+            ]
+          }
+        },
+        "c|64|160": {
+          "cost": null,
+          "choice": null
+        },
+        "c|64|192": {
+          "cost": null,
+          "choice": null
+        },
+        "c|64|224": {
+          "cost": {
+            "io": 160,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "combine-c",
+            "output": 64,
+            "children": [
+              {
+                "id": "sc1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 224,
+                "residual_before": 224,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "sc2",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 160,
+                "residual_before": 160,
+                "cut": false,
+                "weight": 96
+              }
+            ]
+          }
+        },
+        "c|64|256": {
+          "cost": {
+            "io": 160,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "combine-c",
+            "output": 64,
+            "children": [
+              {
+                "id": "sc1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 256,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "sc2",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 192,
+                "residual_before": 192,
+                "cut": false,
+                "weight": 96
+              }
+            ]
+          }
+        },
+        "d|64|224": {
+          "cost": {
+            "io": 480,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-d",
+            "output": 64,
+            "children": [
+              {
+                "id": "c",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 224,
+                "residual_before": 224,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "b",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 160,
+                "cut": true,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "d|64|256": {
+          "cost": {
+            "io": 480,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-d",
+            "output": 64,
+            "children": [
+              {
+                "id": "b",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 256,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "c",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 192,
+                "cut": true,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "sa|64|256": {
+          "cost": {
+            "io": 224,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sb1|64|128": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sb1|64|256": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sb2|64|192": {
+          "cost": {
+            "io": 128,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sb2|64|256": {
+          "cost": {
+            "io": 128,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc1|64|128": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc1|64|160": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc1|64|224": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc1|64|256": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc2|64|160": {
+          "cost": {
+            "io": 96,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc2|64|192": {
+          "cost": {
+            "io": 96,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc2|64|224": {
+          "cost": {
+            "io": 96,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "sc2|64|256": {
+          "cost": {
+            "io": 96,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "z|64|256": {
+          "cost": {
+            "io": 704,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "root",
+            "output": 64,
+            "children": [
+              {
+                "id": "A",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 256,
+                "residual_before": 256,
+                "cut": false,
+                "weight": 32
+              },
+              {
+                "id": "d",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 224,
+                "residual_before": 224,
+                "cut": false,
+                "weight": 32
+              }
+            ]
+          }
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 26,
+      "checked_alternatives": 31,
+      "terminal_cost": {
+        "io": 736,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "root_state": 64
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 800,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "root_state": 64
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": {
+      "io": 736,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "events": [
+      {
+        "event": "load",
+        "node": "sb1",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "sb2",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "b",
+        "recipe": "combine-b",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "b"
+      },
+      {
+        "event": "delete",
+        "node": "b"
+      },
+      {
+        "event": "load",
+        "node": "sa",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "A",
+        "recipe": "shrink-A",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "sc1",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "sc2",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "c",
+        "recipe": "combine-c",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "b",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "d",
+        "recipe": "reduce-d",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "z",
+        "recipe": "root",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "z"
+      }
+    ],
+    "discovered_states": 221,
+    "expanded_states": 200,
+    "cpu_seconds": 0.0037273599999998464
+  },
+  "oracle_event_check": {
+    "valid": true,
+    "cost": {
+      "io": 736,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "peak": 256,
+    "error": null,
+    "final_root_state": 64,
+    "trace": [
+      {
+        "index": 0,
+        "event": {
+          "event": "load",
+          "node": "sb1",
+          "state": 64
+        },
+        "resident_before": 0,
+        "event_peak": 64,
+        "resident_after": 64,
+        "added_io": 64,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "event": {
+          "event": "load",
+          "node": "sb2",
+          "state": 64
+        },
+        "resident_before": 64,
+        "event_peak": 192,
+        "resident_after": 192,
+        "added_io": 128,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 2,
+        "event": {
+          "event": "compute",
+          "node": "b",
+          "recipe": "combine-b",
+          "output": 64
+        },
+        "resident_before": 192,
+        "event_peak": 256,
+        "resident_after": 64,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 3,
+        "event": {
+          "event": "store",
+          "node": "b"
+        },
+        "resident_before": 64,
+        "event_peak": 64,
+        "resident_after": 64,
+        "added_io": 64,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 4,
+        "event": {
+          "event": "delete",
+          "node": "b"
+        },
+        "resident_before": 64,
+        "event_peak": 64,
+        "resident_after": 0,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "event": {
+          "event": "load",
+          "node": "sa",
+          "state": 64
+        },
+        "resident_before": 0,
+        "event_peak": 224,
+        "resident_after": 224,
+        "added_io": 224,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "event": {
+          "event": "compute",
+          "node": "A",
+          "recipe": "shrink-A",
+          "output": 64
+        },
+        "resident_before": 224,
+        "event_peak": 256,
+        "resident_after": 32,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "event": {
+          "event": "load",
+          "node": "sc1",
+          "state": 64
+        },
+        "resident_before": 32,
+        "event_peak": 96,
+        "resident_after": 96,
+        "added_io": 64,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 8,
+        "event": {
+          "event": "load",
+          "node": "sc2",
+          "state": 64
+        },
+        "resident_before": 96,
+        "event_peak": 192,
+        "resident_after": 192,
+        "added_io": 96,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 9,
+        "event": {
+          "event": "compute",
+          "node": "c",
+          "recipe": "combine-c",
+          "output": 64
+        },
+        "resident_before": 192,
+        "event_peak": 256,
+        "resident_after": 96,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 10,
+        "event": {
+          "event": "load",
+          "node": "b",
+          "state": 64
+        },
+        "resident_before": 96,
+        "event_peak": 160,
+        "resident_after": 160,
+        "added_io": 64,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 11,
+        "event": {
+          "event": "compute",
+          "node": "d",
+          "recipe": "reduce-d",
+          "output": 64
+        },
+        "resident_before": 160,
+        "event_peak": 192,
+        "resident_after": 64,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 12,
+        "event": {
+          "event": "compute",
+          "node": "z",
+          "recipe": "root",
+          "output": 64
+        },
+        "resident_before": 64,
+        "event_peak": 96,
+        "resident_after": 32,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 13,
+        "event": {
+          "event": "store",
+          "node": "z"
+        },
+        "resident_before": 32,
+        "event_peak": 32,
+        "resident_after": 32,
+        "added_io": 32,
+        "added_work": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 26,
+    "certificate_alternatives": 31,
+    "oracle_states": 221,
+    "event_units": 14,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 292,
+    "cpu_seconds": 0.004999363000000034
+  }
+}

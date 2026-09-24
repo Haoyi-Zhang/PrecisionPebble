@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "reference_cases": 364,
+  "replay_cases": 364,
+  "logical_match": true,
+  "mismatches": []
+}

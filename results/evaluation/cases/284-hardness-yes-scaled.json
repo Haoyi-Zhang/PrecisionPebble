@@ -1,0 +1,907 @@
+{
+  "schema": 1,
+  "name": "hardness-yes-scaled",
+  "group": "hardness",
+  "instance_file": "campaign/284-hardness-yes-scaled.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 14,
+    "capacity": 472,
+    "recipes": 15,
+    "contractive": false,
+    "max_degree": 2,
+    "metadata": {
+      "family": "partition-floor",
+      "values": [
+        1,
+        1
+      ],
+      "scaled": true,
+      "has_partition": true,
+      "constants": {
+        "S": 2,
+        "C1": 4,
+        "M": 5,
+        "C2": 19,
+        "K": 20,
+        "B": 59,
+        "L": 55,
+        "H": 40
+      },
+      "compulsory_floor": 2440
+    }
+  },
+  "prepared": {
+    "exact_mode": false,
+    "cost": {
+      "io": 2488,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "root_state": 32,
+    "spill_edges": [
+      [
+        "m1",
+        "f1"
+      ],
+      [
+        "m0",
+        "f0"
+      ]
+    ],
+    "events": [
+      {
+        "event": "load",
+        "node": "L1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "m1",
+        "recipe": "high-1",
+        "output": 16
+      },
+      {
+        "event": "store",
+        "node": "m1"
+      },
+      {
+        "event": "delete",
+        "node": "m1"
+      },
+      {
+        "event": "load",
+        "node": "L0",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "m0",
+        "recipe": "low-0",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "m0"
+      },
+      {
+        "event": "delete",
+        "node": "m0"
+      },
+      {
+        "event": "load",
+        "node": "Ls",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "ms",
+        "recipe": "sentinel-middle",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "Hs",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "fs",
+        "recipe": "sentinel-final",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "H1",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "m1",
+        "state": 16
+      },
+      {
+        "event": "compute",
+        "node": "f1",
+        "recipe": "finish-high-1",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "H0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "m0",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "f0",
+        "recipe": "finish-low-0",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "c0",
+        "recipe": "comb-0-16-8",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "c1",
+        "recipe": "comb-1-32-8",
+        "output": 32
+      },
+      {
+        "event": "store",
+        "node": "c1"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 2488,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 472,
+      "error": null,
+      "final_root_state": 32,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "L1",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 440,
+          "resident_after": 440,
+          "added_io": 440,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "compute",
+            "node": "m1",
+            "recipe": "high-1",
+            "output": 16
+          },
+          "resident_before": 440,
+          "event_peak": 456,
+          "resident_after": 16,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "store",
+            "node": "m1"
+          },
+          "resident_before": 16,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "delete",
+            "node": "m1"
+          },
+          "resident_before": 16,
+          "event_peak": 16,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "load",
+            "node": "L0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 440,
+          "resident_after": 440,
+          "added_io": 440,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "compute",
+            "node": "m0",
+            "recipe": "low-0",
+            "output": 8
+          },
+          "resident_before": 440,
+          "event_peak": 448,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "store",
+            "node": "m0"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "delete",
+            "node": "m0"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 8,
+          "event": {
+            "event": "load",
+            "node": "Ls",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 440,
+          "resident_after": 440,
+          "added_io": 440,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 9,
+          "event": {
+            "event": "compute",
+            "node": "ms",
+            "recipe": "sentinel-middle",
+            "output": 8
+          },
+          "resident_before": 440,
+          "event_peak": 448,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 10,
+          "event": {
+            "event": "load",
+            "node": "Hs",
+            "state": 64
+          },
+          "resident_before": 8,
+          "event_peak": 328,
+          "resident_after": 328,
+          "added_io": 320,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 11,
+          "event": {
+            "event": "compute",
+            "node": "fs",
+            "recipe": "sentinel-final",
+            "output": 8
+          },
+          "resident_before": 328,
+          "event_peak": 368,
+          "resident_after": 40,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 12,
+          "event": {
+            "event": "load",
+            "node": "H1",
+            "state": 64
+          },
+          "resident_before": 40,
+          "event_peak": 360,
+          "resident_after": 360,
+          "added_io": 320,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 13,
+          "event": {
+            "event": "load",
+            "node": "m1",
+            "state": 16
+          },
+          "resident_before": 360,
+          "event_peak": 376,
+          "resident_after": 376,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 14,
+          "event": {
+            "event": "compute",
+            "node": "f1",
+            "recipe": "finish-high-1",
+            "output": 8
+          },
+          "resident_before": 376,
+          "event_peak": 424,
+          "resident_after": 88,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 15,
+          "event": {
+            "event": "load",
+            "node": "H0",
+            "state": 64
+          },
+          "resident_before": 88,
+          "event_peak": 408,
+          "resident_after": 408,
+          "added_io": 320,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 16,
+          "event": {
+            "event": "load",
+            "node": "m0",
+            "state": 8
+          },
+          "resident_before": 408,
+          "event_peak": 416,
+          "resident_after": 416,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 17,
+          "event": {
+            "event": "compute",
+            "node": "f0",
+            "recipe": "finish-low-0",
+            "output": 16
+          },
+          "resident_before": 416,
+          "event_peak": 472,
+          "resident_after": 144,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 18,
+          "event": {
+            "event": "compute",
+            "node": "c0",
+            "recipe": "comb-0-16-8",
+            "output": 32
+          },
+          "resident_before": 144,
+          "event_peak": 304,
+          "resident_after": 200,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 19,
+          "event": {
+            "event": "compute",
+            "node": "c1",
+            "recipe": "comb-1-32-8",
+            "output": 32
+          },
+          "resident_before": 200,
+          "event_peak": 360,
+          "resident_after": 160,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 20,
+          "event": {
+            "event": "store",
+            "node": "c1"
+          },
+          "resident_before": 160,
+          "event_peak": 160,
+          "resident_after": 160,
+          "added_io": 160,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": null,
+    "certificate_check": null
+  },
+  "contiguous": {
+    "cost": {
+      "io": 2616,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "root_state": 32
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": {
+      "io": 2440,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "events": [
+      {
+        "event": "load",
+        "node": "L0",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "m0",
+        "recipe": "high-0",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "L1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "m1",
+        "recipe": "low-1",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "Ls",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "ms",
+        "recipe": "sentinel-middle",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "H0",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "f0",
+        "recipe": "finish-high-0",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "H1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "f1",
+        "recipe": "finish-low-1",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "Hs",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "fs",
+        "recipe": "sentinel-final",
+        "output": 8
+      },
+      {
+        "event": "compute",
+        "node": "c0",
+        "recipe": "comb-0-8-16",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "c1",
+        "recipe": "comb-1-32-8",
+        "output": 32
+      },
+      {
+        "event": "store",
+        "node": "c1"
+      }
+    ],
+    "discovered_states": 26173,
+    "expanded_states": 21000,
+    "cpu_seconds": 0.796340949
+  },
+  "oracle_event_check": {
+    "valid": true,
+    "cost": {
+      "io": 2440,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "peak": 472,
+    "error": null,
+    "final_root_state": 32,
+    "trace": [
+      {
+        "index": 0,
+        "event": {
+          "event": "load",
+          "node": "L0",
+          "state": 64
+        },
+        "resident_before": 0,
+        "event_peak": 440,
+        "resident_after": 440,
+        "added_io": 440,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "event": {
+          "event": "compute",
+          "node": "m0",
+          "recipe": "high-0",
+          "output": 16
+        },
+        "resident_before": 440,
+        "event_peak": 456,
+        "resident_after": 16,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 2,
+        "event": {
+          "event": "load",
+          "node": "L1",
+          "state": 64
+        },
+        "resident_before": 16,
+        "event_peak": 456,
+        "resident_after": 456,
+        "added_io": 440,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 3,
+        "event": {
+          "event": "compute",
+          "node": "m1",
+          "recipe": "low-1",
+          "output": 8
+        },
+        "resident_before": 456,
+        "event_peak": 464,
+        "resident_after": 24,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 4,
+        "event": {
+          "event": "load",
+          "node": "Ls",
+          "state": 64
+        },
+        "resident_before": 24,
+        "event_peak": 464,
+        "resident_after": 464,
+        "added_io": 440,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "event": {
+          "event": "compute",
+          "node": "ms",
+          "recipe": "sentinel-middle",
+          "output": 8
+        },
+        "resident_before": 464,
+        "event_peak": 472,
+        "resident_after": 32,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "event": {
+          "event": "load",
+          "node": "H0",
+          "state": 64
+        },
+        "resident_before": 32,
+        "event_peak": 352,
+        "resident_after": 352,
+        "added_io": 320,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "event": {
+          "event": "compute",
+          "node": "f0",
+          "recipe": "finish-high-0",
+          "output": 8
+        },
+        "resident_before": 352,
+        "event_peak": 400,
+        "resident_after": 64,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 8,
+        "event": {
+          "event": "load",
+          "node": "H1",
+          "state": 64
+        },
+        "resident_before": 64,
+        "event_peak": 384,
+        "resident_after": 384,
+        "added_io": 320,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 9,
+        "event": {
+          "event": "compute",
+          "node": "f1",
+          "recipe": "finish-low-1",
+          "output": 16
+        },
+        "resident_before": 384,
+        "event_peak": 440,
+        "resident_after": 112,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 10,
+        "event": {
+          "event": "load",
+          "node": "Hs",
+          "state": 64
+        },
+        "resident_before": 112,
+        "event_peak": 432,
+        "resident_after": 432,
+        "added_io": 320,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 11,
+        "event": {
+          "event": "compute",
+          "node": "fs",
+          "recipe": "sentinel-final",
+          "output": 8
+        },
+        "resident_before": 432,
+        "event_peak": 472,
+        "resident_after": 144,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 12,
+        "event": {
+          "event": "compute",
+          "node": "c0",
+          "recipe": "comb-0-8-16",
+          "output": 32
+        },
+        "resident_before": 144,
+        "event_peak": 304,
+        "resident_after": 200,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 13,
+        "event": {
+          "event": "compute",
+          "node": "c1",
+          "recipe": "comb-1-32-8",
+          "output": 32
+        },
+        "resident_before": 200,
+        "event_peak": 360,
+        "resident_after": 160,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 14,
+        "event": {
+          "event": "store",
+          "node": "c1"
+        },
+        "resident_before": 160,
+        "event_peak": 160,
+        "resident_after": 160,
+        "added_io": 160,
+        "added_work": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 98,
+    "certificate_alternatives": 0,
+    "oracle_states": 26173,
+    "event_units": 21,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 26292,
+    "cpu_seconds": 0.8058696030000001
+  }
+}

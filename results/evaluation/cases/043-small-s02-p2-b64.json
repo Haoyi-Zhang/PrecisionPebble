@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "name": "small-s02-p2-b64",
+  "group": "small",
+  "instance_file": "campaign/043-small-s02-p2-b64.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 3,
+    "capacity": 64,
+    "recipes": 2,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 2,
+      "shape": "((), ())"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": null,
+    "root_state": null,
+    "spill_edges": [],
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "small-s02-p2-b64",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 64,
+      "root": "v2",
+      "root_state": null,
+      "terminal_cost": null,
+      "states": {
+        "v2|32|64": {
+          "cost": null,
+          "choice": null
+        },
+        "v2|64|64": {
+          "cost": null,
+          "choice": null
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 2,
+      "checked_alternatives": 0,
+      "terminal_cost": null,
+      "root_state": null
+    }
+  },
+  "contiguous": {
+    "cost": null,
+    "root_state": null
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": null,
+    "events": [],
+    "discovered_states": 6,
+    "expanded_states": 6,
+    "cpu_seconds": 6.350499999996373e-05
+  },
+  "oracle_event_check": null,
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 2,
+    "certificate_alternatives": 0,
+    "oracle_states": 6,
+    "event_units": 0,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 8,
+    "cpu_seconds": 0.0002847930000000609
+  }
+}

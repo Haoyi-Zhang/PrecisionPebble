@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "name": "small-s04-p0-b64",
+  "group": "small",
+  "capacity": 64,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v3",
+  "root_states": [
+    64
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 0,
+    "shape": "(((), ()),)"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v1": {
+      "kind": "source",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v2": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v0",
+        "v1"
+      ],
+      "recipes": [
+        {
+          "name": "fixed-v2",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v3": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v2"
+      ],
+      "recipes": [
+        {
+          "name": "fixed-v3",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            1,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

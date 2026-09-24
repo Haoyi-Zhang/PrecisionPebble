@@ -1,0 +1,1077 @@
+{
+  "schema": 1,
+  "name": "scaling-n48-q0",
+  "group": "scaling",
+  "capacity": 96,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v47",
+  "root_states": [
+    64
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 1,
+    "shape": "((), ((((), ((((), ()),), ((), ((), ((), ()))))),), ((), ((((), (((),), ((), ()))),), ((), ((((), ((),)),), ((), (((),), ((), (((),),))))))))))"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v1": {
+      "kind": "source",
+      "weights": {
+        "8": 4,
+        "16": 4,
+        "32": 4,
+        "64": 4
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v2": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v3": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v4": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v2",
+        "v3"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v4",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v5": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v4"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v5",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v6": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v7": {
+      "kind": "source",
+      "weights": {
+        "8": 4,
+        "16": 4,
+        "32": 4,
+        "64": 4
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v8": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v9": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v10": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v8",
+        "v9"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v10",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v11": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v7",
+        "v10"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v11",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v12": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v6",
+        "v11"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v12",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v13": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v5",
+        "v12"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v13",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v14": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v1",
+        "v13"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v14",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v15": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v14"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v15",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v16": {
+      "kind": "source",
+      "weights": {
+        "8": 4,
+        "16": 4,
+        "32": 4,
+        "64": 4
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v17": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v18": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v19": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "operands": [
+        "v18"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v19",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v20": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v21": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v22": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v20",
+        "v21"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v22",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v23": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v19",
+        "v22"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v23",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v24": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v17",
+        "v23"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v24",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v25": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v24"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v25",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v26": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v27": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v28": {
+      "kind": "source",
+      "weights": {
+        "8": 4,
+        "16": 4,
+        "32": 4,
+        "64": 4
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v29": {
+      "kind": "op",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "operands": [
+        "v28"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v29",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            4,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v30": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "operands": [
+        "v27",
+        "v29"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v30",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            4,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v31": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v30"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v31",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v32": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v33": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v34": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "operands": [
+        "v33"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v34",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v35": {
+      "kind": "source",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v36": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v37": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "operands": [
+        "v36"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v37",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v38": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v37"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v38",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v39": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v35",
+        "v38"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v39",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v40": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v34",
+        "v39"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v40",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v41": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v32",
+        "v40"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v41",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v42": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v31",
+        "v41"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v42",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v43": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v26",
+        "v42"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v43",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v44": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v25",
+        "v43"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v44",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v45": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v16",
+        "v44"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v45",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v46": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v15",
+        "v45"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v46",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v47": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v0",
+        "v46"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v47",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            3,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

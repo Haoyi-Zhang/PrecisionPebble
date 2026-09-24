@@ -1,0 +1,4149 @@
+{
+  "schema": 1,
+  "name": "integer-abs-g8-a7-b17",
+  "group": "integer",
+  "instance_file": "campaign/358-integer-abs-g8-a7-b17.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 31,
+    "capacity": 136,
+    "recipes": 111,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "integer-abs",
+      "operator_family": "abs",
+      "groups": 8,
+      "source_length": 8,
+      "bound": 7,
+      "capacity_multiplier": 17,
+      "semantic_patterns": [
+        "zero",
+        "positive",
+        "negative",
+        "alternating",
+        "pseudorandom-9137"
+      ]
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 1114,
+      "work": [
+        12336,
+        1
+      ]
+    },
+    "root_state": 16,
+    "spill_edges": [
+      [
+        "e1",
+        "r0_0"
+      ],
+      [
+        "e3",
+        "r0_1"
+      ],
+      [
+        "r0_1",
+        "r1_0"
+      ],
+      [
+        "e5",
+        "r0_2"
+      ],
+      [
+        "r0_2",
+        "r1_1"
+      ],
+      [
+        "e7",
+        "r0_3"
+      ],
+      [
+        "r0_3",
+        "r1_1"
+      ]
+    ],
+    "events": [
+      {
+        "event": "load",
+        "node": "s2",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s3",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e1",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "e1"
+      },
+      {
+        "event": "delete",
+        "node": "e1"
+      },
+      {
+        "event": "load",
+        "node": "s6",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s7",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e3",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "e3"
+      },
+      {
+        "event": "delete",
+        "node": "e3"
+      },
+      {
+        "event": "load",
+        "node": "s4",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s5",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e2",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "e3",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "r0_1",
+        "recipe": "reduce-8-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "r0_1"
+      },
+      {
+        "event": "delete",
+        "node": "r0_1"
+      },
+      {
+        "event": "load",
+        "node": "s10",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s11",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e5",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "e5"
+      },
+      {
+        "event": "delete",
+        "node": "e5"
+      },
+      {
+        "event": "load",
+        "node": "s8",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s9",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e4",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "e5",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "r0_2",
+        "recipe": "reduce-8-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "r0_2"
+      },
+      {
+        "event": "delete",
+        "node": "r0_2"
+      },
+      {
+        "event": "load",
+        "node": "s14",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s15",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e7",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "e7"
+      },
+      {
+        "event": "delete",
+        "node": "e7"
+      },
+      {
+        "event": "load",
+        "node": "s12",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s13",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e6",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "e7",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "r0_3",
+        "recipe": "reduce-8-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "r0_3"
+      },
+      {
+        "event": "delete",
+        "node": "r0_3"
+      },
+      {
+        "event": "load",
+        "node": "s0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "e0",
+        "recipe": "absdiff-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "e1",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "r0_0",
+        "recipe": "reduce-8-to-8",
+        "output": 8
+      },
+      {
+        "event": "load",
+        "node": "r0_1",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "r1_0",
+        "recipe": "reduce-8-to-16",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "r0_2",
+        "state": 8
+      },
+      {
+        "event": "load",
+        "node": "r0_3",
+        "state": 8
+      },
+      {
+        "event": "compute",
+        "node": "r1_1",
+        "recipe": "reduce-8-to-16",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "r2_0",
+        "recipe": "reduce-16-to-16",
+        "output": 16
+      },
+      {
+        "event": "store",
+        "node": "r2_0"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 1114,
+        "work": [
+          12336,
+          1
+        ]
+      },
+      "peak": 136,
+      "error": null,
+      "final_root_state": 16,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "s2",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "s3",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "e1",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "store",
+            "node": "e1"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "delete",
+            "node": "e1"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "load",
+            "node": "s6",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "load",
+            "node": "s7",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "compute",
+            "node": "e3",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 8,
+          "event": {
+            "event": "store",
+            "node": "e3"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 9,
+          "event": {
+            "event": "delete",
+            "node": "e3"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 10,
+          "event": {
+            "event": "load",
+            "node": "s4",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 11,
+          "event": {
+            "event": "load",
+            "node": "s5",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 12,
+          "event": {
+            "event": "compute",
+            "node": "e2",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 13,
+          "event": {
+            "event": "load",
+            "node": "e3",
+            "state": 8
+          },
+          "resident_before": 8,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 14,
+          "event": {
+            "event": "compute",
+            "node": "r0_1",
+            "recipe": "reduce-8-to-8",
+            "output": 8
+          },
+          "resident_before": 16,
+          "event_peak": 20,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            96,
+            1
+          ]
+        },
+        {
+          "index": 15,
+          "event": {
+            "event": "store",
+            "node": "r0_1"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 4,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 16,
+          "event": {
+            "event": "delete",
+            "node": "r0_1"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 17,
+          "event": {
+            "event": "load",
+            "node": "s10",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 18,
+          "event": {
+            "event": "load",
+            "node": "s11",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 19,
+          "event": {
+            "event": "compute",
+            "node": "e5",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 20,
+          "event": {
+            "event": "store",
+            "node": "e5"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 21,
+          "event": {
+            "event": "delete",
+            "node": "e5"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 22,
+          "event": {
+            "event": "load",
+            "node": "s8",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 23,
+          "event": {
+            "event": "load",
+            "node": "s9",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 24,
+          "event": {
+            "event": "compute",
+            "node": "e4",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 25,
+          "event": {
+            "event": "load",
+            "node": "e5",
+            "state": 8
+          },
+          "resident_before": 8,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 26,
+          "event": {
+            "event": "compute",
+            "node": "r0_2",
+            "recipe": "reduce-8-to-8",
+            "output": 8
+          },
+          "resident_before": 16,
+          "event_peak": 20,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            96,
+            1
+          ]
+        },
+        {
+          "index": 27,
+          "event": {
+            "event": "store",
+            "node": "r0_2"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 4,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 28,
+          "event": {
+            "event": "delete",
+            "node": "r0_2"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 29,
+          "event": {
+            "event": "load",
+            "node": "s14",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 30,
+          "event": {
+            "event": "load",
+            "node": "s15",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 31,
+          "event": {
+            "event": "compute",
+            "node": "e7",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 32,
+          "event": {
+            "event": "store",
+            "node": "e7"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 33,
+          "event": {
+            "event": "delete",
+            "node": "e7"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 34,
+          "event": {
+            "event": "load",
+            "node": "s12",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 35,
+          "event": {
+            "event": "load",
+            "node": "s13",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 36,
+          "event": {
+            "event": "compute",
+            "node": "e6",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 37,
+          "event": {
+            "event": "load",
+            "node": "e7",
+            "state": 8
+          },
+          "resident_before": 8,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 38,
+          "event": {
+            "event": "compute",
+            "node": "r0_3",
+            "recipe": "reduce-8-to-8",
+            "output": 8
+          },
+          "resident_before": 16,
+          "event_peak": 20,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            96,
+            1
+          ]
+        },
+        {
+          "index": 39,
+          "event": {
+            "event": "store",
+            "node": "r0_3"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 4,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 40,
+          "event": {
+            "event": "delete",
+            "node": "r0_3"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 41,
+          "event": {
+            "event": "load",
+            "node": "s0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 64,
+          "resident_after": 64,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 42,
+          "event": {
+            "event": "load",
+            "node": "s1",
+            "state": 64
+          },
+          "resident_before": 64,
+          "event_peak": 128,
+          "resident_after": 128,
+          "added_io": 64,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 43,
+          "event": {
+            "event": "compute",
+            "node": "e0",
+            "recipe": "absdiff-64-to-8",
+            "output": 8
+          },
+          "resident_before": 128,
+          "event_peak": 136,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            1472,
+            1
+          ]
+        },
+        {
+          "index": 44,
+          "event": {
+            "event": "load",
+            "node": "e1",
+            "state": 8
+          },
+          "resident_before": 8,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 45,
+          "event": {
+            "event": "compute",
+            "node": "r0_0",
+            "recipe": "reduce-8-to-8",
+            "output": 8
+          },
+          "resident_before": 16,
+          "event_peak": 20,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            96,
+            1
+          ]
+        },
+        {
+          "index": 46,
+          "event": {
+            "event": "load",
+            "node": "r0_1",
+            "state": 8
+          },
+          "resident_before": 4,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 47,
+          "event": {
+            "event": "compute",
+            "node": "r1_0",
+            "recipe": "reduce-8-to-16",
+            "output": 16
+          },
+          "resident_before": 8,
+          "event_peak": 12,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            64,
+            1
+          ]
+        },
+        {
+          "index": 48,
+          "event": {
+            "event": "load",
+            "node": "r0_2",
+            "state": 8
+          },
+          "resident_before": 4,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 49,
+          "event": {
+            "event": "load",
+            "node": "r0_3",
+            "state": 8
+          },
+          "resident_before": 8,
+          "event_peak": 12,
+          "resident_after": 12,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 50,
+          "event": {
+            "event": "compute",
+            "node": "r1_1",
+            "recipe": "reduce-8-to-16",
+            "output": 16
+          },
+          "resident_before": 12,
+          "event_peak": 16,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            64,
+            1
+          ]
+        },
+        {
+          "index": 51,
+          "event": {
+            "event": "compute",
+            "node": "r2_0",
+            "recipe": "reduce-16-to-16",
+            "output": 16
+          },
+          "resident_before": 8,
+          "event_peak": 10,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            48,
+            1
+          ]
+        },
+        {
+          "index": 52,
+          "event": {
+            "event": "store",
+            "node": "r2_0"
+          },
+          "resident_before": 2,
+          "event_peak": 2,
+          "resident_after": 2,
+          "added_io": 2,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "integer-abs-g8-a7-b17",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 136,
+      "root": "r2_0",
+      "root_state": 16,
+      "terminal_cost": {
+        "io": 1114,
+        "work": [
+          12336,
+          1
+        ]
+      },
+      "states": {
+        "e0|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e0|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e0|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s3",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e1|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e1|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s4",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s5",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e2|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e2|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s6",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s7",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e3|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e3|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s8",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s9",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e4|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e4|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s10",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s11",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e5|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e5|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s13",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e6|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e6|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|112": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|116": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|8|136": {
+          "cost": {
+            "io": 128,
+            "work": [
+              1472,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "absdiff-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 64
+              },
+              {
+                "id": "s15",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 72,
+                "residual_before": 72,
+                "cut": false,
+                "weight": 64
+              }
+            ]
+          }
+        },
+        "e7|16|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|16|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|16|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|16|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|16|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|32|120": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|32|124": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "e7|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|8|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|8|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|8|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|16|120": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 112,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|16|124": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 116,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|16|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|16|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|16|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_0|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|64|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_0|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|8|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|8|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|8|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|16|120": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 112,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|16|124": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 116,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|16|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|16|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|16|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_1|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|64|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_1|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_2|8|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|8|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|8|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|16|120": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 112,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|16|124": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 116,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|16|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|16|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|16|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e4",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e5",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_2|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_2|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_2|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_2|64|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_2|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_2|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_3|8|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|8|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|8|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3040,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|16|120": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 112,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|16|124": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 116,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|16|128": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 120,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|16|132": {
+          "cost": {
+            "io": 288,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 124,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|16|136": {
+          "cost": {
+            "io": 272,
+            "work": [
+              3072,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "e6",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "e7",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r0_3|32|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_3|32|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_3|32|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_3|64|128": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_3|64|132": {
+          "cost": null,
+          "choice": null
+        },
+        "r0_3|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_0|8|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_0|16|132": {
+          "cost": {
+            "io": 560,
+            "work": [
+              6144,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "r0_0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 4
+              },
+              {
+                "id": "r0_1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r1_0|16|136": {
+          "cost": {
+            "io": 552,
+            "work": [
+              6144,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "r0_0",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "r0_1",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r1_0|32|128": {
+          "cost": {
+            "io": 576,
+            "work": [
+              6272,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "r0_0",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 128,
+                "residual_before": 128,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "r0_1",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 120,
+                "residual_before": 120,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r1_0|32|136": {
+          "cost": {
+            "io": 560,
+            "work": [
+              6272,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "r0_0",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "r0_1",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 128,
+                "residual_before": 128,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r1_0|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_1|8|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r1_1|16|132": {
+          "cost": {
+            "io": 560,
+            "work": [
+              6144,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "r0_2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 4
+              },
+              {
+                "id": "r0_3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 128,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r1_1|16|136": {
+          "cost": {
+            "io": 552,
+            "work": [
+              6144,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-8-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "r0_2",
+                "operand_index": 0,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "r0_3",
+                "operand_index": 1,
+                "state": 8,
+                "budget": 136,
+                "residual_before": 132,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r1_1|32|128": {
+          "cost": {
+            "io": 576,
+            "work": [
+              6272,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "r0_2",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 128,
+                "residual_before": 128,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "r0_3",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 120,
+                "residual_before": 120,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r1_1|32|136": {
+          "cost": {
+            "io": 560,
+            "work": [
+              6272,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "r0_2",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "r0_3",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 128,
+                "residual_before": 128,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "r1_1|64|136": {
+          "cost": null,
+          "choice": null
+        },
+        "r2_0|16|136": {
+          "cost": {
+            "io": 1112,
+            "work": [
+              12336,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "r1_0",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "r1_1",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 132,
+                "residual_before": 132,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r2_0|32|136": {
+          "cost": {
+            "io": 1112,
+            "work": [
+              12352,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-16-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "r1_0",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "r1_1",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 132,
+                "residual_before": 132,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "r2_0|64|136": {
+          "cost": {
+            "io": 1136,
+            "work": [
+              12672,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-32-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "r1_0",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 136,
+                "residual_before": 136,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "r1_1",
+                "operand_index": 1,
+                "state": 32,
+                "budget": 128,
+                "residual_before": 128,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "s0|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s10|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s10|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s11|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s11|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s12|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s12|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s13|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s13|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s14|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s14|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s15|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s15|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s2|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s3|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s4|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s4|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s5|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s5|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s6|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s6|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s7|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s7|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s8|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s8|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s9|64|72": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s9|64|136": {
+          "cost": {
+            "io": 64,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 255,
+      "checked_alternatives": 1496,
+      "terminal_cost": {
+        "io": 1114,
+        "work": [
+          12336,
+          1
+        ]
+      },
+      "root_state": 16
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 1114,
+      "work": [
+        12336,
+        1
+      ]
+    },
+    "root_state": 16
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": {
+    "cost": null,
+    "root_state": null,
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "semantic": {
+      "applicable": false,
+      "valid": true,
+      "patterns": []
+    },
+    "optimizer_states": 7
+  },
+  "semantic": {
+    "applicable": true,
+    "valid": true,
+    "patterns": [
+      {
+        "pattern": "zero",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "positive",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "negative",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "alternating",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "pseudorandom-9137",
+        "valid": true,
+        "error": null
+      }
+    ]
+  },
+  "metrics": {
+    "optimizer_states": 255,
+    "certificate_alternatives": 1496,
+    "oracle_states": 0,
+    "event_units": 53,
+    "semantic_units": 75,
+    "fixed64_optimizer_states": 7,
+    "charged_units": 1886,
+    "cpu_seconds": 0.02213559300000001
+  }
+}

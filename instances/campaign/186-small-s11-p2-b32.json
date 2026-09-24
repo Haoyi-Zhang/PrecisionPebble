@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "name": "small-s11-p2-b32",
+  "group": "small",
+  "capacity": 32,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v4",
+  "root_states": [
+    32,
+    64
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 2,
+    "shape": "((), (((),),))"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 6,
+        "16": 12,
+        "32": 24,
+        "64": 48
+      },
+      "semantic": {},
+      "source_states": [
+        32,
+        64
+      ]
+    },
+    "v1": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {},
+      "source_states": [
+        32,
+        64
+      ]
+    },
+    "v2": {
+      "kind": "op",
+      "weights": {
+        "8": 4,
+        "16": 8,
+        "32": 16,
+        "64": 32
+      },
+      "semantic": {},
+      "operands": [
+        "v1"
+      ],
+      "recipes": [
+        {
+          "name": "p32-v2",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            132,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p64-v2",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            260,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v3": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {},
+      "operands": [
+        "v2"
+      ],
+      "recipes": [
+        {
+          "name": "p32-v3",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            66,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p64-v3",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            130,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v4": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 2,
+        "32": 4,
+        "64": 8
+      },
+      "semantic": {},
+      "operands": [
+        "v0",
+        "v3"
+      ],
+      "recipes": [
+        {
+          "name": "p32-v4",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            34,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p64-v4",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            66,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

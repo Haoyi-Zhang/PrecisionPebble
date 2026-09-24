@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "name": "scaling-n12-q1",
+  "group": "scaling",
+  "instance_file": "campaign/290-scaling-n12-q1.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 12,
+    "capacity": 36,
+    "recipes": 12,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 2,
+      "shape": "((((), ()),), ((), ((), ((), ()))))"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": null,
+    "root_state": null,
+    "spill_edges": [],
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "scaling-n12-q1",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 36,
+      "root": "v11",
+      "root_state": null,
+      "terminal_cost": null,
+      "states": {
+        "v10|32|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|64|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|32|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|64|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v2|32|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v2|64|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|32|36": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|64|36": {
+          "cost": null,
+          "choice": null
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 8,
+      "checked_alternatives": 20,
+      "terminal_cost": null,
+      "root_state": null
+    }
+  },
+  "contiguous": {
+    "cost": null,
+    "root_state": null
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 8,
+    "certificate_alternatives": 20,
+    "oracle_states": 0,
+    "event_units": 0,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 28,
+    "cpu_seconds": 0.0004814099999999044
+  }
+}

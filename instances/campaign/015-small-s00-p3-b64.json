@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "name": "small-s00-p3-b64",
+  "group": "small",
+  "capacity": 64,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v1",
+  "root_states": [
+    16,
+    32
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 3,
+    "shape": "((),)"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 6,
+        "16": 12,
+        "32": 24,
+        "64": 48
+      },
+      "semantic": {},
+      "source_states": [
+        16,
+        32
+      ]
+    },
+    "v1": {
+      "kind": "op",
+      "weights": {
+        "8": 3,
+        "16": 6,
+        "32": 12,
+        "64": 24
+      },
+      "semantic": {},
+      "operands": [
+        "v0"
+      ],
+      "recipes": [
+        {
+          "name": "p16-v1",
+          "inputs": [
+            16
+          ],
+          "output": 16,
+          "work": [
+            51,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32to16-v1",
+          "inputs": [
+            32
+          ],
+          "output": 16,
+          "work": [
+            75,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32-v1",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            99,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

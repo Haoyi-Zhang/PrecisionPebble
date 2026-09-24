@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "name": "separation-t32",
+  "group": "separation",
+  "capacity": 256,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "z",
+  "root_states": [
+    64
+  ],
+  "metadata": {
+    "family": "separation",
+    "t": 32,
+    "x": 64,
+    "r": 32,
+    "expected_prepared_io": 736,
+    "expected_contiguous_io": 800,
+    "compulsory_floor": 608
+  },
+  "nodes": {
+    "sa": {
+      "kind": "source",
+      "weights": {
+        "8": 224,
+        "16": 224,
+        "32": 224,
+        "64": 224
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "A": {
+      "kind": "op",
+      "weights": {
+        "8": 32,
+        "16": 32,
+        "32": 32,
+        "64": 32
+      },
+      "semantic": {},
+      "operands": [
+        "sa"
+      ],
+      "recipes": [
+        {
+          "name": "shrink-A",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "sb1": {
+      "kind": "source",
+      "weights": {
+        "8": 64,
+        "16": 64,
+        "32": 64,
+        "64": 64
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "sb2": {
+      "kind": "source",
+      "weights": {
+        "8": 128,
+        "16": 128,
+        "32": 128,
+        "64": 128
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "b": {
+      "kind": "op",
+      "weights": {
+        "8": 64,
+        "16": 64,
+        "32": 64,
+        "64": 64
+      },
+      "semantic": {},
+      "operands": [
+        "sb1",
+        "sb2"
+      ],
+      "recipes": [
+        {
+          "name": "combine-b",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "sc1": {
+      "kind": "source",
+      "weights": {
+        "8": 64,
+        "16": 64,
+        "32": 64,
+        "64": 64
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "sc2": {
+      "kind": "source",
+      "weights": {
+        "8": 96,
+        "16": 96,
+        "32": 96,
+        "64": 96
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "c": {
+      "kind": "op",
+      "weights": {
+        "8": 64,
+        "16": 64,
+        "32": 64,
+        "64": 64
+      },
+      "semantic": {},
+      "operands": [
+        "sc1",
+        "sc2"
+      ],
+      "recipes": [
+        {
+          "name": "combine-c",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "d": {
+      "kind": "op",
+      "weights": {
+        "8": 32,
+        "16": 32,
+        "32": 32,
+        "64": 32
+      },
+      "semantic": {},
+      "operands": [
+        "b",
+        "c"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-d",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "z": {
+      "kind": "op",
+      "weights": {
+        "8": 32,
+        "16": 32,
+        "32": 32,
+        "64": 32
+      },
+      "semantic": {},
+      "operands": [
+        "A",
+        "d"
+      ],
+      "recipes": [
+        {
+          "name": "root",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            0,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

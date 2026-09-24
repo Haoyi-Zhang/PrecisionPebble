@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "name": "small-s05-p3-b64",
+  "group": "small",
+  "capacity": 64,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v3",
+  "root_states": [
+    16,
+    32
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 3,
+    "shape": "((), ((),))"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 6,
+        "16": 12,
+        "32": 24,
+        "64": 48
+      },
+      "semantic": {},
+      "source_states": [
+        16,
+        32
+      ]
+    },
+    "v1": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {},
+      "source_states": [
+        16,
+        32
+      ]
+    },
+    "v2": {
+      "kind": "op",
+      "weights": {
+        "8": 4,
+        "16": 8,
+        "32": 16,
+        "64": 32
+      },
+      "semantic": {},
+      "operands": [
+        "v1"
+      ],
+      "recipes": [
+        {
+          "name": "p16-v2",
+          "inputs": [
+            16
+          ],
+          "output": 16,
+          "work": [
+            68,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32to16-v2",
+          "inputs": [
+            32
+          ],
+          "output": 16,
+          "work": [
+            100,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32-v2",
+          "inputs": [
+            32
+          ],
+          "output": 32,
+          "work": [
+            132,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v3": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {},
+      "operands": [
+        "v0",
+        "v2"
+      ],
+      "recipes": [
+        {
+          "name": "p16-v3",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            36,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32to16-v3",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            52,
+            1
+          ],
+          "semantic": {}
+        },
+        {
+          "name": "p32-v3",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            68,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

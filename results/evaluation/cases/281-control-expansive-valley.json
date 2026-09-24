@@ -1,0 +1,525 @@
+{
+  "schema": 1,
+  "name": "control-expansive-valley",
+  "group": "control",
+  "instance_file": "campaign/281-control-expansive-valley.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 7,
+    "capacity": 18,
+    "recipes": 5,
+    "contractive": false,
+    "max_degree": 2,
+    "metadata": {
+      "family": "expansive-valley",
+      "expected_oracle_io": 33,
+      "expected_prepared_policy_io": 35,
+      "expected_contiguous_io": 49,
+      "compulsory_floor": 33
+    }
+  },
+  "prepared": {
+    "exact_mode": false,
+    "cost": {
+      "io": 35,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "root_state": 64,
+    "spill_edges": [
+      [
+        "mr",
+        "fr"
+      ]
+    ],
+    "events": [
+      {
+        "event": "load",
+        "node": "sr",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "mr",
+        "recipe": "shrink-r",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "mr"
+      },
+      {
+        "event": "delete",
+        "node": "mr"
+      },
+      {
+        "event": "load",
+        "node": "sl",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "ml",
+        "recipe": "shrink-l",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "fl",
+        "recipe": "expand-l",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "mr",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "fr",
+        "recipe": "expand-r",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "z",
+        "recipe": "join",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "z"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 35,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 17,
+      "error": null,
+      "final_root_state": 64,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "sr",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "compute",
+            "node": "mr",
+            "recipe": "shrink-r",
+            "output": 64
+          },
+          "resident_before": 16,
+          "event_peak": 17,
+          "resident_after": 1,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "store",
+            "node": "mr"
+          },
+          "resident_before": 1,
+          "event_peak": 1,
+          "resident_after": 1,
+          "added_io": 1,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "delete",
+            "node": "mr"
+          },
+          "resident_before": 1,
+          "event_peak": 1,
+          "resident_after": 0,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "load",
+            "node": "sl",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "compute",
+            "node": "ml",
+            "recipe": "shrink-l",
+            "output": 64
+          },
+          "resident_before": 16,
+          "event_peak": 17,
+          "resident_after": 1,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "compute",
+            "node": "fl",
+            "recipe": "expand-l",
+            "output": 64
+          },
+          "resident_before": 1,
+          "event_peak": 9,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "load",
+            "node": "mr",
+            "state": 64
+          },
+          "resident_before": 8,
+          "event_peak": 9,
+          "resident_after": 9,
+          "added_io": 1,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 8,
+          "event": {
+            "event": "compute",
+            "node": "fr",
+            "recipe": "expand-r",
+            "output": 64
+          },
+          "resident_before": 9,
+          "event_peak": 17,
+          "resident_after": 16,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 9,
+          "event": {
+            "event": "compute",
+            "node": "z",
+            "recipe": "join",
+            "output": 64
+          },
+          "resident_before": 16,
+          "event_peak": 17,
+          "resident_after": 1,
+          "added_io": 0,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 10,
+          "event": {
+            "event": "store",
+            "node": "z"
+          },
+          "resident_before": 1,
+          "event_peak": 1,
+          "resident_after": 1,
+          "added_io": 1,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": null,
+    "certificate_check": null
+  },
+  "contiguous": {
+    "cost": {
+      "io": 49,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "root_state": 64
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": {
+      "io": 33,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "events": [
+      {
+        "event": "load",
+        "node": "sl",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "ml",
+        "recipe": "shrink-l",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "sr",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "mr",
+        "recipe": "shrink-r",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "fl",
+        "recipe": "expand-l",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "fr",
+        "recipe": "expand-r",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "z",
+        "recipe": "join",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "z"
+      }
+    ],
+    "discovered_states": 64,
+    "expanded_states": 43,
+    "cpu_seconds": 0.0006038789999998073
+  },
+  "oracle_event_check": {
+    "valid": true,
+    "cost": {
+      "io": 33,
+      "work": [
+        0,
+        1
+      ]
+    },
+    "peak": 18,
+    "error": null,
+    "final_root_state": 64,
+    "trace": [
+      {
+        "index": 0,
+        "event": {
+          "event": "load",
+          "node": "sl",
+          "state": 64
+        },
+        "resident_before": 0,
+        "event_peak": 16,
+        "resident_after": 16,
+        "added_io": 16,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "event": {
+          "event": "compute",
+          "node": "ml",
+          "recipe": "shrink-l",
+          "output": 64
+        },
+        "resident_before": 16,
+        "event_peak": 17,
+        "resident_after": 1,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 2,
+        "event": {
+          "event": "load",
+          "node": "sr",
+          "state": 64
+        },
+        "resident_before": 1,
+        "event_peak": 17,
+        "resident_after": 17,
+        "added_io": 16,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 3,
+        "event": {
+          "event": "compute",
+          "node": "mr",
+          "recipe": "shrink-r",
+          "output": 64
+        },
+        "resident_before": 17,
+        "event_peak": 18,
+        "resident_after": 2,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 4,
+        "event": {
+          "event": "compute",
+          "node": "fl",
+          "recipe": "expand-l",
+          "output": 64
+        },
+        "resident_before": 2,
+        "event_peak": 10,
+        "resident_after": 9,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "event": {
+          "event": "compute",
+          "node": "fr",
+          "recipe": "expand-r",
+          "output": 64
+        },
+        "resident_before": 9,
+        "event_peak": 17,
+        "resident_after": 16,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "event": {
+          "event": "compute",
+          "node": "z",
+          "recipe": "join",
+          "output": 64
+        },
+        "resident_before": 16,
+        "event_peak": 17,
+        "resident_after": 1,
+        "added_io": 0,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "event": {
+          "event": "store",
+          "node": "z"
+        },
+        "resident_before": 1,
+        "event_peak": 1,
+        "resident_after": 1,
+        "added_io": 1,
+        "added_work": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 11,
+    "certificate_alternatives": 0,
+    "oracle_states": 64,
+    "event_units": 11,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 86,
+    "cpu_seconds": 0.0011989230000000184
+  }
+}

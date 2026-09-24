@@ -1,0 +1,5032 @@
+{
+  "schema": 1,
+  "name": "scaling-n24-q0",
+  "group": "scaling",
+  "instance_file": "campaign/295-scaling-n24-q0.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 24,
+    "capacity": 48,
+    "recipes": 13,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 1,
+      "shape": "((), ((((), ((), ((),))),), ((), ((((), ()),), ((), ((), ((), ())))))))"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 35,
+      "work": [
+        39,
+        1
+      ]
+    },
+    "root_state": 64,
+    "spill_edges": [],
+    "events": [
+      {
+        "event": "load",
+        "node": "v0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v10",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v9",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "v11",
+        "recipe": "hetero-v11",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v12",
+        "recipe": "hetero-v12",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "v13",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v14",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v15",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v16",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "v17",
+        "recipe": "hetero-v17",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v18",
+        "recipe": "hetero-v18",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v19",
+        "recipe": "hetero-v19",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v20",
+        "recipe": "hetero-v20",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "v8",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "v21",
+        "recipe": "hetero-v21",
+        "output": 64
+      },
+      {
+        "event": "load",
+        "node": "v1",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v2",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "v3",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "v4",
+        "recipe": "hetero-v4",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v5",
+        "recipe": "hetero-v5",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v6",
+        "recipe": "hetero-v6",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v7",
+        "recipe": "hetero-v7",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v22",
+        "recipe": "hetero-v22",
+        "output": 64
+      },
+      {
+        "event": "compute",
+        "node": "v23",
+        "recipe": "hetero-v23",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "v23"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 35,
+        "work": [
+          39,
+          1
+        ]
+      },
+      "peak": 19,
+      "error": null,
+      "final_root_state": 64,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "v0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 3,
+          "resident_after": 3,
+          "added_io": 3,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "v10",
+            "state": 64
+          },
+          "resident_before": 3,
+          "event_peak": 7,
+          "resident_after": 7,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "load",
+            "node": "v9",
+            "state": 64
+          },
+          "resident_before": 7,
+          "event_peak": 10,
+          "resident_after": 10,
+          "added_io": 3,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "compute",
+            "node": "v11",
+            "recipe": "hetero-v11",
+            "output": 64
+          },
+          "resident_before": 10,
+          "event_peak": 12,
+          "resident_after": 5,
+          "added_io": 0,
+          "added_work": [
+            4,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "compute",
+            "node": "v12",
+            "recipe": "hetero-v12",
+            "output": 64
+          },
+          "resident_before": 5,
+          "event_peak": 6,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            2,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "load",
+            "node": "v13",
+            "state": 64
+          },
+          "resident_before": 4,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "load",
+            "node": "v14",
+            "state": 64
+          },
+          "resident_before": 8,
+          "event_peak": 10,
+          "resident_after": 10,
+          "added_io": 2,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "load",
+            "node": "v15",
+            "state": 64
+          },
+          "resident_before": 10,
+          "event_peak": 13,
+          "resident_after": 13,
+          "added_io": 3,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 8,
+          "event": {
+            "event": "load",
+            "node": "v16",
+            "state": 64
+          },
+          "resident_before": 13,
+          "event_peak": 17,
+          "resident_after": 17,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 9,
+          "event": {
+            "event": "compute",
+            "node": "v17",
+            "recipe": "hetero-v17",
+            "output": 64
+          },
+          "resident_before": 17,
+          "event_peak": 19,
+          "resident_after": 12,
+          "added_io": 0,
+          "added_work": [
+            4,
+            1
+          ]
+        },
+        {
+          "index": 10,
+          "event": {
+            "event": "compute",
+            "node": "v18",
+            "recipe": "hetero-v18",
+            "output": 64
+          },
+          "resident_before": 12,
+          "event_peak": 13,
+          "resident_after": 9,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 11,
+          "event": {
+            "event": "compute",
+            "node": "v19",
+            "recipe": "hetero-v19",
+            "output": 64
+          },
+          "resident_before": 9,
+          "event_peak": 10,
+          "resident_after": 5,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 12,
+          "event": {
+            "event": "compute",
+            "node": "v20",
+            "recipe": "hetero-v20",
+            "output": 64
+          },
+          "resident_before": 5,
+          "event_peak": 6,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 13,
+          "event": {
+            "event": "load",
+            "node": "v8",
+            "state": 64
+          },
+          "resident_before": 4,
+          "event_peak": 6,
+          "resident_after": 6,
+          "added_io": 2,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 14,
+          "event": {
+            "event": "compute",
+            "node": "v21",
+            "recipe": "hetero-v21",
+            "output": 64
+          },
+          "resident_before": 6,
+          "event_peak": 7,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 15,
+          "event": {
+            "event": "load",
+            "node": "v1",
+            "state": 64
+          },
+          "resident_before": 4,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 16,
+          "event": {
+            "event": "load",
+            "node": "v2",
+            "state": 64
+          },
+          "resident_before": 8,
+          "event_peak": 10,
+          "resident_after": 10,
+          "added_io": 2,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 17,
+          "event": {
+            "event": "load",
+            "node": "v3",
+            "state": 64
+          },
+          "resident_before": 10,
+          "event_peak": 13,
+          "resident_after": 13,
+          "added_io": 3,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 18,
+          "event": {
+            "event": "compute",
+            "node": "v4",
+            "recipe": "hetero-v4",
+            "output": 64
+          },
+          "resident_before": 13,
+          "event_peak": 15,
+          "resident_after": 12,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 19,
+          "event": {
+            "event": "compute",
+            "node": "v5",
+            "recipe": "hetero-v5",
+            "output": 64
+          },
+          "resident_before": 12,
+          "event_peak": 13,
+          "resident_after": 9,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 20,
+          "event": {
+            "event": "compute",
+            "node": "v6",
+            "recipe": "hetero-v6",
+            "output": 64
+          },
+          "resident_before": 9,
+          "event_peak": 10,
+          "resident_after": 5,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 21,
+          "event": {
+            "event": "compute",
+            "node": "v7",
+            "recipe": "hetero-v7",
+            "output": 64
+          },
+          "resident_before": 5,
+          "event_peak": 6,
+          "resident_after": 5,
+          "added_io": 0,
+          "added_work": [
+            2,
+            1
+          ]
+        },
+        {
+          "index": 22,
+          "event": {
+            "event": "compute",
+            "node": "v22",
+            "recipe": "hetero-v22",
+            "output": 64
+          },
+          "resident_before": 5,
+          "event_peak": 6,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 23,
+          "event": {
+            "event": "compute",
+            "node": "v23",
+            "recipe": "hetero-v23",
+            "output": 64
+          },
+          "resident_before": 4,
+          "event_peak": 5,
+          "resident_after": 1,
+          "added_io": 0,
+          "added_work": [
+            3,
+            1
+          ]
+        },
+        {
+          "index": 24,
+          "event": {
+            "event": "store",
+            "node": "v23"
+          },
+          "resident_before": 1,
+          "event_peak": 1,
+          "resident_after": 1,
+          "added_io": 1,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "scaling-n24-q0",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 48,
+      "root": "v23",
+      "root_state": 64,
+      "terminal_cost": {
+        "io": 35,
+        "work": [
+          39,
+          1
+        ]
+      },
+      "states": {
+        "v0|64|47": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v0|64|48": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v1|64|43": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v1|64|44": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v1|64|45": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v1|64|46": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v1|64|47": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v1|64|48": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|38": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|39": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|40": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|41": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|42": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|43": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|44": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|45": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|46": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|47": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v10|64|48": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v11|64|41": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 37,
+                "residual_before": 37,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|42": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|43": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|44": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|45": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|46": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|47": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v11|64|48": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v11",
+            "output": 64,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v9",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v12|64|41": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|42": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|43": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|44": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|45": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|46": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|47": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v12|64|48": {
+          "cost": {
+            "io": 7,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v12",
+            "output": 64,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v13|64|40": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|41": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|42": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|43": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|44": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|45": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|46": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|47": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v13|64|48": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|35": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|36": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|37": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|38": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|39": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|40": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|41": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|42": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|43": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|44": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|45": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|46": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|47": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v14|64|48": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|31": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|32": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|33": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|34": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|35": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|36": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|37": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|38": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|39": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|40": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|41": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|42": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|43": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|44": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|45": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|46": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|47": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v15|64|48": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|32": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|33": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|34": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|35": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|36": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|37": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|38": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|39": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|40": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|41": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|42": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|43": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|44": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|45": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|46": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|47": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v16|64|48": {
+          "cost": {
+            "io": 4,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v17|64|35": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 35,
+                "residual_before": 35,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|36": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 36,
+                "residual_before": 36,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 33,
+                "residual_before": 33,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|37": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 37,
+                "residual_before": 37,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 34,
+                "residual_before": 34,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|38": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 35,
+                "residual_before": 35,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|39": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 36,
+                "residual_before": 36,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|40": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 37,
+                "residual_before": 37,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|41": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|42": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|43": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|44": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|45": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|46": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|47": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v17|64|48": {
+          "cost": {
+            "io": 7,
+            "work": [
+              4,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v17",
+            "output": 64,
+            "children": [
+              {
+                "id": "v15",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v16",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v18|64|37": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 37,
+                "residual_before": 37,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 35,
+                "residual_before": 35,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|38": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 36,
+                "residual_before": 36,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|39": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 37,
+                "residual_before": 37,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|40": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|41": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|42": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|43": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|44": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|45": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|46": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|47": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v18|64|48": {
+          "cost": {
+            "io": 9,
+            "work": [
+              7,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v18",
+            "output": 64,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v17",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v19|64|41": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 37,
+                "residual_before": 37,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|42": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|43": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|44": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|45": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|46": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|47": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v19|64|48": {
+          "cost": {
+            "io": 13,
+            "work": [
+              10,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v19",
+            "output": 64,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v18",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v2|64|38": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|39": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|40": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|41": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|42": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|43": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|44": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|45": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|46": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|47": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v2|64|48": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v20|64|42": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v20|64|43": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v20|64|44": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v20|64|45": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v20|64|46": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v20|64|47": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v20|64|48": {
+          "cost": {
+            "io": 20,
+            "work": [
+              19,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v20",
+            "output": 64,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v19",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v21|64|44": {
+          "cost": {
+            "io": 22,
+            "work": [
+              22,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v21",
+            "output": 64,
+            "children": [
+              {
+                "id": "v20",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v21|64|45": {
+          "cost": {
+            "io": 22,
+            "work": [
+              22,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v21",
+            "output": 64,
+            "children": [
+              {
+                "id": "v20",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v21|64|47": {
+          "cost": {
+            "io": 22,
+            "work": [
+              22,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v21",
+            "output": 64,
+            "children": [
+              {
+                "id": "v20",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v21|64|48": {
+          "cost": {
+            "io": 22,
+            "work": [
+              22,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v21",
+            "output": 64,
+            "children": [
+              {
+                "id": "v20",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v22|64|45": {
+          "cost": {
+            "io": 31,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v22",
+            "output": 64,
+            "children": [
+              {
+                "id": "v21",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v22|64|48": {
+          "cost": {
+            "io": 31,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v22",
+            "output": 64,
+            "children": [
+              {
+                "id": "v21",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 1
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v23|64|48": {
+          "cost": {
+            "io": 34,
+            "work": [
+              39,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v23",
+            "output": 64,
+            "children": [
+              {
+                "id": "v0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 3
+              },
+              {
+                "id": "v22",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v3|64|38": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|39": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|40": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|41": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|42": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|43": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|44": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|45": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|46": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|47": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v3|64|48": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v4|64|38": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|39": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|40": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|41": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|42": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|43": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|44": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|45": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|46": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|47": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v4|64|48": {
+          "cost": {
+            "io": 3,
+            "work": [
+              3,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v4",
+            "output": 64,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 3
+              }
+            ]
+          }
+        },
+        "v5|64|40": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 38,
+                "residual_before": 38,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v5|64|41": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 39,
+                "residual_before": 39,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v5|64|43": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v5|64|44": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 42,
+                "residual_before": 42,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v5|64|45": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v5|64|47": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v5|64|48": {
+          "cost": {
+            "io": 5,
+            "work": [
+              6,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v5",
+            "output": 64,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 46,
+                "residual_before": 46,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v6|64|44": {
+          "cost": {
+            "io": 9,
+            "work": [
+              9,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v6",
+            "output": 64,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v5",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v6|64|45": {
+          "cost": {
+            "io": 9,
+            "work": [
+              9,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v6",
+            "output": 64,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v5",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 41,
+                "residual_before": 41,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v6|64|47": {
+          "cost": {
+            "io": 9,
+            "work": [
+              9,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v6",
+            "output": 64,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v5",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 43,
+                "residual_before": 43,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v6|64|48": {
+          "cost": {
+            "io": 9,
+            "work": [
+              9,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v6",
+            "output": 64,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v5",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v7|64|44": {
+          "cost": {
+            "io": 9,
+            "work": [
+              11,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v7",
+            "output": 64,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 44,
+                "residual_before": 44,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v7|64|45": {
+          "cost": {
+            "io": 9,
+            "work": [
+              11,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v7",
+            "output": 64,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 45,
+                "residual_before": 45,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v7|64|47": {
+          "cost": {
+            "io": 9,
+            "work": [
+              11,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v7",
+            "output": 64,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 47,
+                "residual_before": 47,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v7|64|48": {
+          "cost": {
+            "io": 9,
+            "work": [
+              11,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "hetero-v7",
+            "output": 64,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "v8|64|43": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v8|64|44": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v8|64|45": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v8|64|46": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v8|64|47": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v8|64|48": {
+          "cost": {
+            "io": 2,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|37": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|38": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|39": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|40": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|41": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|42": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|43": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|44": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|45": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|46": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|47": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "v9|64|48": {
+          "cost": {
+            "io": 3,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 207,
+      "checked_alternatives": 295,
+      "terminal_cost": {
+        "io": 35,
+        "work": [
+          39,
+          1
+        ]
+      },
+      "root_state": 64
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 35,
+      "work": [
+        39,
+        1
+      ]
+    },
+    "root_state": 64
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 207,
+    "certificate_alternatives": 295,
+    "oracle_states": 0,
+    "event_units": 25,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 527,
+    "cpu_seconds": 0.008302502000000267
+  }
+}

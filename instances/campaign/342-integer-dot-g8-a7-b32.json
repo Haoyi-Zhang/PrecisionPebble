@@ -1,0 +1,2205 @@
+{
+  "schema": 1,
+  "name": "integer-dot-g8-a7-b32",
+  "group": "integer",
+  "capacity": 256,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "r2_0",
+  "root_states": [
+    16,
+    32,
+    64
+  ],
+  "metadata": {
+    "family": "integer-dot",
+    "operator_family": "dot",
+    "groups": 8,
+    "source_length": 8,
+    "bound": 7,
+    "capacity_multiplier": 32,
+    "semantic_patterns": [
+      "zero",
+      "positive",
+      "negative",
+      "alternating",
+      "pseudorandom-9137"
+    ]
+  },
+  "nodes": {
+    "s0": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 0,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s1": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 1,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e0": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s0",
+        "s1"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "s2": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 2,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s3": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 3,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e1": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s2",
+        "s3"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "r0_0": {
+      "kind": "op",
+      "weights": {
+        "8": 4,
+        "16": 8,
+        "32": 16,
+        "64": 32
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 4,
+        "interval": [
+          -196,
+          196
+        ]
+      },
+      "operands": [
+        "e0",
+        "e1"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            448,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            384,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            512,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            960,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            896,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            768,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    },
+    "s4": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 4,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s5": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 5,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e2": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s4",
+        "s5"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "s6": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 6,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s7": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 7,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e3": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s6",
+        "s7"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "r0_1": {
+      "kind": "op",
+      "weights": {
+        "8": 4,
+        "16": 8,
+        "32": 16,
+        "64": 32
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 4,
+        "interval": [
+          -196,
+          196
+        ]
+      },
+      "operands": [
+        "e2",
+        "e3"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            448,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            384,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            512,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            960,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            896,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            768,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    },
+    "r1_0": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 2,
+        "interval": [
+          -784,
+          784
+        ]
+      },
+      "operands": [
+        "r0_0",
+        "r0_1"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            64,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            96,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            224,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            480,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            448,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            384,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    },
+    "s8": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 8,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s9": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 9,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e4": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s8",
+        "s9"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "s10": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 10,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s11": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 11,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e5": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s10",
+        "s11"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "r0_2": {
+      "kind": "op",
+      "weights": {
+        "8": 4,
+        "16": 8,
+        "32": 16,
+        "64": 32
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 4,
+        "interval": [
+          -196,
+          196
+        ]
+      },
+      "operands": [
+        "e4",
+        "e5"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            448,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            384,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            512,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            960,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            896,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            768,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    },
+    "s12": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 12,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s13": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 13,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e6": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s12",
+        "s13"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "s14": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 14,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "s15": {
+      "kind": "source",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "source",
+        "index": 15,
+        "length": 8,
+        "interval": [
+          -7,
+          7
+        ]
+      },
+      "source_states": [
+        64
+      ],
+      "interval": [
+        -7,
+        7
+      ]
+    },
+    "e7": {
+      "kind": "op",
+      "weights": {
+        "8": 8,
+        "16": 16,
+        "32": 32,
+        "64": 64
+      },
+      "semantic": {
+        "kind": "product",
+        "length": 8,
+        "interval": [
+          -49,
+          49
+        ]
+      },
+      "operands": [
+        "s14",
+        "s15"
+      ],
+      "recipes": [
+        {
+          "name": "product-64-to-8",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 8,
+          "work": [
+            33216,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            33152,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            33024,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        },
+        {
+          "name": "product-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            32768,
+            1
+          ],
+          "semantic": {
+            "kind": "product"
+          }
+        }
+      ]
+    },
+    "r0_3": {
+      "kind": "op",
+      "weights": {
+        "8": 4,
+        "16": 8,
+        "32": 16,
+        "64": 32
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 4,
+        "interval": [
+          -196,
+          196
+        ]
+      },
+      "operands": [
+        "e6",
+        "e7"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            448,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            384,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            512,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            960,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            896,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            768,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    },
+    "r1_1": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 4,
+        "32": 8,
+        "64": 16
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 2,
+        "interval": [
+          -784,
+          784
+        ]
+      },
+      "operands": [
+        "r0_2",
+        "r0_3"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            64,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            96,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            224,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            256,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            480,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            448,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            384,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    },
+    "r2_0": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 2,
+        "32": 4,
+        "64": 8
+      },
+      "semantic": {
+        "kind": "reduce",
+        "length": 1,
+        "interval": [
+          -3136,
+          3136
+        ]
+      },
+      "operands": [
+        "r1_0",
+        "r1_1"
+      ],
+      "recipes": [
+        {
+          "name": "reduce-8-to-16",
+          "inputs": [
+            8,
+            8
+          ],
+          "output": 16,
+          "work": [
+            32,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-16",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 16,
+          "work": [
+            48,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-16-to-32",
+          "inputs": [
+            16,
+            16
+          ],
+          "output": 32,
+          "work": [
+            64,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-16",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 16,
+          "work": [
+            112,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-32",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 32,
+          "work": [
+            96,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-32-to-64",
+          "inputs": [
+            32,
+            32
+          ],
+          "output": 64,
+          "work": [
+            128,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-16",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 16,
+          "work": [
+            240,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-32",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 32,
+          "work": [
+            224,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        },
+        {
+          "name": "reduce-64-to-64",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            192,
+            1
+          ],
+          "semantic": {
+            "kind": "reduce"
+          }
+        }
+      ]
+    }
+  }
+}

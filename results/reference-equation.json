@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "equation": "Bhattacharjee et al. (SPAA 2025), Eq. (6) plus Eq. (7) root store",
+  "doi": "10.1145/3694906.3743342",
+  "cases": [
+    {
+      "name": "concrete-89-91",
+      "parameters": {
+        "t": 1,
+        "x": 8,
+        "r": 1,
+        "capacity": 32
+      },
+      "expected": {
+        "preparation_aware_io": 89,
+        "eq6_io": 91
+      },
+      "observed": {
+        "preparation_aware_io": 89,
+        "complete_child_policy_io": 91,
+        "literal_eq6": {
+          "io": 91,
+          "root_state": 64,
+          "table_states": 25,
+          "recurrence_candidates": 50
+        },
+        "event_witness_valid": true,
+        "event_witness_peak": 32
+      },
+      "valid": true
+    },
+    {
+      "name": "family-t1",
+      "parameters": {
+        "t": 1,
+        "x": 2,
+        "r": 1,
+        "capacity": 8
+      },
+      "expected": {
+        "preparation_aware_io": 23,
+        "eq6_io": 25
+      },
+      "observed": {
+        "preparation_aware_io": 23,
+        "complete_child_policy_io": 25,
+        "literal_eq6": {
+          "io": 25,
+          "root_state": 64,
+          "table_states": 25,
+          "recurrence_candidates": 50
+        },
+        "event_witness_valid": true,
+        "event_witness_peak": 8
+      },
+      "valid": true
+    },
+    {
+      "name": "family-t2",
+      "parameters": {
+        "t": 2,
+        "x": 4,
+        "r": 2,
+        "capacity": 16
+      },
+      "expected": {
+        "preparation_aware_io": 46,
+        "eq6_io": 50
+      },
+      "observed": {
+        "preparation_aware_io": 46,
+        "complete_child_policy_io": 50,
+        "literal_eq6": {
+          "io": 50,
+          "root_state": 64,
+          "table_states": 25,
+          "recurrence_candidates": 50
+        },
+        "event_witness_valid": true,
+        "event_witness_peak": 16
+      },
+      "valid": true
+    },
+    {
+      "name": "family-t4",
+      "parameters": {
+        "t": 4,
+        "x": 8,
+        "r": 4,
+        "capacity": 32
+      },
+      "expected": {
+        "preparation_aware_io": 92,
+        "eq6_io": 100
+      },
+      "observed": {
+        "preparation_aware_io": 92,
+        "complete_child_policy_io": 100,
+        "literal_eq6": {
+          "io": 100,
+          "root_state": 64,
+          "table_states": 25,
+          "recurrence_candidates": 50
+        },
+        "event_witness_valid": true,
+        "event_witness_peak": 32
+      },
+      "valid": true
+    },
+    {
+      "name": "family-t8",
+      "parameters": {
+        "t": 8,
+        "x": 16,
+        "r": 8,
+        "capacity": 64
+      },
+      "expected": {
+        "preparation_aware_io": 184,
+        "eq6_io": 200
+      },
+      "observed": {
+        "preparation_aware_io": 184,
+        "complete_child_policy_io": 200,
+        "literal_eq6": {
+          "io": 200,
+          "root_state": 64,
+          "table_states": 25,
+          "recurrence_candidates": 50
+        },
+        "event_witness_valid": true,
+        "event_witness_peak": 64
+      },
+      "valid": true
+    }
+  ],
+  "passes": 5,
+  "valid": true
+}

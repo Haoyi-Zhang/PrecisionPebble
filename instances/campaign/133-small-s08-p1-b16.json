@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "name": "small-s08-p1-b16",
+  "group": "small",
+  "capacity": 16,
+  "states": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "root": "v4",
+  "root_states": [
+    64
+  ],
+  "metadata": {
+    "family": "structural",
+    "profile": 1,
+    "shape": "((((), ()),),)"
+  },
+  "nodes": {
+    "v0": {
+      "kind": "source",
+      "weights": {
+        "8": 3,
+        "16": 3,
+        "32": 3,
+        "64": 3
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v1": {
+      "kind": "source",
+      "weights": {
+        "8": 4,
+        "16": 4,
+        "32": 4,
+        "64": 4
+      },
+      "semantic": {},
+      "source_states": [
+        64
+      ]
+    },
+    "v2": {
+      "kind": "op",
+      "weights": {
+        "8": 2,
+        "16": 2,
+        "32": 2,
+        "64": 2
+      },
+      "semantic": {},
+      "operands": [
+        "v0",
+        "v1"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v2",
+          "inputs": [
+            64,
+            64
+          ],
+          "output": 64,
+          "work": [
+            4,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v3": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v2"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v3",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    },
+    "v4": {
+      "kind": "op",
+      "weights": {
+        "8": 1,
+        "16": 1,
+        "32": 1,
+        "64": 1
+      },
+      "semantic": {},
+      "operands": [
+        "v3"
+      ],
+      "recipes": [
+        {
+          "name": "hetero-v4",
+          "inputs": [
+            64
+          ],
+          "output": 64,
+          "work": [
+            2,
+            1
+          ],
+          "semantic": {}
+        }
+      ]
+    }
+  }
+}

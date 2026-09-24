@@ -1,0 +1,2211 @@
+{
+  "schema": 1,
+  "name": "scaling-n16-q2",
+  "group": "scaling",
+  "instance_file": "campaign/294-scaling-n16-q2.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 16,
+    "capacity": 32,
+    "recipes": 27,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 3,
+      "shape": "(((), ((((), ()),), ((), (((),), ((), ()))))),)"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 78,
+      "work": [
+        229,
+        1
+      ]
+    },
+    "root_state": 16,
+    "spill_edges": [],
+    "events": [
+      {
+        "event": "load",
+        "node": "v8",
+        "state": 16
+      },
+      {
+        "event": "load",
+        "node": "v9",
+        "state": 16
+      },
+      {
+        "event": "compute",
+        "node": "v10",
+        "recipe": "p16-v10",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "v6",
+        "state": 16
+      },
+      {
+        "event": "compute",
+        "node": "v7",
+        "recipe": "p16-v7",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "v11",
+        "recipe": "p16-v11",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "v5",
+        "state": 16
+      },
+      {
+        "event": "compute",
+        "node": "v12",
+        "recipe": "p16-v12",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "v1",
+        "state": 16
+      },
+      {
+        "event": "load",
+        "node": "v2",
+        "state": 16
+      },
+      {
+        "event": "compute",
+        "node": "v3",
+        "recipe": "p16-v3",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "v4",
+        "recipe": "p16-v4",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "v13",
+        "recipe": "p16-v13",
+        "output": 16
+      },
+      {
+        "event": "load",
+        "node": "v0",
+        "state": 16
+      },
+      {
+        "event": "compute",
+        "node": "v14",
+        "recipe": "p16-v14",
+        "output": 16
+      },
+      {
+        "event": "compute",
+        "node": "v15",
+        "recipe": "p16-v15",
+        "output": 16
+      },
+      {
+        "event": "store",
+        "node": "v15"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 78,
+        "work": [
+          229,
+          1
+        ]
+      },
+      "peak": 30,
+      "error": null,
+      "final_root_state": 16,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "v8",
+            "state": 16
+          },
+          "resident_before": 0,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "v9",
+            "state": 16
+          },
+          "resident_before": 8,
+          "event_peak": 20,
+          "resident_after": 20,
+          "added_io": 12,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "v10",
+            "recipe": "p16-v10",
+            "output": 16
+          },
+          "resident_before": 20,
+          "event_peak": 24,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            36,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "load",
+            "node": "v6",
+            "state": 16
+          },
+          "resident_before": 4,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 12,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "compute",
+            "node": "v7",
+            "recipe": "p16-v7",
+            "output": 16
+          },
+          "resident_before": 16,
+          "event_peak": 22,
+          "resident_after": 10,
+          "added_io": 0,
+          "added_work": [
+            51,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "compute",
+            "node": "v11",
+            "recipe": "p16-v11",
+            "output": 16
+          },
+          "resident_before": 10,
+          "event_peak": 12,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            18,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "load",
+            "node": "v5",
+            "state": 16
+          },
+          "resident_before": 2,
+          "event_peak": 10,
+          "resident_after": 10,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "compute",
+            "node": "v12",
+            "recipe": "p16-v12",
+            "output": 16
+          },
+          "resident_before": 10,
+          "event_peak": 12,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            18,
+            1
+          ]
+        },
+        {
+          "index": 8,
+          "event": {
+            "event": "load",
+            "node": "v1",
+            "state": 16
+          },
+          "resident_before": 2,
+          "event_peak": 18,
+          "resident_after": 18,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 9,
+          "event": {
+            "event": "load",
+            "node": "v2",
+            "state": 16
+          },
+          "resident_before": 18,
+          "event_peak": 26,
+          "resident_after": 26,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 10,
+          "event": {
+            "event": "compute",
+            "node": "v3",
+            "recipe": "p16-v3",
+            "output": 16
+          },
+          "resident_before": 26,
+          "event_peak": 30,
+          "resident_after": 6,
+          "added_io": 0,
+          "added_work": [
+            36,
+            1
+          ]
+        },
+        {
+          "index": 11,
+          "event": {
+            "event": "compute",
+            "node": "v4",
+            "recipe": "p16-v4",
+            "output": 16
+          },
+          "resident_before": 6,
+          "event_peak": 8,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            17,
+            1
+          ]
+        },
+        {
+          "index": 12,
+          "event": {
+            "event": "compute",
+            "node": "v13",
+            "recipe": "p16-v13",
+            "output": 16
+          },
+          "resident_before": 4,
+          "event_peak": 6,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            18,
+            1
+          ]
+        },
+        {
+          "index": 13,
+          "event": {
+            "event": "load",
+            "node": "v0",
+            "state": 16
+          },
+          "resident_before": 2,
+          "event_peak": 14,
+          "resident_after": 14,
+          "added_io": 12,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 14,
+          "event": {
+            "event": "compute",
+            "node": "v14",
+            "recipe": "p16-v14",
+            "output": 16
+          },
+          "resident_before": 14,
+          "event_peak": 16,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            18,
+            1
+          ]
+        },
+        {
+          "index": 15,
+          "event": {
+            "event": "compute",
+            "node": "v15",
+            "recipe": "p16-v15",
+            "output": 16
+          },
+          "resident_before": 2,
+          "event_peak": 4,
+          "resident_after": 2,
+          "added_io": 0,
+          "added_work": [
+            17,
+            1
+          ]
+        },
+        {
+          "index": 16,
+          "event": {
+            "event": "store",
+            "node": "v15"
+          },
+          "resident_before": 2,
+          "event_peak": 2,
+          "resident_after": 2,
+          "added_io": 2,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "scaling-n16-q2",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 32,
+      "root": "v15",
+      "root_state": 16,
+      "terminal_cost": {
+        "io": 78,
+        "work": [
+          229,
+          1
+        ]
+      },
+      "states": {
+        "v0|16|30": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v0|16|32": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v0|32|32": {
+          "cost": {
+            "io": 24,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v1|16|22": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v1|16|24": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v1|16|30": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v1|16|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v10|16|6": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|12": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|14": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|16": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|18": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|20": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|22": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|16|24": {
+          "cost": {
+            "io": 20,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v10",
+            "output": 16,
+            "children": [
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 24,
+                "residual_before": 24,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "v9",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 16,
+                "residual_before": 16,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v10|16|26": {
+          "cost": {
+            "io": 20,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v10",
+            "output": 16,
+            "children": [
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 26,
+                "residual_before": 26,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "v9",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 18,
+                "residual_before": 18,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v10|16|30": {
+          "cost": {
+            "io": 20,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v10",
+            "output": 16,
+            "children": [
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "v9",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 22,
+                "residual_before": 22,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v10|16|32": {
+          "cost": {
+            "io": 20,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v10",
+            "output": 16,
+            "children": [
+              {
+                "id": "v8",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "v9",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 24,
+                "residual_before": 24,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v10|32|22": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|32|24": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|32|30": {
+          "cost": null,
+          "choice": null
+        },
+        "v10|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|16|10": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|16|12": {
+          "cost": {
+            "io": 52,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 12,
+                "cut": true,
+                "weight": 4
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 8,
+                "cut": true,
+                "weight": 6
+              }
+            ]
+          }
+        },
+        "v11|16|18": {
+          "cost": {
+            "io": 40,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 18,
+                "residual_before": 18,
+                "cut": false,
+                "weight": 6
+              },
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 12,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v11|16|20": {
+          "cost": {
+            "io": 40,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 20,
+                "residual_before": 20,
+                "cut": false,
+                "weight": 6
+              },
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 14,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v11|16|22": {
+          "cost": {
+            "io": 40,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 22,
+                "cut": true,
+                "weight": 4
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 18,
+                "residual_before": 18,
+                "cut": false,
+                "weight": 6
+              }
+            ]
+          }
+        },
+        "v11|16|24": {
+          "cost": {
+            "io": 32,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 24,
+                "residual_before": 24,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 20,
+                "residual_before": 20,
+                "cut": false,
+                "weight": 6
+              }
+            ]
+          }
+        },
+        "v11|16|30": {
+          "cost": {
+            "io": 32,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 26,
+                "residual_before": 26,
+                "cut": false,
+                "weight": 6
+              }
+            ]
+          }
+        },
+        "v11|16|32": {
+          "cost": {
+            "io": 32,
+            "work": [
+              105,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v11",
+            "output": 16,
+            "children": [
+              {
+                "id": "v10",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 4
+              },
+              {
+                "id": "v7",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 28,
+                "residual_before": 28,
+                "cut": false,
+                "weight": 6
+              }
+            ]
+          }
+        },
+        "v11|32|14": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|32|16": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|32|30": {
+          "cost": null,
+          "choice": null
+        },
+        "v11|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v12|16|18": {
+          "cost": {
+            "io": 44,
+            "work": [
+              123,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v12",
+            "output": 16,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 18,
+                "cut": true,
+                "weight": 2
+              },
+              {
+                "id": "v5",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 16,
+                "residual_before": 16,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "v12|16|20": {
+          "cost": {
+            "io": 44,
+            "work": [
+              123,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v12",
+            "output": 16,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 20,
+                "cut": true,
+                "weight": 2
+              },
+              {
+                "id": "v5",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 18,
+                "residual_before": 18,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "v12|16|30": {
+          "cost": {
+            "io": 40,
+            "work": [
+              123,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v12",
+            "output": 16,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v5",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 28,
+                "residual_before": 28,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "v12|16|32": {
+          "cost": {
+            "io": 40,
+            "work": [
+              123,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v12",
+            "output": 16,
+            "children": [
+              {
+                "id": "v11",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v5",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "v12|32|20": {
+          "cost": null,
+          "choice": null
+        },
+        "v12|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v13|16|20": {
+          "cost": {
+            "io": 72,
+            "work": [
+              194,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v13",
+            "output": 16,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 20,
+                "residual_before": 20,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 18,
+                "cut": true,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v13|16|32": {
+          "cost": {
+            "io": 64,
+            "work": [
+              194,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v13",
+            "output": 16,
+            "children": [
+              {
+                "id": "v12",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v4",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v13|32|8": {
+          "cost": null,
+          "choice": null
+        },
+        "v13|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v14|16|32": {
+          "cost": {
+            "io": 76,
+            "work": [
+              212,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v14",
+            "output": 16,
+            "children": [
+              {
+                "id": "v13",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 2
+              },
+              {
+                "id": "v0",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v14|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v15|16|32": {
+          "cost": {
+            "io": 76,
+            "work": [
+              229,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v15",
+            "output": 16,
+            "children": [
+              {
+                "id": "v14",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 2
+              }
+            ]
+          }
+        },
+        "v15|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v2|16|14": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v2|16|16": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v2|16|30": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v2|16|32": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v3|16|18": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|16|20": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|16|30": {
+          "cost": {
+            "io": 24,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v3",
+            "output": 16,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "v2",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 14,
+                "residual_before": 14,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "v3|16|32": {
+          "cost": {
+            "io": 24,
+            "work": [
+              36,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v3",
+            "output": 16,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "v2",
+                "operand_index": 1,
+                "state": 16,
+                "budget": 16,
+                "residual_before": 16,
+                "cut": false,
+                "weight": 8
+              }
+            ]
+          }
+        },
+        "v3|32|18": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|32|20": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|32|30": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v4|16|18": {
+          "cost": {
+            "io": 32,
+            "work": [
+              53,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v4",
+            "output": 16,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 18,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v4|16|20": {
+          "cost": {
+            "io": 32,
+            "work": [
+              53,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v4",
+            "output": 16,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 20,
+                "cut": true,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v4|16|30": {
+          "cost": {
+            "io": 24,
+            "work": [
+              53,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v4",
+            "output": 16,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v4|16|32": {
+          "cost": {
+            "io": 24,
+            "work": [
+              53,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v4",
+            "output": 16,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v4|32|20": {
+          "cost": null,
+          "choice": null
+        },
+        "v4|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v5|16|16": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v5|16|18": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v5|16|20": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v5|16|28": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v5|16|30": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v5|16|32": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v5|32|30": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v5|32|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v6|16|18": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|20": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|22": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|24": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|26": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|28": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|30": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|16|32": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v6|32|30": {
+          "cost": {
+            "io": 24,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v6|32|32": {
+          "cost": {
+            "io": 24,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v7|16|8": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|16|12": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|16|14": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|16|16": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|16|18": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 18,
+                "residual_before": 18,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|20": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 20,
+                "residual_before": 20,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|22": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 22,
+                "residual_before": 22,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|24": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 24,
+                "residual_before": 24,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|26": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 26,
+                "residual_before": 26,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|28": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 28,
+                "residual_before": 28,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|30": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 30,
+                "residual_before": 30,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|16|32": {
+          "cost": {
+            "io": 12,
+            "work": [
+              51,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p16-v7",
+            "output": 16,
+            "children": [
+              {
+                "id": "v6",
+                "operand_index": 0,
+                "state": 16,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 12
+              }
+            ]
+          }
+        },
+        "v7|32|22": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|32|24": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|32|30": {
+          "cost": null,
+          "choice": null
+        },
+        "v7|32|32": {
+          "cost": null,
+          "choice": null
+        },
+        "v8|16|12": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|14": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|18": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|20": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|24": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|26": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|30": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v8|16|32": {
+          "cost": {
+            "io": 8,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|16": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|18": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|22": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|24": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|26": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|30": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        },
+        "v9|16|32": {
+          "cost": {
+            "io": 12,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 16
+          }
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 115,
+      "checked_alternatives": 232,
+      "terminal_cost": {
+        "io": 78,
+        "work": [
+          229,
+          1
+        ]
+      },
+      "root_state": 16
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 78,
+      "work": [
+        229,
+        1
+      ]
+    },
+    "root_state": 16
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 115,
+    "certificate_alternatives": 232,
+    "oracle_states": 0,
+    "event_units": 17,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 364,
+    "cpu_seconds": 0.005358440000000186
+  }
+}

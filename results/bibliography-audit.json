@@ -1,0 +1,18 @@
+{
+  "bib": "references.bib",
+  "cited_key_count": 31,
+  "entry_count": 31,
+  "errors": [],
+  "extra_verification_keys": [],
+  "identified_entries": 31,
+  "minimum_entries": 31,
+  "missing_citations": [],
+  "missing_verification_keys": [],
+  "schema": 2,
+  "tex": "main.tex",
+  "unused_entries": [],
+  "valid": true,
+  "verification_csv": "bibliography-verification.csv",
+  "verification_mismatches": [],
+  "verification_row_count": 31
+}

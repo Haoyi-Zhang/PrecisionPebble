@@ -1,0 +1,703 @@
+{
+  "schema": 1,
+  "name": "extended-s04-p2",
+  "group": "extended",
+  "instance_file": "campaign/264-extended-s04-p2.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 7,
+    "capacity": 48,
+    "recipes": 10,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 2,
+      "shape": "((((), (((),),)),),)"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 60,
+      "work": [
+        298,
+        1
+      ]
+    },
+    "root_state": 32,
+    "spill_edges": [],
+    "events": [
+      {
+        "event": "load",
+        "node": "v1",
+        "state": 32
+      },
+      {
+        "event": "compute",
+        "node": "v2",
+        "recipe": "p32-v2",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "v3",
+        "recipe": "p32-v3",
+        "output": 32
+      },
+      {
+        "event": "load",
+        "node": "v0",
+        "state": 32
+      },
+      {
+        "event": "compute",
+        "node": "v4",
+        "recipe": "p32-v4",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "v5",
+        "recipe": "p32-v5",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "v6",
+        "recipe": "p32-v6",
+        "output": 32
+      },
+      {
+        "event": "store",
+        "node": "v6"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 60,
+        "work": [
+          298,
+          1
+        ]
+      },
+      "peak": 48,
+      "error": null,
+      "final_root_state": 32,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "v1",
+            "state": 32
+          },
+          "resident_before": 0,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 32,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "compute",
+            "node": "v2",
+            "recipe": "p32-v2",
+            "output": 32
+          },
+          "resident_before": 32,
+          "event_peak": 48,
+          "resident_after": 16,
+          "added_io": 0,
+          "added_work": [
+            132,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "v3",
+            "recipe": "p32-v3",
+            "output": 32
+          },
+          "resident_before": 16,
+          "event_peak": 24,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            66,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "load",
+            "node": "v0",
+            "state": 32
+          },
+          "resident_before": 8,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 24,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 4,
+          "event": {
+            "event": "compute",
+            "node": "v4",
+            "recipe": "p32-v4",
+            "output": 32
+          },
+          "resident_before": 32,
+          "event_peak": 36,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            34,
+            1
+          ]
+        },
+        {
+          "index": 5,
+          "event": {
+            "event": "compute",
+            "node": "v5",
+            "recipe": "p32-v5",
+            "output": 32
+          },
+          "resident_before": 4,
+          "event_peak": 8,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            33,
+            1
+          ]
+        },
+        {
+          "index": 6,
+          "event": {
+            "event": "compute",
+            "node": "v6",
+            "recipe": "p32-v6",
+            "output": 32
+          },
+          "resident_before": 4,
+          "event_peak": 8,
+          "resident_after": 4,
+          "added_io": 0,
+          "added_work": [
+            33,
+            1
+          ]
+        },
+        {
+          "index": 7,
+          "event": {
+            "event": "store",
+            "node": "v6"
+          },
+          "resident_before": 4,
+          "event_peak": 4,
+          "resident_after": 4,
+          "added_io": 4,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "extended-s04-p2",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 48,
+      "root": "v6",
+      "root_state": 32,
+      "terminal_cost": {
+        "io": 60,
+        "work": [
+          298,
+          1
+        ]
+      },
+      "states": {
+        "v0|32|40": {
+          "cost": {
+            "io": 24,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v0|32|48": {
+          "cost": {
+            "io": 24,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v1|32|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v2|32|24": {
+          "cost": null,
+          "choice": null
+        },
+        "v2|32|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              132,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p32-v2",
+            "output": 32,
+            "children": [
+              {
+                "id": "v1",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 32
+              }
+            ]
+          }
+        },
+        "v3|32|24": {
+          "cost": {
+            "io": 64,
+            "work": [
+              198,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p32-v3",
+            "output": 32,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 48,
+                "residual_before": 24,
+                "cut": true,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "v3|32|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              198,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p32-v3",
+            "output": 32,
+            "children": [
+              {
+                "id": "v2",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "v4|32|48": {
+          "cost": {
+            "io": 56,
+            "work": [
+              232,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p32-v4",
+            "output": 32,
+            "children": [
+              {
+                "id": "v3",
+                "operand_index": 1,
+                "state": 32,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 8
+              },
+              {
+                "id": "v0",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 40,
+                "residual_before": 40,
+                "cut": false,
+                "weight": 24
+              }
+            ]
+          }
+        },
+        "v4|64|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v5|32|48": {
+          "cost": {
+            "io": 56,
+            "work": [
+              265,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p32-v5",
+            "output": 32,
+            "children": [
+              {
+                "id": "v4",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v5|64|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v6|32|48": {
+          "cost": {
+            "io": 56,
+            "work": [
+              298,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "p32-v6",
+            "output": 32,
+            "children": [
+              {
+                "id": "v5",
+                "operand_index": 0,
+                "state": 32,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 4
+              }
+            ]
+          }
+        },
+        "v6|64|48": {
+          "cost": null,
+          "choice": null
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 13,
+      "checked_alternatives": 17,
+      "terminal_cost": {
+        "io": 60,
+        "work": [
+          298,
+          1
+        ]
+      },
+      "root_state": 32
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 60,
+      "work": [
+        298,
+        1
+      ]
+    },
+    "root_state": 32
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": {
+      "io": 60,
+      "work": [
+        298,
+        1
+      ]
+    },
+    "events": [
+      {
+        "event": "load",
+        "node": "v1",
+        "state": 32
+      },
+      {
+        "event": "compute",
+        "node": "v2",
+        "recipe": "p32-v2",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "v3",
+        "recipe": "p32-v3",
+        "output": 32
+      },
+      {
+        "event": "load",
+        "node": "v0",
+        "state": 32
+      },
+      {
+        "event": "compute",
+        "node": "v4",
+        "recipe": "p32-v4",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "v5",
+        "recipe": "p32-v5",
+        "output": 32
+      },
+      {
+        "event": "compute",
+        "node": "v6",
+        "recipe": "p32-v6",
+        "output": 32
+      },
+      {
+        "event": "store",
+        "node": "v6"
+      }
+    ],
+    "discovered_states": 41,
+    "expanded_states": 24,
+    "cpu_seconds": 0.0003387479999998888
+  },
+  "oracle_event_check": {
+    "valid": true,
+    "cost": {
+      "io": 60,
+      "work": [
+        298,
+        1
+      ]
+    },
+    "peak": 48,
+    "error": null,
+    "final_root_state": 32,
+    "trace": [
+      {
+        "index": 0,
+        "event": {
+          "event": "load",
+          "node": "v1",
+          "state": 32
+        },
+        "resident_before": 0,
+        "event_peak": 32,
+        "resident_after": 32,
+        "added_io": 32,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 1,
+        "event": {
+          "event": "compute",
+          "node": "v2",
+          "recipe": "p32-v2",
+          "output": 32
+        },
+        "resident_before": 32,
+        "event_peak": 48,
+        "resident_after": 16,
+        "added_io": 0,
+        "added_work": [
+          132,
+          1
+        ]
+      },
+      {
+        "index": 2,
+        "event": {
+          "event": "compute",
+          "node": "v3",
+          "recipe": "p32-v3",
+          "output": 32
+        },
+        "resident_before": 16,
+        "event_peak": 24,
+        "resident_after": 8,
+        "added_io": 0,
+        "added_work": [
+          66,
+          1
+        ]
+      },
+      {
+        "index": 3,
+        "event": {
+          "event": "load",
+          "node": "v0",
+          "state": 32
+        },
+        "resident_before": 8,
+        "event_peak": 32,
+        "resident_after": 32,
+        "added_io": 24,
+        "added_work": [
+          0,
+          1
+        ]
+      },
+      {
+        "index": 4,
+        "event": {
+          "event": "compute",
+          "node": "v4",
+          "recipe": "p32-v4",
+          "output": 32
+        },
+        "resident_before": 32,
+        "event_peak": 36,
+        "resident_after": 4,
+        "added_io": 0,
+        "added_work": [
+          34,
+          1
+        ]
+      },
+      {
+        "index": 5,
+        "event": {
+          "event": "compute",
+          "node": "v5",
+          "recipe": "p32-v5",
+          "output": 32
+        },
+        "resident_before": 4,
+        "event_peak": 8,
+        "resident_after": 4,
+        "added_io": 0,
+        "added_work": [
+          33,
+          1
+        ]
+      },
+      {
+        "index": 6,
+        "event": {
+          "event": "compute",
+          "node": "v6",
+          "recipe": "p32-v6",
+          "output": 32
+        },
+        "resident_before": 4,
+        "event_peak": 8,
+        "resident_after": 4,
+        "added_io": 0,
+        "added_work": [
+          33,
+          1
+        ]
+      },
+      {
+        "index": 7,
+        "event": {
+          "event": "store",
+          "node": "v6"
+        },
+        "resident_before": 4,
+        "event_peak": 4,
+        "resident_after": 4,
+        "added_io": 4,
+        "added_work": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 13,
+    "certificate_alternatives": 17,
+    "oracle_states": 41,
+    "event_units": 8,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 79,
+    "cpu_seconds": 0.001077545000000013
+  }
+}

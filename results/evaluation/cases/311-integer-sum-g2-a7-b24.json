@@ -1,0 +1,583 @@
+{
+  "schema": 1,
+  "name": "integer-sum-g2-a7-b24",
+  "group": "integer",
+  "instance_file": "campaign/311-integer-sum-g2-a7-b24.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 3,
+    "capacity": 48,
+    "recipes": 13,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "integer-sum",
+      "operator_family": "sum",
+      "groups": 2,
+      "source_length": 2,
+      "bound": 7,
+      "capacity_multiplier": 24,
+      "semantic_patterns": [
+        "zero",
+        "positive",
+        "negative",
+        "alternating",
+        "pseudorandom-9137"
+      ]
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": {
+      "io": 33,
+      "work": [
+        248,
+        1
+      ]
+    },
+    "root_state": 8,
+    "spill_edges": [],
+    "events": [
+      {
+        "event": "load",
+        "node": "s0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "r0_0",
+        "recipe": "reduce-64-to-8",
+        "output": 8
+      },
+      {
+        "event": "store",
+        "node": "r0_0"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 33,
+        "work": [
+          248,
+          1
+        ]
+      },
+      "peak": 33,
+      "error": null,
+      "final_root_state": 8,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "s0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "s1",
+            "state": 64
+          },
+          "resident_before": 16,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "r0_0",
+            "recipe": "reduce-64-to-8",
+            "output": 8
+          },
+          "resident_before": 32,
+          "event_peak": 33,
+          "resident_after": 1,
+          "added_io": 0,
+          "added_work": [
+            248,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "store",
+            "node": "r0_0"
+          },
+          "resident_before": 1,
+          "event_peak": 1,
+          "resident_after": 1,
+          "added_io": 1,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "integer-sum-g2-a7-b24",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 48,
+      "root": "r0_0",
+      "root_state": 8,
+      "terminal_cost": {
+        "io": 33,
+        "work": [
+          248,
+          1
+        ]
+      },
+      "states": {
+        "r0_0|8|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              248,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-64-to-8",
+            "output": 8,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "r0_0|16|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              240,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-64-to-16",
+            "output": 16,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "r0_0|32|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              224,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-64-to-32",
+            "output": 32,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "r0_0|64|48": {
+          "cost": {
+            "io": 32,
+            "work": [
+              192,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "op",
+            "recipe": "reduce-64-to-64",
+            "output": 64,
+            "children": [
+              {
+                "id": "s0",
+                "operand_index": 0,
+                "state": 64,
+                "budget": 48,
+                "residual_before": 48,
+                "cut": false,
+                "weight": 16
+              },
+              {
+                "id": "s1",
+                "operand_index": 1,
+                "state": 64,
+                "budget": 32,
+                "residual_before": 32,
+                "cut": false,
+                "weight": 16
+              }
+            ]
+          }
+        },
+        "s0|8|48": {
+          "cost": null,
+          "choice": null
+        },
+        "s0|16|48": {
+          "cost": null,
+          "choice": null
+        },
+        "s0|32|48": {
+          "cost": null,
+          "choice": null
+        },
+        "s0|64|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s0|64|48": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|8|48": {
+          "cost": null,
+          "choice": null
+        },
+        "s1|16|48": {
+          "cost": null,
+          "choice": null
+        },
+        "s1|32|48": {
+          "cost": null,
+          "choice": null
+        },
+        "s1|64|32": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        },
+        "s1|64|48": {
+          "cost": {
+            "io": 16,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 64
+          }
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 14,
+      "checked_alternatives": 26,
+      "terminal_cost": {
+        "io": 33,
+        "work": [
+          248,
+          1
+        ]
+      },
+      "root_state": 8
+    }
+  },
+  "contiguous": {
+    "cost": {
+      "io": 33,
+      "work": [
+        248,
+        1
+      ]
+    },
+    "root_state": 8
+  },
+  "oracle": null,
+  "oracle_event_check": null,
+  "fixed64": {
+    "cost": {
+      "io": 40,
+      "work": [
+        192,
+        1
+      ]
+    },
+    "root_state": 64,
+    "events": [
+      {
+        "event": "load",
+        "node": "s0",
+        "state": 64
+      },
+      {
+        "event": "load",
+        "node": "s1",
+        "state": 64
+      },
+      {
+        "event": "compute",
+        "node": "r0_0",
+        "recipe": "reduce-64-to-64",
+        "output": 64
+      },
+      {
+        "event": "store",
+        "node": "r0_0"
+      }
+    ],
+    "event_check": {
+      "valid": true,
+      "cost": {
+        "io": 40,
+        "work": [
+          192,
+          1
+        ]
+      },
+      "peak": 40,
+      "error": null,
+      "final_root_state": 64,
+      "trace": [
+        {
+          "index": 0,
+          "event": {
+            "event": "load",
+            "node": "s0",
+            "state": 64
+          },
+          "resident_before": 0,
+          "event_peak": 16,
+          "resident_after": 16,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 1,
+          "event": {
+            "event": "load",
+            "node": "s1",
+            "state": 64
+          },
+          "resident_before": 16,
+          "event_peak": 32,
+          "resident_after": 32,
+          "added_io": 16,
+          "added_work": [
+            0,
+            1
+          ]
+        },
+        {
+          "index": 2,
+          "event": {
+            "event": "compute",
+            "node": "r0_0",
+            "recipe": "reduce-64-to-64",
+            "output": 64
+          },
+          "resident_before": 32,
+          "event_peak": 40,
+          "resident_after": 8,
+          "added_io": 0,
+          "added_work": [
+            192,
+            1
+          ]
+        },
+        {
+          "index": 3,
+          "event": {
+            "event": "store",
+            "node": "r0_0"
+          },
+          "resident_before": 8,
+          "event_peak": 8,
+          "resident_after": 8,
+          "added_io": 8,
+          "added_work": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "semantic": {
+      "applicable": true,
+      "valid": true,
+      "patterns": [
+        {
+          "pattern": "zero",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "positive",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "negative",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "alternating",
+          "valid": true,
+          "error": null
+        },
+        {
+          "pattern": "pseudorandom-9137",
+          "valid": true,
+          "error": null
+        }
+      ]
+    },
+    "optimizer_states": 5
+  },
+  "semantic": {
+    "applicable": true,
+    "valid": true,
+    "patterns": [
+      {
+        "pattern": "zero",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "positive",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "negative",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "alternating",
+        "valid": true,
+        "error": null
+      },
+      {
+        "pattern": "pseudorandom-9137",
+        "valid": true,
+        "error": null
+      }
+    ]
+  },
+  "metrics": {
+    "optimizer_states": 14,
+    "certificate_alternatives": 26,
+    "oracle_states": 0,
+    "event_units": 4,
+    "semantic_units": 5,
+    "fixed64_optimizer_states": 5,
+    "charged_units": 54,
+    "cpu_seconds": 0.001320148000000021
+  }
+}

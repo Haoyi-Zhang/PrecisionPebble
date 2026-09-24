@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "positive_checks": [
+    {
+      "name": "valid-certificate",
+      "accepted": true
+    },
+    {
+      "name": "valid-expansive-valley-witness",
+      "accepted": true
+    }
+  ],
+  "reference_equation_checks": [
+    {
+      "name": "literal-eq6-concrete-89-91",
+      "expected": 91,
+      "observed": 91,
+      "accepted": true
+    },
+    {
+      "name": "literal-eq6-family-t1",
+      "expected": 25,
+      "observed": 25,
+      "accepted": true
+    },
+    {
+      "name": "literal-eq6-family-t2",
+      "expected": 50,
+      "observed": 50,
+      "accepted": true
+    },
+    {
+      "name": "literal-eq6-family-t4",
+      "expected": 100,
+      "observed": 100,
+      "accepted": true
+    },
+    {
+      "name": "literal-eq6-family-t8",
+      "expected": 200,
+      "observed": 200,
+      "accepted": true
+    }
+  ],
+  "negative_checks": [
+    {
+      "name": "changed-source-representation",
+      "rejected": true
+    },
+    {
+      "name": "lowered-capacity",
+      "rejected": true
+    },
+    {
+      "name": "removed-final-store",
+      "rejected": true
+    },
+    {
+      "name": "changed-claimed-optimum",
+      "rejected": true
+    },
+    {
+      "name": "corrupted-table-cost",
+      "rejected": true
+    },
+    {
+      "name": "removed-table-dependency",
+      "rejected": true
+    },
+    {
+      "name": "unexpected-table-state",
+      "rejected": true
+    },
+    {
+      "name": "exact-mode-expansion",
+      "rejected": true
+    },
+    {
+      "name": "tiny-enumeration-cap",
+      "rejected": true
+    },
+    {
+      "name": "literal-eq6-rejects-typed-instance",
+      "rejected": true
+    }
+  ],
+  "positive_passes": 2,
+  "reference_equation_passes": 5,
+  "negative_passes": 10,
+  "valid": true
+}

@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "name": "extended-s05-p2",
+  "group": "extended",
+  "instance_file": "campaign/266-extended-s05-p2.json",
+  "status": "checked",
+  "errors": [],
+  "instance": {
+    "nodes": 7,
+    "capacity": 48,
+    "recipes": 8,
+    "contractive": true,
+    "max_degree": 2,
+    "metadata": {
+      "family": "structural",
+      "profile": 2,
+      "shape": "((((), ((), ())),),)"
+    }
+  },
+  "prepared": {
+    "exact_mode": true,
+    "cost": null,
+    "root_state": null,
+    "spill_edges": [],
+    "events": [],
+    "event_check": {
+      "valid": false,
+      "cost": {
+        "io": 0,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "peak": 0,
+      "error": "root is not stored at termination",
+      "final_root_state": null,
+      "trace": []
+    },
+    "certificate": {
+      "schema": 1,
+      "instance": "extended-s05-p2",
+      "exact_mode": true,
+      "contractive": true,
+      "capacity": 48,
+      "root": "v6",
+      "root_state": null,
+      "terminal_cost": null,
+      "states": {
+        "v0|32|48": {
+          "cost": {
+            "io": 24,
+            "work": [
+              0,
+              1
+            ]
+          },
+          "choice": {
+            "kind": "source",
+            "state": 32
+          }
+        },
+        "v3|32|24": {
+          "cost": null,
+          "choice": null
+        },
+        "v3|32|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v4|32|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v4|64|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v5|32|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v5|64|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v6|32|48": {
+          "cost": null,
+          "choice": null
+        },
+        "v6|64|48": {
+          "cost": null,
+          "choice": null
+        }
+      }
+    },
+    "certificate_check": {
+      "valid": true,
+      "error": null,
+      "checked_states": 9,
+      "checked_alternatives": 12,
+      "terminal_cost": null,
+      "root_state": null
+    }
+  },
+  "contiguous": {
+    "cost": null,
+    "root_state": null
+  },
+  "oracle": {
+    "status": "complete",
+    "cost": null,
+    "events": [],
+    "discovered_states": 8,
+    "expanded_states": 8,
+    "cpu_seconds": 0.00010277000000002978
+  },
+  "oracle_event_check": null,
+  "fixed64": null,
+  "semantic": {
+    "applicable": false,
+    "valid": true,
+    "patterns": []
+  },
+  "metrics": {
+    "optimizer_states": 9,
+    "certificate_alternatives": 12,
+    "oracle_states": 8,
+    "event_units": 0,
+    "semantic_units": 0,
+    "fixed64_optimizer_states": 0,
+    "charged_units": 29,
+    "cpu_seconds": 0.0007436800000000243
+  }
+}
