@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "scaling-n64-q1",
   "group": "scaling",
   "instance_file": "campaign/308-scaling-n64-q1.json",
@@ -41513,6 +41513,1124 @@
         ]
       },
       "root_state": 32
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 588,
+        "work": [
+          1778,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 588,
+          "work": [
+            1778,
+            1
+          ]
+        },
+        "peak": 168,
+        "error": null,
+        "final_root_state": 32,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 32
+            },
+            "resident_before": 0,
+            "event_peak": 24,
+            "resident_after": 24,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "v8",
+              "state": 32
+            },
+            "resident_before": 24,
+            "event_peak": 40,
+            "resident_after": 40,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v9",
+              "recipe": "p32-v9",
+              "output": 32
+            },
+            "resident_before": 40,
+            "event_peak": 48,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              66,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "compute",
+              "node": "v10",
+              "recipe": "p32-v10",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 36,
+            "resident_after": 28,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "v11",
+              "state": 32
+            },
+            "resident_before": 28,
+            "event_peak": 44,
+            "resident_after": 44,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "load",
+              "node": "v12",
+              "state": 32
+            },
+            "resident_before": 44,
+            "event_peak": 68,
+            "resident_after": 68,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "v13",
+              "recipe": "p32-v13",
+              "output": 32
+            },
+            "resident_before": 68,
+            "event_peak": 80,
+            "resident_after": 56,
+            "added_io": 0,
+            "added_work": [
+              99,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "v14",
+              "recipe": "p32-v14",
+              "output": 32
+            },
+            "resident_before": 56,
+            "event_peak": 60,
+            "resident_after": 48,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "compute",
+              "node": "v15",
+              "recipe": "p32-v15",
+              "output": 32
+            },
+            "resident_before": 48,
+            "event_peak": 52,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "v16",
+              "recipe": "p32-v16",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 36,
+            "resident_after": 28,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "v7",
+              "state": 32
+            },
+            "resident_before": 28,
+            "event_peak": 60,
+            "resident_after": 60,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "compute",
+              "node": "v17",
+              "recipe": "p32-v17",
+              "output": 32
+            },
+            "resident_before": 60,
+            "event_peak": 64,
+            "resident_after": 28,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "load",
+              "node": "v1",
+              "state": 32
+            },
+            "resident_before": 28,
+            "event_peak": 60,
+            "resident_after": 60,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "load",
+              "node": "v2",
+              "state": 32
+            },
+            "resident_before": 60,
+            "event_peak": 76,
+            "resident_after": 76,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 14,
+            "event": {
+              "event": "compute",
+              "node": "v3",
+              "recipe": "p32-v3",
+              "output": 32
+            },
+            "resident_before": 76,
+            "event_peak": 84,
+            "resident_after": 68,
+            "added_io": 0,
+            "added_work": [
+              66,
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "event": {
+              "event": "compute",
+              "node": "v4",
+              "recipe": "p32-v4",
+              "output": 32
+            },
+            "resident_before": 68,
+            "event_peak": 72,
+            "resident_after": 64,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 16,
+            "event": {
+              "event": "compute",
+              "node": "v5",
+              "recipe": "p32-v5",
+              "output": 32
+            },
+            "resident_before": 64,
+            "event_peak": 68,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 17,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "p32-v6",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 36,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 18,
+            "event": {
+              "event": "compute",
+              "node": "v18",
+              "recipe": "p32-v18",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 36,
+            "resident_after": 28,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 19,
+            "event": {
+              "event": "compute",
+              "node": "v19",
+              "recipe": "p32-v19",
+              "output": 32
+            },
+            "resident_before": 28,
+            "event_peak": 32,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 20,
+            "event": {
+              "event": "compute",
+              "node": "v20",
+              "recipe": "p32-v20",
+              "output": 32
+            },
+            "resident_before": 4,
+            "event_peak": 8,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 21,
+            "event": {
+              "event": "load",
+              "node": "v21",
+              "state": 32
+            },
+            "resident_before": 4,
+            "event_peak": 28,
+            "resident_after": 28,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 22,
+            "event": {
+              "event": "load",
+              "node": "v22",
+              "state": 32
+            },
+            "resident_before": 28,
+            "event_peak": 60,
+            "resident_after": 60,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 23,
+            "event": {
+              "event": "load",
+              "node": "v23",
+              "state": 32
+            },
+            "resident_before": 60,
+            "event_peak": 76,
+            "resident_after": 76,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 24,
+            "event": {
+              "event": "compute",
+              "node": "v24",
+              "recipe": "p32-v24",
+              "output": 32
+            },
+            "resident_before": 76,
+            "event_peak": 84,
+            "resident_after": 68,
+            "added_io": 0,
+            "added_work": [
+              66,
+              1
+            ]
+          },
+          {
+            "index": 25,
+            "event": {
+              "event": "compute",
+              "node": "v25",
+              "recipe": "p32-v25",
+              "output": 32
+            },
+            "resident_before": 68,
+            "event_peak": 72,
+            "resident_after": 64,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 26,
+            "event": {
+              "event": "load",
+              "node": "v26",
+              "state": 32
+            },
+            "resident_before": 64,
+            "event_peak": 80,
+            "resident_after": 80,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 27,
+            "event": {
+              "event": "load",
+              "node": "v27",
+              "state": 32
+            },
+            "resident_before": 80,
+            "event_peak": 104,
+            "resident_after": 104,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 28,
+            "event": {
+              "event": "load",
+              "node": "v28",
+              "state": 32
+            },
+            "resident_before": 104,
+            "event_peak": 136,
+            "resident_after": 136,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 29,
+            "event": {
+              "event": "compute",
+              "node": "v29",
+              "recipe": "p32-v29",
+              "output": 32
+            },
+            "resident_before": 136,
+            "event_peak": 152,
+            "resident_after": 120,
+            "added_io": 0,
+            "added_work": [
+              132,
+              1
+            ]
+          },
+          {
+            "index": 30,
+            "event": {
+              "event": "compute",
+              "node": "v30",
+              "recipe": "p32-v30",
+              "output": 32
+            },
+            "resident_before": 120,
+            "event_peak": 128,
+            "resident_after": 88,
+            "added_io": 0,
+            "added_work": [
+              68,
+              1
+            ]
+          },
+          {
+            "index": 31,
+            "event": {
+              "event": "compute",
+              "node": "v31",
+              "recipe": "p32-v31",
+              "output": 32
+            },
+            "resident_before": 88,
+            "event_peak": 92,
+            "resident_after": 68,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 32,
+            "event": {
+              "event": "compute",
+              "node": "v32",
+              "recipe": "p32-v32",
+              "output": 32
+            },
+            "resident_before": 68,
+            "event_peak": 72,
+            "resident_after": 64,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 33,
+            "event": {
+              "event": "compute",
+              "node": "v33",
+              "recipe": "p32-v33",
+              "output": 32
+            },
+            "resident_before": 64,
+            "event_peak": 68,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 34,
+            "event": {
+              "event": "compute",
+              "node": "v34",
+              "recipe": "p32-v34",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 36,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 35,
+            "event": {
+              "event": "load",
+              "node": "v35",
+              "state": 32
+            },
+            "resident_before": 32,
+            "event_peak": 48,
+            "resident_after": 48,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 36,
+            "event": {
+              "event": "load",
+              "node": "v36",
+              "state": 32
+            },
+            "resident_before": 48,
+            "event_peak": 72,
+            "resident_after": 72,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 37,
+            "event": {
+              "event": "load",
+              "node": "v37",
+              "state": 32
+            },
+            "resident_before": 72,
+            "event_peak": 104,
+            "resident_after": 104,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 38,
+            "event": {
+              "event": "load",
+              "node": "v38",
+              "state": 32
+            },
+            "resident_before": 104,
+            "event_peak": 120,
+            "resident_after": 120,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 39,
+            "event": {
+              "event": "load",
+              "node": "v39",
+              "state": 32
+            },
+            "resident_before": 120,
+            "event_peak": 144,
+            "resident_after": 144,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 40,
+            "event": {
+              "event": "compute",
+              "node": "v40",
+              "recipe": "p32-v40",
+              "output": 32
+            },
+            "resident_before": 144,
+            "event_peak": 152,
+            "resident_after": 112,
+            "added_io": 0,
+            "added_work": [
+              68,
+              1
+            ]
+          },
+          {
+            "index": 41,
+            "event": {
+              "event": "compute",
+              "node": "v41",
+              "recipe": "p32-v41",
+              "output": 32
+            },
+            "resident_before": 112,
+            "event_peak": 116,
+            "resident_after": 76,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 42,
+            "event": {
+              "event": "compute",
+              "node": "v42",
+              "recipe": "p32-v42",
+              "output": 32
+            },
+            "resident_before": 76,
+            "event_peak": 80,
+            "resident_after": 52,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 43,
+            "event": {
+              "event": "compute",
+              "node": "v43",
+              "recipe": "p32-v43",
+              "output": 32
+            },
+            "resident_before": 52,
+            "event_peak": 56,
+            "resident_after": 52,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 44,
+            "event": {
+              "event": "load",
+              "node": "v44",
+              "state": 32
+            },
+            "resident_before": 52,
+            "event_peak": 68,
+            "resident_after": 68,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 45,
+            "event": {
+              "event": "load",
+              "node": "v45",
+              "state": 32
+            },
+            "resident_before": 68,
+            "event_peak": 92,
+            "resident_after": 92,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 46,
+            "event": {
+              "event": "load",
+              "node": "v46",
+              "state": 32
+            },
+            "resident_before": 92,
+            "event_peak": 124,
+            "resident_after": 124,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 47,
+            "event": {
+              "event": "compute",
+              "node": "v47",
+              "recipe": "p32-v47",
+              "output": 32
+            },
+            "resident_before": 124,
+            "event_peak": 136,
+            "resident_after": 80,
+            "added_io": 0,
+            "added_work": [
+              102,
+              1
+            ]
+          },
+          {
+            "index": 48,
+            "event": {
+              "event": "compute",
+              "node": "v48",
+              "recipe": "p32-v48",
+              "output": 32
+            },
+            "resident_before": 80,
+            "event_peak": 84,
+            "resident_after": 72,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 49,
+            "event": {
+              "event": "load",
+              "node": "v49",
+              "state": 32
+            },
+            "resident_before": 72,
+            "event_peak": 104,
+            "resident_after": 104,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 50,
+            "event": {
+              "event": "load",
+              "node": "v50",
+              "state": 32
+            },
+            "resident_before": 104,
+            "event_peak": 120,
+            "resident_after": 120,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 51,
+            "event": {
+              "event": "compute",
+              "node": "v51",
+              "recipe": "p32-v51",
+              "output": 32
+            },
+            "resident_before": 120,
+            "event_peak": 128,
+            "resident_after": 112,
+            "added_io": 0,
+            "added_work": [
+              66,
+              1
+            ]
+          },
+          {
+            "index": 52,
+            "event": {
+              "event": "load",
+              "node": "v52",
+              "state": 32
+            },
+            "resident_before": 112,
+            "event_peak": 144,
+            "resident_after": 144,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 53,
+            "event": {
+              "event": "load",
+              "node": "v53",
+              "state": 32
+            },
+            "resident_before": 144,
+            "event_peak": 160,
+            "resident_after": 160,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 54,
+            "event": {
+              "event": "compute",
+              "node": "v54",
+              "recipe": "p32-v54",
+              "output": 32
+            },
+            "resident_before": 160,
+            "event_peak": 168,
+            "resident_after": 120,
+            "added_io": 0,
+            "added_work": [
+              68,
+              1
+            ]
+          },
+          {
+            "index": 55,
+            "event": {
+              "event": "compute",
+              "node": "v55",
+              "recipe": "p32-v55",
+              "output": 32
+            },
+            "resident_before": 120,
+            "event_peak": 124,
+            "resident_after": 108,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 56,
+            "event": {
+              "event": "compute",
+              "node": "v56",
+              "recipe": "p32-v56",
+              "output": 32
+            },
+            "resident_before": 108,
+            "event_peak": 112,
+            "resident_after": 76,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 57,
+            "event": {
+              "event": "compute",
+              "node": "v57",
+              "recipe": "p32-v57",
+              "output": 32
+            },
+            "resident_before": 76,
+            "event_peak": 80,
+            "resident_after": 72,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 58,
+            "event": {
+              "event": "compute",
+              "node": "v58",
+              "recipe": "p32-v58",
+              "output": 32
+            },
+            "resident_before": 72,
+            "event_peak": 76,
+            "resident_after": 56,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 59,
+            "event": {
+              "event": "compute",
+              "node": "v59",
+              "recipe": "p32-v59",
+              "output": 32
+            },
+            "resident_before": 56,
+            "event_peak": 60,
+            "resident_after": 52,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 60,
+            "event": {
+              "event": "compute",
+              "node": "v60",
+              "recipe": "p32-v60",
+              "output": 32
+            },
+            "resident_before": 52,
+            "event_peak": 56,
+            "resident_after": 36,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 61,
+            "event": {
+              "event": "compute",
+              "node": "v61",
+              "recipe": "p32-v61",
+              "output": 32
+            },
+            "resident_before": 36,
+            "event_peak": 40,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 62,
+            "event": {
+              "event": "compute",
+              "node": "v62",
+              "recipe": "p32-v62",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 36,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 63,
+            "event": {
+              "event": "compute",
+              "node": "v63",
+              "recipe": "p32-v63",
+              "output": 32
+            },
+            "resident_before": 8,
+            "event_peak": 12,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 64,
+            "event": {
+              "event": "store",
+              "node": "v63"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 1854,
+        "checked_alternatives": 3271,
+        "terminal_cost": {
+          "io": 588,
+          "work": [
+            1778,
+            1
+          ]
+        },
+        "root_state": 32
+      }
     }
   },
   "contiguous": {
@@ -41523,7 +42641,9 @@
         1
       ]
     },
-    "root_state": 32
+    "root_state": 32,
+    "evaluated_states": 1828,
+    "enumerated_alternatives": 3251
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -41537,10 +42657,36 @@
     "optimizer_states": 1854,
     "certificate_alternatives": 3271,
     "oracle_states": 0,
-    "event_units": 65,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 5190,
-    "cpu_seconds": 0.07277558100000014
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 1854,
+      "prepared_certificate_alternatives": 3271,
+      "prepared_event_replay_steps": 65,
+      "contiguous_states": 1828,
+      "contiguous_alternatives": 3251,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 10269,
+    "case_body_cpu_seconds": 0.06026320500000004
+  },
+  "record_identity": {
+    "index_order": 308,
+    "name": "scaling-n64-q1",
+    "group": "scaling",
+    "instance_file": "campaign/308-scaling-n64-q1.json",
+    "input_sha256": "9971ea37d70c86611ad233a6569617fffebd9d47a8bf3b5df752fa6782111f66"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

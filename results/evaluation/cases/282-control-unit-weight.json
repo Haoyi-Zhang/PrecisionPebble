@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "control-unit-weight",
   "group": "control",
   "instance_file": "campaign/282-control-unit-weight.json",
@@ -752,6 +752,211 @@
         ]
       },
       "root_state": 64
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 4,
+        "work": [
+          8,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 4,
+          "work": [
+            8,
+            1
+          ]
+        },
+        "peak": 4,
+        "error": null,
+        "final_root_state": 64,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "v1",
+              "recipe": "fixed-v1",
+              "output": 64
+            },
+            "resident_before": 1,
+            "event_peak": 2,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              1,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v2",
+              "recipe": "fixed-v2",
+              "output": 64
+            },
+            "resident_before": 1,
+            "event_peak": 2,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              1,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "load",
+              "node": "v3",
+              "state": 64
+            },
+            "resident_before": 1,
+            "event_peak": 2,
+            "resident_after": 2,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "v4",
+              "state": 64
+            },
+            "resident_before": 2,
+            "event_peak": 3,
+            "resident_after": 3,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "v5",
+              "recipe": "fixed-v5",
+              "output": 64
+            },
+            "resident_before": 3,
+            "event_peak": 4,
+            "resident_after": 3,
+            "added_io": 0,
+            "added_work": [
+              1,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "fixed-v6",
+              "output": 64
+            },
+            "resident_before": 3,
+            "event_peak": 4,
+            "resident_after": 3,
+            "added_io": 0,
+            "added_work": [
+              1,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "v7",
+              "recipe": "fixed-v7",
+              "output": 64
+            },
+            "resident_before": 3,
+            "event_peak": 4,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              2,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "compute",
+              "node": "v8",
+              "recipe": "fixed-v8",
+              "output": 64
+            },
+            "resident_before": 2,
+            "event_peak": 3,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              2,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "store",
+              "node": "v8"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 21,
+        "checked_alternatives": 31,
+        "terminal_cost": {
+          "io": 4,
+          "work": [
+            8,
+            1
+          ]
+        },
+        "root_state": 64
+      }
     }
   },
   "contiguous": {
@@ -762,7 +967,9 @@
         1
       ]
     },
-    "root_state": 64
+    "root_state": 64,
+    "evaluated_states": 21,
+    "enumerated_alternatives": 31
   },
   "oracle": {
     "status": "complete",
@@ -832,7 +1039,7 @@
     ],
     "discovered_states": 328,
     "expanded_states": 205,
-    "cpu_seconds": 0.004874374999999986
+    "cpu_seconds": 0.004017853999999987
   },
   "oracle_event_check": {
     "valid": true,
@@ -1024,10 +1231,36 @@
     "optimizer_states": 21,
     "certificate_alternatives": 31,
     "oracle_states": 328,
-    "event_units": 10,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 390,
-    "cpu_seconds": 0.005946940000000067
+    "oracle_expanded_states": 205,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 21,
+      "prepared_certificate_alternatives": 31,
+      "prepared_event_replay_steps": 10,
+      "contiguous_states": 21,
+      "contiguous_alternatives": 31,
+      "oracle_expanded_states": 205,
+      "oracle_event_replay_steps": 10,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 329,
+    "case_body_cpu_seconds": 0.004980099999999932
+  },
+  "record_identity": {
+    "index_order": 282,
+    "name": "control-unit-weight",
+    "group": "control",
+    "instance_file": "campaign/282-control-unit-weight.json",
+    "input_sha256": "c62e9ae782702efa1012a36b8f01b2ac91dc2987f77071919bb1d0df5a267cb7"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

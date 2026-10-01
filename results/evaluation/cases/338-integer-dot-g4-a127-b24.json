@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "integer-dot-g4-a127-b24",
   "group": "integer",
   "instance_file": "campaign/338-integer-dot-g4-a127-b24.json",
@@ -2470,6 +2470,308 @@
         ]
       },
       "root_state": 32
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 260,
+        "work": [
+          66592,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 260,
+          "work": [
+            66592,
+            1
+          ]
+        },
+        "peak": 96,
+        "error": null,
+        "final_root_state": 32,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "s0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 32,
+            "resident_after": 32,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "s1",
+              "state": 64
+            },
+            "resident_before": 32,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "e0",
+              "recipe": "product-64-to-32",
+              "output": 32
+            },
+            "resident_before": 64,
+            "event_peak": 80,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              16512,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "load",
+              "node": "s2",
+              "state": 64
+            },
+            "resident_before": 16,
+            "event_peak": 48,
+            "resident_after": 48,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "s3",
+              "state": 64
+            },
+            "resident_before": 48,
+            "event_peak": 80,
+            "resident_after": 80,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "e1",
+              "recipe": "product-64-to-32",
+              "output": 32
+            },
+            "resident_before": 80,
+            "event_peak": 96,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              16512,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "r0_0",
+              "recipe": "reduce-32-to-32",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 40,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              192,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "load",
+              "node": "s4",
+              "state": 64
+            },
+            "resident_before": 8,
+            "event_peak": 40,
+            "resident_after": 40,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "load",
+              "node": "s5",
+              "state": 64
+            },
+            "resident_before": 40,
+            "event_peak": 72,
+            "resident_after": 72,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "e2",
+              "recipe": "product-64-to-16",
+              "output": 16
+            },
+            "resident_before": 72,
+            "event_peak": 80,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              16576,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "s6",
+              "state": 64
+            },
+            "resident_before": 16,
+            "event_peak": 48,
+            "resident_after": 48,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "load",
+              "node": "s7",
+              "state": 64
+            },
+            "resident_before": 48,
+            "event_peak": 80,
+            "resident_after": 80,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "compute",
+              "node": "e3",
+              "recipe": "product-64-to-16",
+              "output": 16
+            },
+            "resident_before": 80,
+            "event_peak": 88,
+            "resident_after": 24,
+            "added_io": 0,
+            "added_work": [
+              16576,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "compute",
+              "node": "r0_1",
+              "recipe": "reduce-16-to-32",
+              "output": 32
+            },
+            "resident_before": 24,
+            "event_peak": 32,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              128,
+              1
+            ]
+          },
+          {
+            "index": 14,
+            "event": {
+              "event": "compute",
+              "node": "r1_0",
+              "recipe": "reduce-32-to-32",
+              "output": 32
+            },
+            "resident_before": 16,
+            "event_peak": 20,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              96,
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "event": {
+              "event": "store",
+              "node": "r1_0"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 116,
+        "checked_alternatives": 256,
+        "terminal_cost": {
+          "io": 260,
+          "work": [
+            66592,
+            1
+          ]
+        },
+        "root_state": 32
+      }
     }
   },
   "contiguous": {
@@ -2480,7 +2782,9 @@
         1
       ]
     },
-    "root_state": 32
+    "root_state": 32,
+    "evaluated_states": 108,
+    "enumerated_alternatives": 256
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -3103,10 +3407,36 @@
     "optimizer_states": 116,
     "certificate_alternatives": 256,
     "oracle_states": 0,
-    "event_units": 16,
-    "semantic_units": 35,
-    "fixed64_optimizer_states": 37,
-    "charged_units": 460,
-    "cpu_seconds": 0.007376977000000062
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 116,
+      "prepared_certificate_alternatives": 256,
+      "prepared_event_replay_steps": 16,
+      "contiguous_states": 108,
+      "contiguous_alternatives": 256,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 35,
+      "fixed64_optimizer_states": 37,
+      "fixed64_event_replay_steps": 25,
+      "fixed64_semantic_node_evaluations": 35
+    },
+    "audit_units": 884,
+    "case_body_cpu_seconds": 0.006121170999999981
+  },
+  "record_identity": {
+    "index_order": 338,
+    "name": "integer-dot-g4-a127-b24",
+    "group": "integer",
+    "instance_file": "campaign/338-integer-dot-g4-a127-b24.json",
+    "input_sha256": "cf88411a5cea9928803f79b29273f946a4ad1f127608a9894a68ffb3f6fff6e4"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": true,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "hardness-no-scaled",
   "group": "hardness",
   "instance_file": "campaign/285-hardness-no-scaled.json",
@@ -517,7 +517,373 @@
       ]
     },
     "certificate": null,
-    "certificate_check": null
+    "certificate_check": null,
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 4016,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 4016,
+          "work": [
+            0,
+            1
+          ]
+        },
+        "peak": 752,
+        "error": null,
+        "final_root_state": 32,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "L1",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 704,
+            "resident_after": 704,
+            "added_io": 704,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "m1",
+              "recipe": "high-1",
+              "output": 16
+            },
+            "resident_before": 704,
+            "event_peak": 752,
+            "resident_after": 48,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "store",
+              "node": "m1"
+            },
+            "resident_before": 48,
+            "event_peak": 48,
+            "resident_after": 48,
+            "added_io": 48,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "delete",
+              "node": "m1"
+            },
+            "resident_before": 48,
+            "event_peak": 48,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "L0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 704,
+            "resident_after": 704,
+            "added_io": 704,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "m0",
+              "recipe": "low-0",
+              "output": 8
+            },
+            "resident_before": 704,
+            "event_peak": 712,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "store",
+              "node": "m0"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "delete",
+              "node": "m0"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "load",
+              "node": "Ls",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 704,
+            "resident_after": 704,
+            "added_io": 704,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "ms",
+              "recipe": "sentinel-middle",
+              "output": 8
+            },
+            "resident_before": 704,
+            "event_peak": 712,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "Hs",
+              "state": 64
+            },
+            "resident_before": 8,
+            "event_peak": 520,
+            "resident_after": 520,
+            "added_io": 512,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "compute",
+              "node": "fs",
+              "recipe": "sentinel-final",
+              "output": 8
+            },
+            "resident_before": 520,
+            "event_peak": 584,
+            "resident_after": 64,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "load",
+              "node": "H1",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 576,
+            "resident_after": 576,
+            "added_io": 512,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "load",
+              "node": "m1",
+              "state": 16
+            },
+            "resident_before": 576,
+            "event_peak": 624,
+            "resident_after": 624,
+            "added_io": 48,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 14,
+            "event": {
+              "event": "compute",
+              "node": "f1",
+              "recipe": "finish-high-1",
+              "output": 8
+            },
+            "resident_before": 624,
+            "event_peak": 712,
+            "resident_after": 152,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "event": {
+              "event": "load",
+              "node": "H0",
+              "state": 64
+            },
+            "resident_before": 152,
+            "event_peak": 664,
+            "resident_after": 664,
+            "added_io": 512,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 16,
+            "event": {
+              "event": "load",
+              "node": "m0",
+              "state": 8
+            },
+            "resident_before": 664,
+            "event_peak": 672,
+            "resident_after": 672,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 17,
+            "event": {
+              "event": "compute",
+              "node": "f0",
+              "recipe": "finish-low-0",
+              "output": 16
+            },
+            "resident_before": 672,
+            "event_peak": 752,
+            "resident_after": 232,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 18,
+            "event": {
+              "event": "compute",
+              "node": "c0",
+              "recipe": "comb-0-16-8",
+              "output": 32
+            },
+            "resident_before": 232,
+            "event_peak": 488,
+            "resident_after": 320,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 19,
+            "event": {
+              "event": "compute",
+              "node": "c1",
+              "recipe": "comb-1-32-8",
+              "output": 32
+            },
+            "resident_before": 320,
+            "event_peak": 576,
+            "resident_after": 256,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 20,
+            "event": {
+              "event": "store",
+              "node": "c1"
+            },
+            "resident_before": 256,
+            "event_peak": 256,
+            "resident_after": 256,
+            "added_io": 256,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": null
+    }
   },
   "contiguous": {
     "cost": {
@@ -527,7 +893,9 @@
         1
       ]
     },
-    "root_state": 32
+    "root_state": 32,
+    "evaluated_states": 72,
+    "enumerated_alternatives": 145
   },
   "oracle": {
     "status": "complete",
@@ -637,7 +1005,7 @@
     ],
     "discovered_states": 25231,
     "expanded_states": 20408,
-    "cpu_seconds": 0.7769784950000003
+    "cpu_seconds": 0.5787861879999998
   },
   "oracle_event_check": {
     "valid": true,
@@ -957,10 +1325,36 @@
     "optimizer_states": 99,
     "certificate_alternatives": 0,
     "oracle_states": 25231,
-    "event_units": 21,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 25351,
-    "cpu_seconds": 0.784600476
+    "oracle_expanded_states": 20408,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 99,
+      "prepared_certificate_alternatives": 0,
+      "prepared_event_replay_steps": 21,
+      "contiguous_states": 72,
+      "contiguous_alternatives": 145,
+      "oracle_expanded_states": 20408,
+      "oracle_event_replay_steps": 18,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 20763,
+    "case_body_cpu_seconds": 0.5868773270000001
+  },
+  "record_identity": {
+    "index_order": 285,
+    "name": "hardness-no-scaled",
+    "group": "hardness",
+    "instance_file": "campaign/285-hardness-no-scaled.json",
+    "input_sha256": "4851d8a54d11cc0b726fdac47fb91a37b78a8142056ea8108df68a38d1606a8d"
+  },
+  "evaluation_config": {
+    "exact": false,
+    "certificate": false,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

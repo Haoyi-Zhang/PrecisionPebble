@@ -6,7 +6,7 @@
     "oracle_complete": 286,
     "contractive_oracle_agreements": 283,
     "certificates": 361,
-    "charged_units": 166841,
+    "audit_units": 255792,
     "optimizer_states": 31161,
     "certificate_alternatives": 69035,
     "oracle_states": 60065,
@@ -15,58 +15,78 @@
     "max_nodes": 64,
     "max_recipes": 117,
     "max_capacity": 1024,
-    "case_cpu_seconds": 3.468607301,
+    "case_body_cpu_seconds": 2.642924086999999,
     "manifest": {
-      "schema": 1,
+      "schema": 2,
+      "index_sha256": "b7ffe0cdf6a358c953c2ead01f312bccdf575b4eba679b031551a34a17d4f279",
+      "campaign_config": {
+        "oracle_state_cap": 50000,
+        "oracle_case_cpu_cap_seconds": 15.0,
+        "audit_unit_cap": 600000,
+        "cumulative_case_body_cpu_cap_seconds": 2700.0
+      },
       "expected_cases": 364,
       "checked_cases": 364,
+      "incomplete_cases": 0,
       "complete": true,
-      "cumulative_charged_units": 166841,
-      "cumulative_case_cpu_seconds": 3.468607301000001,
-      "total_invocation_cpu_seconds": 4.2505859820000005,
-      "max_rss_kib": 113316,
+      "terminal_status": "complete",
+      "cumulative_audit_units": 255792,
+      "cumulative_case_body_cpu_seconds": 2.642924086999999,
+      "total_invocation_process_cpu_seconds": 3.231044784,
+      "max_rss_kib": 137708,
       "invocations": [
         {
-          "new_cases": 64,
-          "cpu_seconds": 0.0913870670000001,
-          "max_rss_kib": 93852
+          "new_cases_checked": 64,
+          "candidate_cases_evaluated": 64,
+          "invocation_process_cpu_seconds": 0.048406093000000094,
+          "max_rss_kib": 96168
         },
         {
-          "new_cases": 64,
-          "cpu_seconds": 0.11063686800000005,
-          "max_rss_kib": 94000
+          "new_cases_checked": 64,
+          "candidate_cases_evaluated": 64,
+          "invocation_process_cpu_seconds": 0.06568236599999999,
+          "max_rss_kib": 96940
         },
         {
-          "new_cases": 64,
-          "cpu_seconds": 0.08582045000000016,
-          "max_rss_kib": 94000
+          "new_cases_checked": 64,
+          "candidate_cases_evaluated": 64,
+          "invocation_process_cpu_seconds": 0.07018896399999996,
+          "max_rss_kib": 98732
         },
         {
-          "new_cases": 64,
-          "cpu_seconds": 0.09927379300000005,
-          "max_rss_kib": 93992
+          "new_cases_checked": 64,
+          "candidate_cases_evaluated": 64,
+          "invocation_process_cpu_seconds": 0.120557637,
+          "max_rss_kib": 100648
         },
         {
-          "new_cases": 64,
-          "cpu_seconds": 2.8064771119999996,
-          "max_rss_kib": 113316
+          "new_cases_checked": 64,
+          "candidate_cases_evaluated": 64,
+          "invocation_process_cpu_seconds": 2.128647699,
+          "max_rss_kib": 123624
         },
         {
-          "new_cases": 44,
-          "cpu_seconds": 1.056990692,
-          "max_rss_kib": 102572
+          "new_cases_checked": 44,
+          "candidate_cases_evaluated": 44,
+          "invocation_process_cpu_seconds": 0.797562025,
+          "max_rss_kib": 137708
         }
       ],
+      "timing_semantics": {
+        "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the 2700-second campaign cap.",
+        "invocation_process_cpu_seconds": "Process CPU for one reproduce.py invocation, including resume validation, JSON I/O, case bodies, and manifest writing; it is recorded separately and is not the cap quantity.",
+        "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+      },
       "limits": {
         "address_limit_bytes": 3221225472,
         "affinity": [
           0
         ],
         "workers": 1,
-        "campaign_unit_cap": 600000,
-        "campaign_cpu_cap_seconds": 2700.0,
         "oracle_state_cap": 50000,
-        "oracle_cpu_cap_seconds": 15.0
+        "oracle_case_cpu_cap_seconds": 15.0,
+        "audit_unit_cap": 600000,
+        "cumulative_case_body_cpu_cap_seconds": 2700.0
       }
     }
   },
@@ -77,7 +97,7 @@
       "max_nodes": 5,
       "oracles": 256,
       "certificates": 256,
-      "charged_units": 7332
+      "audit_units": 10744
     },
     {
       "group": "extended",
@@ -85,7 +105,7 @@
       "max_nodes": 7,
       "oracles": 16,
       "certificates": 16,
-      "charged_units": 1442
+      "audit_units": 1967
     },
     {
       "group": "separation",
@@ -93,7 +113,7 @@
       "max_nodes": 10,
       "oracles": 8,
       "certificates": 8,
-      "charged_units": 2336
+      "audit_units": 2728
     },
     {
       "group": "control",
@@ -101,7 +121,7 @@
       "max_nodes": 12,
       "oracles": 4,
       "certificates": 3,
-      "charged_units": 3413
+      "audit_units": 2258
     },
     {
       "group": "hardness",
@@ -109,7 +129,7 @@
       "max_nodes": 14,
       "oracles": 2,
       "certificates": 0,
-      "charged_units": 51643
+      "audit_units": 42114
     },
     {
       "group": "scaling",
@@ -117,7 +137,7 @@
       "max_nodes": 64,
       "oracles": 0,
       "certificates": 24,
-      "charged_units": 47200
+      "audit_units": 93000
     },
     {
       "group": "integer",
@@ -125,7 +145,7 @@
       "max_nodes": 31,
       "oracles": 0,
       "certificates": 54,
-      "charged_units": 53475
+      "audit_units": 102981
     }
   ],
   "integer": {

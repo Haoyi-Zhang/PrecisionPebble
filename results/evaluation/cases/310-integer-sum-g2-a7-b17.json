@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "integer-sum-g2-a7-b17",
   "group": "integer",
   "instance_file": "campaign/310-integer-sum-g2-a7-b17.json",
@@ -322,6 +322,110 @@
         ]
       },
       "root_state": 8
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 33,
+        "work": [
+          248,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 33,
+          "work": [
+            248,
+            1
+          ]
+        },
+        "peak": 33,
+        "error": null,
+        "final_root_state": 8,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "s0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "s1",
+              "state": 64
+            },
+            "resident_before": 16,
+            "event_peak": 32,
+            "resident_after": 32,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "r0_0",
+              "recipe": "reduce-64-to-8",
+              "output": 8
+            },
+            "resident_before": 32,
+            "event_peak": 33,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              248,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "store",
+              "node": "r0_0"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 14,
+        "checked_alternatives": 22,
+        "terminal_cost": {
+          "io": 33,
+          "work": [
+            248,
+            1
+          ]
+        },
+        "root_state": 8
+      }
     }
   },
   "contiguous": {
@@ -332,7 +436,9 @@
         1
       ]
     },
-    "root_state": 8
+    "root_state": 8,
+    "evaluated_states": 14,
+    "enumerated_alternatives": 22
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -340,20 +446,7 @@
     "cost": null,
     "root_state": null,
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "semantic": {
       "applicable": false,
       "valid": true,
@@ -396,10 +489,36 @@
     "optimizer_states": 14,
     "certificate_alternatives": 22,
     "oracle_states": 0,
-    "event_units": 4,
-    "semantic_units": 5,
-    "fixed64_optimizer_states": 1,
-    "charged_units": 46,
-    "cpu_seconds": 0.0009877880000002115
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 14,
+      "prepared_certificate_alternatives": 22,
+      "prepared_event_replay_steps": 4,
+      "contiguous_states": 14,
+      "contiguous_alternatives": 22,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 5,
+      "fixed64_optimizer_states": 1,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 82,
+    "case_body_cpu_seconds": 0.0009164579999998423
+  },
+  "record_identity": {
+    "index_order": 310,
+    "name": "integer-sum-g2-a7-b17",
+    "group": "integer",
+    "instance_file": "campaign/310-integer-sum-g2-a7-b17.json",
+    "input_sha256": "14b780cdd666ebbe76cc0e2d159bce3129db8bcd852bc061688a6cdec677fb66"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": true,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

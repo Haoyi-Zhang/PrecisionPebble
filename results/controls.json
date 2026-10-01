@@ -1,13 +1,20 @@
 {
-  "schema": 1,
+  "schema": 2,
   "positive_checks": [
     {
       "name": "valid-certificate",
       "accepted": true
     },
     {
-      "name": "valid-expansive-valley-witness",
+      "name": "valid-cost-trace-certificate-claim",
       "accepted": true
+    },
+    {
+      "name": "frozen-oracle-reconstructed-expansive-valley-witness",
+      "source": "Frozen from the deterministic configuration-oracle predecessor reconstruction; replayed separately by the event checker.",
+      "accepted": true,
+      "observed_io": 33,
+      "observed_peak": 18
     }
   ],
   "reference_equation_checks": [
@@ -57,14 +64,18 @@
     },
     {
       "name": "changed-claimed-optimum",
-      "rejected": true
+      "rejected": true,
+      "checker_errors": [
+        "claimed/event cost mismatch: claimed={'io': 90, 'work': [0, 1]}, recomputed={'io': 89, 'work': [0, 1]}",
+        "claimed/certificate terminal-cost mismatch: claimed={'io': 90, 'work': [0, 1]}, recomputed={'io': 89, 'work': [0, 1]}"
+      ]
     },
     {
       "name": "corrupted-table-cost",
       "rejected": true
     },
     {
-      "name": "removed-table-dependency",
+      "name": "removed-table-state",
       "rejected": true
     },
     {
@@ -84,7 +95,7 @@
       "rejected": true
     }
   ],
-  "positive_passes": 2,
+  "positive_passes": 3,
   "reference_equation_passes": 5,
   "negative_passes": 10,
   "valid": true

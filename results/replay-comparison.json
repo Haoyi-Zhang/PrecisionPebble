@@ -1,7 +1,8 @@
 {
-  "schema": 1,
+  "schema": 2,
   "reference_cases": 364,
   "replay_cases": 364,
   "logical_match": true,
+  "validation_errors": [],
   "mismatches": []
 }

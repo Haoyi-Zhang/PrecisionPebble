@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "integer-abs-g4-a127-b17",
   "group": "integer",
   "instance_file": "campaign/355-integer-abs-g4-a127-b17.json",
@@ -33,20 +33,7 @@
     "root_state": null,
     "spill_edges": [],
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "certificate": {
       "schema": 1,
       "instance": "integer-abs-g4-a127-b17",
@@ -174,11 +161,27 @@
       "checked_alternatives": 184,
       "terminal_cost": null,
       "root_state": null
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": null,
+      "event_check": null,
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 27,
+        "checked_alternatives": 184,
+        "terminal_cost": null,
+        "root_state": null
+      }
     }
   },
   "contiguous": {
     "cost": null,
-    "root_state": null
+    "root_state": null,
+    "evaluated_states": 27,
+    "enumerated_alternatives": 184
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -186,20 +189,7 @@
     "cost": null,
     "root_state": null,
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "semantic": {
       "applicable": false,
       "valid": true,
@@ -216,10 +206,36 @@
     "optimizer_states": 27,
     "certificate_alternatives": 184,
     "oracle_states": 0,
-    "event_units": 0,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 3,
-    "charged_units": 214,
-    "cpu_seconds": 0.001701262999999953
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 27,
+      "prepared_certificate_alternatives": 184,
+      "prepared_event_replay_steps": 0,
+      "contiguous_states": 27,
+      "contiguous_alternatives": 184,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 3,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 425,
+    "case_body_cpu_seconds": 0.0016384379999998533
+  },
+  "record_identity": {
+    "index_order": 355,
+    "name": "integer-abs-g4-a127-b17",
+    "group": "integer",
+    "instance_file": "campaign/355-integer-abs-g4-a127-b17.json",
+    "input_sha256": "a52a4515e3f21a5792a6dccae97ecfa313e5856a5d47584b30bd9cee1a972552"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": true,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

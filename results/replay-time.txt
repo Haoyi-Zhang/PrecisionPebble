@@ -1,10 +1,9 @@
-Host-dependent clean-replay measurement
-
-User time (seconds): 15.04
-System time (seconds): 0.96
-Elapsed wall time (h:mm:ss or m:ss): 0:11.55
-Maximum resident set size (KiB): 134380
-Swaps: 0
-Exit status: 0
-
-The measured workflow was the documented six replay chunks, controls, literal reference-equation checks, unit tests, summary generation, and fieldwise comparison. Timing and memory are informational and are excluded from logical replay equality.
+Six sequential reproduce.py invocations after the P2 repairs
+user CPU seconds: 8.88
+system CPU seconds: 0.45
+external process CPU seconds: 9.33
+elapsed seconds: 6.96
+maximum process-tree RSS KiB: 137748
+swaps: 0
+exit status: 0
+The campaign cap uses cumulative case-body process CPU from the manifest, not these external totals.

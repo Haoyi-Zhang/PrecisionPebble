@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "note": "structural coverage audit, not formal verification",
+  "obligations": [
+    {
+      "id": "O1",
+      "obligation": "Operational semantics",
+      "criterion": "states, allocation, atomic recipes, transfers, and objective are defined",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O2",
+      "obligation": "Feasibility domain",
+      "criterion": "purity, non-overwrite, rooted in-tree, and unique consumer are explicit",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O3",
+      "obligation": "Contraction scope",
+      "criterion": "output allocation is no larger than every input allocation",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O4",
+      "obligation": "Normalization",
+      "criterion": "an optimal schedule can be put in one-computation/spill-forest normal form",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O5",
+      "obligation": "Transfer identity",
+      "criterion": "the normal form has an exact edge/component transfer accounting",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O6",
+      "obligation": "Serialization exchange",
+      "criterion": "components can be serialized without increasing capacity or I/O under contraction",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O7",
+      "obligation": "DP soundness",
+      "criterion": "every recurrence choice realizes a feasible schedule with the claimed cost",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O8",
+      "obligation": "DP completeness",
+      "criterion": "every normalized optimum is represented by a recurrence choice",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O9",
+      "obligation": "Complexity",
+      "criterion": "capacity dependence and encoding assumptions are stated as pseudopolynomial",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O10",
+      "obligation": "Separation upper bound",
+      "criterion": "a concrete unrestricted schedule attains 23t (89 at t=1)",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O11",
+      "obligation": "Separation lower bound",
+      "criterion": "every complete-subtree schedule costs at least 25t (91 at t=1)",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O12",
+      "obligation": "Expansive counterexample",
+      "criterion": "33/35/49 values are justified and contraction is not claimed necessary",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O13",
+      "obligation": "NP membership",
+      "criterion": "certificate size and polynomial-time verification are specified",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O14",
+      "obligation": "Reduction construction",
+      "criterion": "PARTITION mapping is polynomial and all weights/capacities are encoded explicitly",
+      "status": "covered",
+      "pattern_checks": "yes;yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O15",
+      "obligation": "Reduction iff",
+      "criterion": "both directions of the compulsory-floor equivalence are proved",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    },
+    {
+      "id": "O16",
+      "obligation": "Claim boundary",
+      "criterion": "no weak/strong NP qualifier or full-dichotomy claim is made",
+      "status": "covered",
+      "pattern_checks": "yes;yes",
+      "evidence": "paper/main.tex; artifact/proofs/core.md"
+    }
+  ],
+  "ok": true
+}

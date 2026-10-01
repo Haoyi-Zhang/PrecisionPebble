@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "small-s08-p2-b64",
   "group": "small",
   "instance_file": "campaign/139-small-s08-p2-b64.json",
@@ -23,20 +23,7 @@
     "root_state": null,
     "spill_edges": [],
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "certificate": {
       "schema": 1,
       "instance": "small-s08-p2-b64",
@@ -80,11 +67,27 @@
       "checked_alternatives": 8,
       "terminal_cost": null,
       "root_state": null
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": null,
+      "event_check": null,
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 6,
+        "checked_alternatives": 8,
+        "terminal_cost": null,
+        "root_state": null
+      }
     }
   },
   "contiguous": {
     "cost": null,
-    "root_state": null
+    "root_state": null,
+    "evaluated_states": 6,
+    "enumerated_alternatives": 8
   },
   "oracle": {
     "status": "complete",
@@ -92,7 +95,7 @@
     "events": [],
     "discovered_states": 6,
     "expanded_states": 6,
-    "cpu_seconds": 0.00020390999999997383
+    "cpu_seconds": 0.00015817400000006643
   },
   "oracle_event_check": null,
   "fixed64": null,
@@ -105,10 +108,36 @@
     "optimizer_states": 6,
     "certificate_alternatives": 8,
     "oracle_states": 6,
-    "event_units": 0,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 20,
-    "cpu_seconds": 0.000806453999999901
+    "oracle_expanded_states": 6,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 6,
+      "prepared_certificate_alternatives": 8,
+      "prepared_event_replay_steps": 0,
+      "contiguous_states": 6,
+      "contiguous_alternatives": 8,
+      "oracle_expanded_states": 6,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 34,
+    "case_body_cpu_seconds": 0.0004093369999998986
+  },
+  "record_identity": {
+    "index_order": 139,
+    "name": "small-s08-p2-b64",
+    "group": "small",
+    "instance_file": "campaign/139-small-s08-p2-b64.json",
+    "input_sha256": "34a14c893f74e0fa554085c3f29a4c4e2ab5df29b7f69a7c1ce426e1ee47d08a"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

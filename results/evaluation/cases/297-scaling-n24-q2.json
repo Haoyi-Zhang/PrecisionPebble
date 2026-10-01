@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "scaling-n24-q2",
   "group": "scaling",
   "instance_file": "campaign/297-scaling-n24-q2.json",
@@ -6705,6 +6705,458 @@
         ]
       },
       "root_state": 16
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 138,
+        "work": [
+          337,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 138,
+          "work": [
+            337,
+            1
+          ]
+        },
+        "peak": 48,
+        "error": null,
+        "final_root_state": 16,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 16
+            },
+            "resident_before": 0,
+            "event_peak": 12,
+            "resident_after": 12,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "v10",
+              "state": 16
+            },
+            "resident_before": 12,
+            "event_peak": 28,
+            "resident_after": 28,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "load",
+              "node": "v9",
+              "state": 16
+            },
+            "resident_before": 28,
+            "event_peak": 40,
+            "resident_after": 40,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "compute",
+              "node": "v11",
+              "recipe": "p16-v11",
+              "output": 16
+            },
+            "resident_before": 40,
+            "event_peak": 46,
+            "resident_after": 18,
+            "added_io": 0,
+            "added_work": [
+              54,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "compute",
+              "node": "v12",
+              "recipe": "p16-v12",
+              "output": 16
+            },
+            "resident_before": 18,
+            "event_peak": 20,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "load",
+              "node": "v15",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 26,
+            "resident_after": 26,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "load",
+              "node": "v16",
+              "state": 16
+            },
+            "resident_before": 26,
+            "event_peak": 42,
+            "resident_after": 42,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "v17",
+              "recipe": "p16-v17",
+              "output": 16
+            },
+            "resident_before": 42,
+            "event_peak": 48,
+            "resident_after": 20,
+            "added_io": 0,
+            "added_work": [
+              54,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "load",
+              "node": "v14",
+              "state": 16
+            },
+            "resident_before": 20,
+            "event_peak": 28,
+            "resident_after": 28,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "v18",
+              "recipe": "p16-v18",
+              "output": 16
+            },
+            "resident_before": 28,
+            "event_peak": 30,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "v13",
+              "state": 16
+            },
+            "resident_before": 16,
+            "event_peak": 32,
+            "resident_after": 32,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "compute",
+              "node": "v19",
+              "recipe": "p16-v19",
+              "output": 16
+            },
+            "resident_before": 32,
+            "event_peak": 34,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "compute",
+              "node": "v20",
+              "recipe": "p16-v20",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "load",
+              "node": "v8",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 22,
+            "resident_after": 22,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 14,
+            "event": {
+              "event": "compute",
+              "node": "v21",
+              "recipe": "p16-v21",
+              "output": 16
+            },
+            "resident_before": 22,
+            "event_peak": 24,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "event": {
+              "event": "load",
+              "node": "v1",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 30,
+            "resident_after": 30,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 16,
+            "event": {
+              "event": "load",
+              "node": "v3",
+              "state": 16
+            },
+            "resident_before": 30,
+            "event_peak": 42,
+            "resident_after": 42,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 17,
+            "event": {
+              "event": "compute",
+              "node": "v4",
+              "recipe": "p16-v4",
+              "output": 16
+            },
+            "resident_before": 42,
+            "event_peak": 48,
+            "resident_after": 36,
+            "added_io": 0,
+            "added_work": [
+              51,
+              1
+            ]
+          },
+          {
+            "index": 18,
+            "event": {
+              "event": "load",
+              "node": "v2",
+              "state": 16
+            },
+            "resident_before": 36,
+            "event_peak": 44,
+            "resident_after": 44,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 19,
+            "event": {
+              "event": "compute",
+              "node": "v5",
+              "recipe": "p16-v5",
+              "output": 16
+            },
+            "resident_before": 44,
+            "event_peak": 46,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 20,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "p16-v6",
+              "output": 16
+            },
+            "resident_before": 32,
+            "event_peak": 34,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 21,
+            "event": {
+              "event": "compute",
+              "node": "v7",
+              "recipe": "p16-v7",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 22,
+            "event": {
+              "event": "compute",
+              "node": "v22",
+              "recipe": "p16-v22",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 23,
+            "event": {
+              "event": "compute",
+              "node": "v23",
+              "recipe": "p16-v23",
+              "output": 16
+            },
+            "resident_before": 14,
+            "event_peak": 16,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 24,
+            "event": {
+              "event": "store",
+              "node": "v23"
+            },
+            "resident_before": 2,
+            "event_peak": 2,
+            "resident_after": 2,
+            "added_io": 2,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 407,
+        "checked_alternatives": 781,
+        "terminal_cost": {
+          "io": 138,
+          "work": [
+            337,
+            1
+          ]
+        },
+        "root_state": 16
+      }
     }
   },
   "contiguous": {
@@ -6715,7 +7167,9 @@
         1
       ]
     },
-    "root_state": 16
+    "root_state": 16,
+    "evaluated_states": 387,
+    "enumerated_alternatives": 759
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -6729,10 +7183,36 @@
     "optimizer_states": 407,
     "certificate_alternatives": 781,
     "oracle_states": 0,
-    "event_units": 25,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 1213,
-    "cpu_seconds": 0.017596763999999876
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 407,
+      "prepared_certificate_alternatives": 781,
+      "prepared_event_replay_steps": 25,
+      "contiguous_states": 387,
+      "contiguous_alternatives": 759,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 2359,
+    "case_body_cpu_seconds": 0.010628249999999895
+  },
+  "record_identity": {
+    "index_order": 297,
+    "name": "scaling-n24-q2",
+    "group": "scaling",
+    "instance_file": "campaign/297-scaling-n24-q2.json",
+    "input_sha256": "a4bd3bca58ee6ef23133fc47fa7b20afdb633efd7e375d0a4e042b4b82636347"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

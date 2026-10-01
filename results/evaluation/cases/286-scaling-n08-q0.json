@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "scaling-n08-q0",
   "group": "scaling",
   "instance_file": "campaign/286-scaling-n08-q0.json",
@@ -783,6 +783,193 @@
         ]
       },
       "root_state": 64
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 15,
+        "work": [
+          14,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 15,
+          "work": [
+            14,
+            1
+          ]
+        },
+        "peak": 15,
+        "error": null,
+        "final_root_state": 64,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 3,
+            "resident_after": 3,
+            "added_io": 3,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "v1",
+              "state": 64
+            },
+            "resident_before": 3,
+            "event_peak": 7,
+            "resident_after": 7,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v2",
+              "recipe": "hetero-v2",
+              "output": 64
+            },
+            "resident_before": 7,
+            "event_peak": 10,
+            "resident_after": 6,
+            "added_io": 0,
+            "added_work": [
+              4,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "load",
+              "node": "v3",
+              "state": 64
+            },
+            "resident_before": 6,
+            "event_peak": 9,
+            "resident_after": 9,
+            "added_io": 3,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "v4",
+              "state": 64
+            },
+            "resident_before": 9,
+            "event_peak": 13,
+            "resident_after": 13,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "v5",
+              "recipe": "hetero-v5",
+              "output": 64
+            },
+            "resident_before": 13,
+            "event_peak": 15,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              4,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "hetero-v6",
+              "output": 64
+            },
+            "resident_before": 8,
+            "event_peak": 9,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              3,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "v7",
+              "recipe": "hetero-v7",
+              "output": 64
+            },
+            "resident_before": 4,
+            "event_peak": 5,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              3,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "store",
+              "node": "v7"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 26,
+        "checked_alternatives": 30,
+        "terminal_cost": {
+          "io": 15,
+          "work": [
+            14,
+            1
+          ]
+        },
+        "root_state": 64
+      }
     }
   },
   "contiguous": {
@@ -793,7 +980,9 @@
         1
       ]
     },
-    "root_state": 64
+    "root_state": 64,
+    "evaluated_states": 26,
+    "enumerated_alternatives": 30
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -807,10 +996,36 @@
     "optimizer_states": 26,
     "certificate_alternatives": 30,
     "oracle_states": 0,
-    "event_units": 9,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 65,
-    "cpu_seconds": 0.0010457339999998538
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 26,
+      "prepared_certificate_alternatives": 30,
+      "prepared_event_replay_steps": 9,
+      "contiguous_states": 26,
+      "contiguous_alternatives": 30,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 121,
+    "case_body_cpu_seconds": 0.0009603130000002125
+  },
+  "record_identity": {
+    "index_order": 286,
+    "name": "scaling-n08-q0",
+    "group": "scaling",
+    "instance_file": "campaign/286-scaling-n08-q0.json",
+    "input_sha256": "5d6205fe6dab52152492609cb0c3097c421714d3f8248710596775de5c0fac62"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

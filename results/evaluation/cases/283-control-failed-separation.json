@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "control-failed-separation",
   "group": "control",
   "instance_file": "campaign/283-control-failed-separation.json",
@@ -1244,6 +1244,261 @@
         ]
       },
       "root_state": 32
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 108,
+        "work": [
+          432,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 108,
+          "work": [
+            432,
+            1
+          ]
+        },
+        "peak": 64,
+        "error": null,
+        "final_root_state": 32,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v1",
+              "state": 32
+            },
+            "resident_before": 0,
+            "event_peak": 32,
+            "resident_after": 32,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "v2",
+              "recipe": "p32-v2",
+              "output": 32
+            },
+            "resident_before": 32,
+            "event_peak": 48,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              132,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v3",
+              "recipe": "p32-v3",
+              "output": 32
+            },
+            "resident_before": 16,
+            "event_peak": 24,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              66,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "load",
+              "node": "v4",
+              "state": 32
+            },
+            "resident_before": 8,
+            "event_peak": 40,
+            "resident_after": 40,
+            "added_io": 32,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "v5",
+              "state": 32
+            },
+            "resident_before": 40,
+            "event_peak": 56,
+            "resident_after": 56,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "p32-v6",
+              "output": 32
+            },
+            "resident_before": 56,
+            "event_peak": 64,
+            "resident_after": 48,
+            "added_io": 0,
+            "added_work": [
+              66,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "v7",
+              "recipe": "p32-v7",
+              "output": 32
+            },
+            "resident_before": 48,
+            "event_peak": 52,
+            "resident_after": 44,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "v8",
+              "recipe": "p32-v8",
+              "output": 32
+            },
+            "resident_before": 44,
+            "event_peak": 48,
+            "resident_after": 12,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "compute",
+              "node": "v9",
+              "recipe": "p32-v9",
+              "output": 32
+            },
+            "resident_before": 12,
+            "event_peak": 16,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 32
+            },
+            "resident_before": 4,
+            "event_peak": 28,
+            "resident_after": 28,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "compute",
+              "node": "v10",
+              "recipe": "p32-v10",
+              "output": 32
+            },
+            "resident_before": 28,
+            "event_peak": 32,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "compute",
+              "node": "v11",
+              "recipe": "p32-v11",
+              "output": 32
+            },
+            "resident_before": 4,
+            "event_peak": 8,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "store",
+              "node": "v11"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 50,
+        "checked_alternatives": 75,
+        "terminal_cost": {
+          "io": 108,
+          "work": [
+            432,
+            1
+          ]
+        },
+        "root_state": 32
+      }
     }
   },
   "contiguous": {
@@ -1254,7 +1509,9 @@
         1
       ]
     },
-    "root_state": 32
+    "root_state": 32,
+    "evaluated_states": 49,
+    "enumerated_alternatives": 75
   },
   "oracle": {
     "status": "complete",
@@ -1341,7 +1598,7 @@
     ],
     "discovered_states": 2507,
     "expanded_states": 1211,
-    "cpu_seconds": 0.056340424000000056
+    "cpu_seconds": 0.031095571000000044
   },
   "oracle_event_check": {
     "valid": true,
@@ -1583,10 +1840,36 @@
     "optimizer_states": 50,
     "certificate_alternatives": 75,
     "oracle_states": 2507,
-    "event_units": 13,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 2645,
-    "cpu_seconds": 0.05895894200000007
+    "oracle_expanded_states": 1211,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 50,
+      "prepared_certificate_alternatives": 75,
+      "prepared_event_replay_steps": 13,
+      "contiguous_states": 49,
+      "contiguous_alternatives": 75,
+      "oracle_expanded_states": 1211,
+      "oracle_event_replay_steps": 13,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 1486,
+    "case_body_cpu_seconds": 0.03310109300000008
+  },
+  "record_identity": {
+    "index_order": 283,
+    "name": "control-failed-separation",
+    "group": "control",
+    "instance_file": "campaign/283-control-failed-separation.json",
+    "input_sha256": "a52b6f86cd0e5aad9f1809c682afdacb0bf8e26c28c994c80327c8cab48619ac"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

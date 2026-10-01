@@ -1,4 +1,4 @@
-"""Independent, literal cost implementation of Bhattacharjee et al. Eq. (6).
+"""Separated, literal cost implementation of Bhattacharjee et al. Eq. (6).
 
 This module is intentionally separate from :mod:`src.contiguous` and the
 preparation-aware optimizer.  It transcribes the fixed-node-weight k-ary tree

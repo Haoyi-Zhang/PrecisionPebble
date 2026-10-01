@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "control-separation-89-91",
   "group": "control",
   "instance_file": "campaign/280-control-separation-89-91.json",
@@ -805,6 +805,272 @@
         ]
       },
       "root_state": 64
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 89,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 89,
+          "work": [
+            0,
+            1
+          ]
+        },
+        "peak": 32,
+        "error": null,
+        "final_root_state": 64,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "sb1",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "sb2",
+              "state": 64
+            },
+            "resident_before": 8,
+            "event_peak": 24,
+            "resident_after": 24,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "b",
+              "recipe": "combine-b",
+              "output": 64
+            },
+            "resident_before": 24,
+            "event_peak": 32,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "store",
+              "node": "b"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "delete",
+              "node": "b"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "load",
+              "node": "sa",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 31,
+            "resident_after": 31,
+            "added_io": 31,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "A",
+              "recipe": "shrink-A",
+              "output": 64
+            },
+            "resident_before": 31,
+            "event_peak": 32,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "load",
+              "node": "sc1",
+              "state": 64
+            },
+            "resident_before": 1,
+            "event_peak": 9,
+            "resident_after": 9,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "load",
+              "node": "sc2",
+              "state": 64
+            },
+            "resident_before": 9,
+            "event_peak": 18,
+            "resident_after": 18,
+            "added_io": 9,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "c",
+              "recipe": "combine-c",
+              "output": 64
+            },
+            "resident_before": 18,
+            "event_peak": 26,
+            "resident_after": 9,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "b",
+              "state": 64
+            },
+            "resident_before": 9,
+            "event_peak": 17,
+            "resident_after": 17,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "compute",
+              "node": "d",
+              "recipe": "reduce-d",
+              "output": 64
+            },
+            "resident_before": 17,
+            "event_peak": 18,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "compute",
+              "node": "z",
+              "recipe": "root",
+              "output": 64
+            },
+            "resident_before": 2,
+            "event_peak": 3,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "store",
+              "node": "z"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 26,
+        "checked_alternatives": 31,
+        "terminal_cost": {
+          "io": 89,
+          "work": [
+            0,
+            1
+          ]
+        },
+        "root_state": 64
+      }
     }
   },
   "contiguous": {
@@ -815,7 +1081,9 @@
         1
       ]
     },
-    "root_state": 64
+    "root_state": 64,
+    "evaluated_states": 25,
+    "enumerated_alternatives": 31
   },
   "oracle": {
     "status": "complete",
@@ -902,7 +1170,7 @@
     ],
     "discovered_states": 221,
     "expanded_states": 200,
-    "cpu_seconds": 0.0034908490000000736
+    "cpu_seconds": 0.0030116530000000585
   },
   "oracle_event_check": {
     "valid": true,
@@ -1155,10 +1423,36 @@
     "optimizer_states": 26,
     "certificate_alternatives": 31,
     "oracle_states": 221,
-    "event_units": 14,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 292,
-    "cpu_seconds": 0.004634076000000098
+    "oracle_expanded_states": 200,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 26,
+      "prepared_certificate_alternatives": 31,
+      "prepared_event_replay_steps": 14,
+      "contiguous_states": 25,
+      "contiguous_alternatives": 31,
+      "oracle_expanded_states": 200,
+      "oracle_event_replay_steps": 14,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 341,
+    "case_body_cpu_seconds": 0.004020397999999981
+  },
+  "record_identity": {
+    "index_order": 280,
+    "name": "control-separation-89-91",
+    "group": "control",
+    "instance_file": "campaign/280-control-separation-89-91.json",
+    "input_sha256": "8d46463f4f1fdb51564653b4dc4431c7f02cef17412b534b0c2eb7f96895ea34"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

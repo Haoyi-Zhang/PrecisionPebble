@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "scaling-n12-q2",
   "group": "scaling",
   "instance_file": "campaign/291-scaling-n12-q2.json",
@@ -23,20 +23,7 @@
     "root_state": null,
     "spill_edges": [],
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "certificate": {
       "schema": 1,
       "instance": "scaling-n12-q2",
@@ -130,11 +117,27 @@
       "checked_alternatives": 38,
       "terminal_cost": null,
       "root_state": null
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": null,
+      "event_check": null,
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 14,
+        "checked_alternatives": 38,
+        "terminal_cost": null,
+        "root_state": null
+      }
     }
   },
   "contiguous": {
     "cost": null,
-    "root_state": null
+    "root_state": null,
+    "evaluated_states": 14,
+    "enumerated_alternatives": 38
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -148,10 +151,36 @@
     "optimizer_states": 14,
     "certificate_alternatives": 38,
     "oracle_states": 0,
-    "event_units": 0,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 52,
-    "cpu_seconds": 0.0008381220000002187
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 14,
+      "prepared_certificate_alternatives": 38,
+      "prepared_event_replay_steps": 0,
+      "contiguous_states": 14,
+      "contiguous_alternatives": 38,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 104,
+    "case_body_cpu_seconds": 0.0008230299999998358
+  },
+  "record_identity": {
+    "index_order": 291,
+    "name": "scaling-n12-q2",
+    "group": "scaling",
+    "instance_file": "campaign/291-scaling-n12-q2.json",
+    "input_sha256": "95d7985726c72d9db472df85a187f7109cf60969b0be6647b38b3e66d585c57f"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

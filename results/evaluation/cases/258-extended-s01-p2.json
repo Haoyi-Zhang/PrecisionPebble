@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "extended-s01-p2",
   "group": "extended",
   "instance_file": "campaign/258-extended-s01-p2.json",
@@ -23,20 +23,7 @@
     "root_state": null,
     "spill_edges": [],
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "certificate": {
       "schema": 1,
       "instance": "extended-s01-p2",
@@ -96,11 +83,27 @@
       "checked_alternatives": 16,
       "terminal_cost": null,
       "root_state": null
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": null,
+      "event_check": null,
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 10,
+        "checked_alternatives": 16,
+        "terminal_cost": null,
+        "root_state": null
+      }
     }
   },
   "contiguous": {
     "cost": null,
-    "root_state": null
+    "root_state": null,
+    "evaluated_states": 10,
+    "enumerated_alternatives": 16
   },
   "oracle": {
     "status": "complete",
@@ -108,7 +111,7 @@
     "events": [],
     "discovered_states": 4,
     "expanded_states": 4,
-    "cpu_seconds": 5.0009000000184045e-05
+    "cpu_seconds": 4.100100000004048e-05
   },
   "oracle_event_check": null,
   "fixed64": null,
@@ -121,10 +124,36 @@
     "optimizer_states": 10,
     "certificate_alternatives": 16,
     "oracle_states": 4,
-    "event_units": 0,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 30,
-    "cpu_seconds": 0.0005529559999999378
+    "oracle_expanded_states": 4,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 10,
+      "prepared_certificate_alternatives": 16,
+      "prepared_event_replay_steps": 0,
+      "contiguous_states": 10,
+      "contiguous_alternatives": 16,
+      "oracle_expanded_states": 4,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 56,
+    "case_body_cpu_seconds": 0.0004532520000000151
+  },
+  "record_identity": {
+    "index_order": 258,
+    "name": "extended-s01-p2",
+    "group": "extended",
+    "instance_file": "campaign/258-extended-s01-p2.json",
+    "input_sha256": "0b85c509ef84b23ef6ea76a4321b7baf87982098aab32a927334b9a5cae1cd06"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

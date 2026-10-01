@@ -5,8 +5,8 @@ import time
 from pathlib import Path
 from typing import Any
 
-from .bellman_checker import check_certificate
-from .contiguous import contiguous_policy
+from .claim_checker import check_solution_claim
+from .contiguous import evaluate_contiguous_policy
 from .cost import cost_to_json
 from .event_checker import check_events
 from .generators import fixed64_projection
@@ -16,32 +16,36 @@ from .oracle import configuration_oracle
 from .semantic import check_integer_semantics
 
 
-def evaluate_case(repo: Path, record: dict[str, Any], *, oracle_state_cap: int = 50_000, oracle_cpu_cap: float = 15.0) -> dict[str, Any]:
+def _semantic_node_evaluations(instance, semantic: dict[str, Any]) -> int:
+    if not semantic.get("applicable"):
+        return 0
+    return len(semantic.get("patterns", [])) * max(1, len(instance.internal))
+
+
+def evaluate_case(
+    repo: Path,
+    record: dict[str, Any],
+    *,
+    oracle_state_cap: int = 50_000,
+    oracle_cpu_cap: float = 15.0,
+) -> dict[str, Any]:
     started = time.process_time()
     instance = load_instance(repo / "instances" / record["file"])
     errors: list[str] = []
 
     optimizer = PreparationAwareOptimizer(instance, exact=bool(record["exact"]))
     solution = optimizer.solve()
-    event_check = check_events(instance, solution.events)
-    if solution.cost is None:
-        if solution.events:
-            errors.append("infeasible solution unexpectedly emitted events")
-    else:
-        if not event_check.valid:
-            errors.append(f"event checker rejected optimizer witness: {event_check.error}")
-        elif event_check.cost != solution.cost:
-            errors.append(f"optimizer/event cost mismatch: {solution.cost} != {event_check.cost}")
+    claimed_cost = cost_to_json(solution.cost)
+    retained_certificate = solution.certificate if record["certificate"] else None
+    solution_claim = check_solution_claim(instance, claimed_cost, solution.events, retained_certificate)
+    if not solution_claim["valid"]:
+        errors.extend(f"prepared claim: {message}" for message in solution_claim["errors"])
+    event_check = solution_claim["event_check"]
+    certificate_check = solution_claim["certificate_check"]
 
-    certificate_check: dict[str, Any] | None = None
-    if record["certificate"]:
-        certificate_check = check_certificate(instance, solution.certificate)
-        if not certificate_check["valid"]:
-            errors.append(f"Bellman certificate rejected: {certificate_check['error']}")
-        elif certificate_check["terminal_cost"] != cost_to_json(solution.cost):
-            errors.append("certificate terminal cost disagrees with optimizer")
-
-    contiguous_cost, contiguous_state = contiguous_policy(instance)
+    contiguous_result = evaluate_contiguous_policy(instance)
+    contiguous_cost = contiguous_result.cost
+    contiguous_state = contiguous_result.root_state
 
     oracle_result = None
     oracle_event_check = None
@@ -50,16 +54,18 @@ def evaluate_case(repo: Path, record: dict[str, Any], *, oracle_state_cap: int =
         if oracle_result.status != "complete":
             errors.append(f"configuration oracle stopped at {oracle_result.status}")
         if oracle_result.cost is not None:
-            oracle_event_check = check_events(instance, oracle_result.events)
-            if not oracle_event_check.valid:
-                errors.append(f"oracle witness rejected: {oracle_event_check.error}")
-            elif oracle_event_check.cost != oracle_result.cost:
+            checked_oracle_events = check_events(instance, oracle_result.events)
+            oracle_event_check = checked_oracle_events.to_json()
+            if not checked_oracle_events.valid:
+                errors.append(f"oracle witness rejected: {checked_oracle_events.error}")
+            elif checked_oracle_events.cost != oracle_result.cost:
                 errors.append("oracle/event cost mismatch")
         if record["exact"] and oracle_result.status == "complete" and oracle_result.cost != solution.cost:
             errors.append(f"exact recurrence/oracle mismatch: {solution.cost} != {oracle_result.cost}")
 
     semantic = {"applicable": False, "valid": True, "patterns": []}
     fixed64: dict[str, Any] | None = None
+    fixed_instance = None
     if record["semantic"]:
         if solution.cost is not None:
             semantic = check_integer_semantics(instance, solution.events)
@@ -67,11 +73,16 @@ def evaluate_case(repo: Path, record: dict[str, Any], *, oracle_state_cap: int =
                 errors.append("integer semantic checker rejected a typed schedule")
         fixed_instance = fixed64_projection(instance)
         fixed_solution = PreparationAwareOptimizer(fixed_instance, exact=True).solve()
-        fixed_event_check = check_events(fixed_instance, fixed_solution.events)
+        fixed_claim = check_solution_claim(
+            fixed_instance,
+            cost_to_json(fixed_solution.cost),
+            fixed_solution.events,
+            None,
+        )
+        if not fixed_claim["valid"]:
+            errors.extend(f"fixed-64 claim: {message}" for message in fixed_claim["errors"])
         fixed_semantic = {"applicable": False, "valid": True, "patterns": []}
         if fixed_solution.cost is not None:
-            if not fixed_event_check.valid or fixed_event_check.cost != fixed_solution.cost:
-                errors.append("fixed-64 witness check failed")
             fixed_semantic = check_integer_semantics(fixed_instance, fixed_solution.events)
             if not fixed_semantic["valid"]:
                 errors.append("integer semantic checker rejected a fixed-64 schedule")
@@ -79,7 +90,7 @@ def evaluate_case(repo: Path, record: dict[str, Any], *, oracle_state_cap: int =
             "cost": cost_to_json(fixed_solution.cost),
             "root_state": fixed_solution.root_state,
             "events": fixed_solution.events,
-            "event_check": fixed_event_check.to_json(),
+            "event_check": fixed_claim["event_check"],
             "semantic": fixed_semantic,
             "optimizer_states": len(fixed_solution.certificate["states"]),
         }
@@ -117,17 +128,35 @@ def evaluate_case(repo: Path, record: dict[str, Any], *, oracle_state_cap: int =
 
     optimizer_states = len(solution.certificate["states"])
     certificate_alternatives = 0 if certificate_check is None else int(certificate_check["checked_alternatives"])
-    oracle_states = 0 if oracle_result is None else int(oracle_result.discovered_states)
-    event_units = len(solution.events)
-    semantic_units = 0
-    if semantic["applicable"]:
-        semantic_units = len(semantic["patterns"]) * max(1, len(instance.internal))
-    fixed_units = 0 if fixed64 is None else int(fixed64["optimizer_states"])
-    charged_units = optimizer_states + certificate_alternatives + oracle_states + event_units + semantic_units + fixed_units
+    oracle_discovered_states = 0 if oracle_result is None else int(oracle_result.discovered_states)
+    oracle_expanded_states = 0 if oracle_result is None else int(oracle_result.expanded_states)
+    prepared_event_replay_steps = 0 if event_check is None else len(event_check["trace"])
+    oracle_event_replay_steps = 0 if oracle_event_check is None else len(oracle_event_check["trace"])
+    typed_semantic_node_evaluations = _semantic_node_evaluations(instance, semantic)
+    fixed64_optimizer_states = 0 if fixed64 is None else int(fixed64["optimizer_states"])
+    fixed64_event_replay_steps = 0 if fixed64 is None or fixed64["event_check"] is None else len(fixed64["event_check"]["trace"])
+    fixed64_semantic_node_evaluations = 0
+    if fixed64 is not None and fixed_instance is not None:
+        fixed64_semantic_node_evaluations = _semantic_node_evaluations(fixed_instance, fixed64["semantic"])
+
+    audit_components = {
+        "prepared_optimizer_states": optimizer_states,
+        "prepared_certificate_alternatives": certificate_alternatives,
+        "prepared_event_replay_steps": prepared_event_replay_steps,
+        "contiguous_states": contiguous_result.evaluated_states,
+        "contiguous_alternatives": contiguous_result.enumerated_alternatives,
+        "oracle_expanded_states": oracle_expanded_states,
+        "oracle_event_replay_steps": oracle_event_replay_steps,
+        "typed_semantic_node_evaluations": typed_semantic_node_evaluations,
+        "fixed64_optimizer_states": fixed64_optimizer_states,
+        "fixed64_event_replay_steps": fixed64_event_replay_steps,
+        "fixed64_semantic_node_evaluations": fixed64_semantic_node_evaluations,
+    }
+    audit_units = sum(audit_components.values())
 
     elapsed = time.process_time() - started
     result = {
-        "schema": 1,
+        "schema": 2,
         "name": instance.name,
         "group": instance.group,
         "instance_file": record["file"],
@@ -143,28 +172,33 @@ def evaluate_case(repo: Path, record: dict[str, Any], *, oracle_state_cap: int =
         },
         "prepared": {
             "exact_mode": bool(record["exact"]),
-            "cost": cost_to_json(solution.cost),
+            "cost": claimed_cost,
             "root_state": solution.root_state,
             "spill_edges": [list(edge) for edge in solution.spill_edges],
             "events": solution.events,
-            "event_check": event_check.to_json(),
-            "certificate": solution.certificate if record["certificate"] else None,
+            "event_check": event_check,
+            "certificate": retained_certificate,
             "certificate_check": certificate_check,
+            "claim_check": solution_claim,
         },
-        "contiguous": {"cost": cost_to_json(contiguous_cost), "root_state": contiguous_state},
+        "contiguous": {
+            "cost": cost_to_json(contiguous_cost),
+            "root_state": contiguous_state,
+            "evaluated_states": contiguous_result.evaluated_states,
+            "enumerated_alternatives": contiguous_result.enumerated_alternatives,
+        },
         "oracle": None if oracle_result is None else oracle_result.to_json(),
-        "oracle_event_check": None if oracle_event_check is None else oracle_event_check.to_json(),
+        "oracle_event_check": oracle_event_check,
         "fixed64": fixed64,
         "semantic": semantic,
         "metrics": {
             "optimizer_states": optimizer_states,
             "certificate_alternatives": certificate_alternatives,
-            "oracle_states": oracle_states,
-            "event_units": event_units,
-            "semantic_units": semantic_units,
-            "fixed64_optimizer_states": fixed_units,
-            "charged_units": charged_units,
-            "cpu_seconds": elapsed,
+            "oracle_states": oracle_discovered_states,
+            "oracle_expanded_states": oracle_expanded_states,
+            "audit_unit_components": audit_components,
+            "audit_units": audit_units,
+            "case_body_cpu_seconds": elapsed,
         },
     }
     return result

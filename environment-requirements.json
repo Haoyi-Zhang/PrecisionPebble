@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "required": {
+    "python": ">=3.10",
+    "python_dependencies": "standard library only",
+    "network": "not required",
+    "gpu": "not required",
+    "external_solver": "not required"
+  },
+  "fast_check_commands": [
+    "python3 -m unittest discover -s tests -v",
+    "python3 tools/check_controls.py --output results/reviewer-controls.json",
+    "python3 tools/check_reference_equation.py --output results/reviewer-reference-equation.json"
+  ],
+  "reproduction_entry_point": "python3 reproduce.py",
+  "validated_interpreter": {
+    "implementation": "CPython",
+    "major": 3,
+    "minor": 13
+  }
+}

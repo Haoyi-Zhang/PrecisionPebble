@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "small-s01-p2-b64",
   "group": "small",
   "instance_file": "campaign/027-small-s01-p2-b64.json",
@@ -233,6 +233,111 @@
         ]
       },
       "root_state": 32
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 28,
+        "work": [
+          132,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 28,
+          "work": [
+            132,
+            1
+          ]
+        },
+        "peak": 36,
+        "error": null,
+        "final_root_state": 32,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 32
+            },
+            "resident_before": 0,
+            "event_peak": 24,
+            "resident_after": 24,
+            "added_io": 24,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "v1",
+              "recipe": "p32-v1",
+              "output": 32
+            },
+            "resident_before": 24,
+            "event_peak": 36,
+            "resident_after": 12,
+            "added_io": 0,
+            "added_work": [
+              99,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v2",
+              "recipe": "p32-v2",
+              "output": 32
+            },
+            "resident_before": 12,
+            "event_peak": 16,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              33,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "store",
+              "node": "v2"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 5,
+        "checked_alternatives": 5,
+        "terminal_cost": {
+          "io": 28,
+          "work": [
+            132,
+            1
+          ]
+        },
+        "root_state": 32
+      }
     }
   },
   "contiguous": {
@@ -243,7 +348,9 @@
         1
       ]
     },
-    "root_state": 32
+    "root_state": 32,
+    "evaluated_states": 5,
+    "enumerated_alternatives": 5
   },
   "oracle": {
     "status": "complete",
@@ -279,7 +386,7 @@
     ],
     "discovered_states": 7,
     "expanded_states": 5,
-    "cpu_seconds": 5.068600000002199e-05
+    "cpu_seconds": 4.214300000005e-05
   },
   "oracle_event_check": {
     "valid": true,
@@ -371,10 +478,36 @@
     "optimizer_states": 5,
     "certificate_alternatives": 5,
     "oracle_states": 7,
-    "event_units": 4,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 21,
-    "cpu_seconds": 0.00039987499999982745
+    "oracle_expanded_states": 5,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 5,
+      "prepared_certificate_alternatives": 5,
+      "prepared_event_replay_steps": 4,
+      "contiguous_states": 5,
+      "contiguous_alternatives": 5,
+      "oracle_expanded_states": 5,
+      "oracle_event_replay_steps": 4,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 33,
+    "case_body_cpu_seconds": 0.0003809150000000372
+  },
+  "record_identity": {
+    "index_order": 27,
+    "name": "small-s01-p2-b64",
+    "group": "small",
+    "instance_file": "campaign/027-small-s01-p2-b64.json",
+    "input_sha256": "bc57fbba2abb3ff1471719f9120d66b8986a3b5c2c8e8bbc8105cb5f88c7194e"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

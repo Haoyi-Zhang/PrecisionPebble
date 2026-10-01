@@ -1,12 +1,48 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from fractions import Fraction
 from pathlib import Path
 from typing import Any, Iterable
 
 STATES = (8, 16, 32, 64)
+_CANONICAL_NONNEGATIVE_INT = re.compile(r"0|[1-9][0-9]*")
+
+
+def require_int(value: Any, label: str, *, minimum: int | None = None) -> int:
+    """Return a JSON integer without accepting bools or truncating floats."""
+
+    if type(value) is not int:  # bool is deliberately rejected.
+        raise ValueError(f"{label} must be an integer")
+    if minimum is not None and value < minimum:
+        qualifier = "positive" if minimum == 1 else f"at least {minimum}"
+        raise ValueError(f"{label} must be {qualifier}")
+    return value
+
+
+def require_int_sequence(value: Any, label: str, *, minimum: int | None = None) -> tuple[int, ...]:
+    if not isinstance(value, list):
+        raise ValueError(f"{label} must be a JSON array")
+    return tuple(require_int(item, f"{label}[{index}]", minimum=minimum) for index, item in enumerate(value))
+
+
+def require_fraction_pair(value: Any, label: str, *, nonnegative: bool = False) -> Fraction:
+    if not isinstance(value, list) or len(value) != 2:
+        raise ValueError(f"{label} must be a two-integer JSON array")
+    numerator = require_int(value[0], f"{label} numerator")
+    denominator = require_int(value[1], f"{label} denominator", minimum=1)
+    result = Fraction(numerator, denominator)
+    if nonnegative and result < 0:
+        raise ValueError(f"{label} must be nonnegative")
+    return result
+
+
+def require_state_key(value: Any, label: str) -> int:
+    if not isinstance(value, str) or _CANONICAL_NONNEGATIVE_INT.fullmatch(value) is None:
+        raise ValueError(f"{label} must be a canonical integer string")
+    return int(value)
 
 
 @dataclass(frozen=True)
@@ -19,19 +55,18 @@ class Recipe:
 
     @staticmethod
     def from_json(raw: dict[str, Any]) -> "Recipe":
-        num, den = raw.get("work", [0, 1])
-        if int(den) <= 0:
-            raise ValueError("recipe work denominator must be positive")
-        work = Fraction(int(num), int(den))
-        if work < 0:
-            raise ValueError("recipe work must be nonnegative")
-        return Recipe(
-            name=str(raw["name"]),
-            inputs=tuple(int(item) for item in raw["inputs"]),
-            output=int(raw["output"]),
-            work=work,
-            semantic=dict(raw.get("semantic", {})),
-        )
+        if not isinstance(raw, dict):
+            raise ValueError("recipe must be a JSON object")
+        name = raw.get("name")
+        if not isinstance(name, str) or not name:
+            raise ValueError("recipe name must be a nonempty string")
+        inputs = require_int_sequence(raw.get("inputs"), f"recipe {name!r} inputs", minimum=1)
+        output = require_int(raw.get("output"), f"recipe {name!r} output", minimum=1)
+        work = require_fraction_pair(raw.get("work", [0, 1]), f"recipe {name!r} work", nonnegative=True)
+        semantic = raw.get("semantic", {})
+        if not isinstance(semantic, dict):
+            raise ValueError(f"recipe {name!r} semantic field must be an object")
+        return Recipe(name=name, inputs=inputs, output=output, work=work, semantic=dict(semantic))
 
     def to_json(self) -> dict[str, Any]:
         return {
@@ -153,35 +188,66 @@ class Instance:
 
 
 def _parse_node(node_id: str, raw: dict[str, Any], states: tuple[int, ...]) -> Node:
-    kind = str(raw["kind"])
+    if not isinstance(raw, dict):
+        raise ValueError(f"node {node_id!r} must be a JSON object")
+    kind = raw.get("kind")
     if kind not in {"source", "op"}:
         raise ValueError(f"node {node_id!r} has invalid kind {kind!r}")
-    weights = {int(state): int(value) for state, value in raw["weights"].items()}
+    raw_weights = raw.get("weights")
+    if not isinstance(raw_weights, dict):
+        raise ValueError(f"node {node_id!r} weights must be an object")
+    weights: dict[int, int] = {}
+    for raw_state, raw_value in raw_weights.items():
+        state = require_state_key(raw_state, f"node {node_id!r} allocation-state key")
+        if state in weights:
+            raise ValueError(f"node {node_id!r} repeats allocation state {state}")
+        try:
+            weights[state] = require_int(raw_value, f"node {node_id!r} allocation at state {state}", minimum=1)
+        except ValueError as exc:
+            if type(raw_value) is int and raw_value <= 0:
+                raise ValueError(f"node {node_id!r} has nonpositive allocation at state {state}") from exc
+            raise
     if set(weights) != set(states):
         raise ValueError(f"node {node_id!r} must define every declared state allocation")
-    if any(value <= 0 for value in weights.values()):
-        raise ValueError(f"node {node_id!r} has a nonpositive allocation")
+
+    semantic = raw.get("semantic", {})
+    if not isinstance(semantic, dict):
+        raise ValueError(f"node {node_id!r} semantic field must be an object")
+
     if kind == "source":
-        source_states = tuple(int(state) for state in raw["source_states"])
+        source_states = require_int_sequence(raw.get("source_states"), f"source {node_id!r} states", minimum=1)
         if not source_states:
             raise ValueError(f"source {node_id!r} has no initial representation")
         operands: tuple[str, ...] = ()
         recipes: tuple[Recipe, ...] = ()
         interval_raw = raw.get("interval")
-        interval = None if interval_raw is None else (int(interval_raw[0]), int(interval_raw[1]))
+        if interval_raw is None:
+            interval = None
+        else:
+            interval_values = require_int_sequence(interval_raw, f"source {node_id!r} interval")
+            if len(interval_values) != 2:
+                raise ValueError(f"source {node_id!r} interval must have two integers")
+            interval = (interval_values[0], interval_values[1])
         if interval is not None and interval[0] > interval[1]:
             raise ValueError(f"source {node_id!r} has an invalid interval")
     else:
-        operands = tuple(str(item) for item in raw["operands"])
+        raw_operands = raw.get("operands")
+        if not isinstance(raw_operands, list) or any(not isinstance(item, str) or not item for item in raw_operands):
+            raise ValueError(f"operator {node_id!r} operands must be nonempty strings")
+        operands = tuple(raw_operands)
         if not operands:
             raise ValueError(f"operator {node_id!r} must have at least one operand")
         source_states = ()
-        recipes = tuple(Recipe.from_json(recipe) for recipe in raw["recipes"])
+        raw_recipes = raw.get("recipes")
+        if not isinstance(raw_recipes, list):
+            raise ValueError(f"operator {node_id!r} recipes must be a JSON array")
+        recipes = tuple(Recipe.from_json(recipe) for recipe in raw_recipes)
         if not recipes:
             raise ValueError(f"operator {node_id!r} has no recipes")
         interval = None
         if any(len(recipe.inputs) != len(operands) for recipe in recipes):
             raise ValueError(f"operator {node_id!r} has a recipe with the wrong arity")
+
     for state in source_states:
         if state not in states:
             raise ValueError(f"node {node_id!r} uses undeclared state {state}")
@@ -196,27 +262,44 @@ def _parse_node(node_id: str, raw: dict[str, Any], states: tuple[int, ...]) -> N
         source_states=source_states,
         recipes=recipes,
         interval=interval,
-        semantic=dict(raw.get("semantic", {})),
+        semantic=dict(semantic),
     )
 
 
 def load_instance(path: str | Path) -> Instance:
     with Path(path).open("r", encoding="utf-8") as handle:
         raw = json.load(handle)
-    states = tuple(int(state) for state in raw["states"])
+    if not isinstance(raw, dict):
+        raise ValueError("instance must be a JSON object")
+    states = require_int_sequence(raw.get("states"), "states", minimum=1)
     if states != STATES:
         raise ValueError(f"the retained artifact requires states {STATES}, got {states}")
-    nodes = {str(node_id): _parse_node(str(node_id), node, states) for node_id, node in raw["nodes"].items()}
+    raw_nodes = raw.get("nodes")
+    if not isinstance(raw_nodes, dict) or any(not isinstance(node_id, str) or not node_id for node_id in raw_nodes):
+        raise ValueError("nodes must be an object with nonempty string keys")
+    nodes = {node_id: _parse_node(node_id, node, states) for node_id, node in raw_nodes.items()}
+    name = raw.get("name")
+    group = raw.get("group")
+    root = raw.get("root")
+    if not isinstance(name, str) or not name:
+        raise ValueError("instance name must be a nonempty string")
+    if not isinstance(group, str) or not group:
+        raise ValueError("instance group must be a nonempty string")
+    if not isinstance(root, str) or not root:
+        raise ValueError("root must be a nonempty string")
+    metadata = raw.get("metadata", {})
+    if not isinstance(metadata, dict):
+        raise ValueError("metadata must be a JSON object")
     instance = Instance(
-        schema=int(raw["schema"]),
-        name=str(raw["name"]),
-        group=str(raw["group"]),
-        capacity=int(raw["capacity"]),
+        schema=require_int(raw.get("schema"), "schema", minimum=1),
+        name=name,
+        group=group,
+        capacity=require_int(raw.get("capacity"), "capacity", minimum=1),
         states=states,
-        root=str(raw["root"]),
-        root_states=tuple(int(state) for state in raw["root_states"]),
+        root=root,
+        root_states=require_int_sequence(raw.get("root_states"), "root_states", minimum=1),
         nodes=nodes,
-        metadata=dict(raw.get("metadata", {})),
+        metadata=dict(metadata),
     )
     validate_instance(instance)
     return instance
@@ -296,25 +379,16 @@ def make_instance(
     nodes: dict[str, dict[str, Any]],
     metadata: dict[str, Any] | None = None,
 ) -> Instance:
-    raw = {
-        "schema": 1,
-        "name": name,
-        "group": group,
-        "capacity": capacity,
-        "states": list(STATES),
-        "root": root,
-        "root_states": list(root_states),
-        "nodes": nodes,
-        "metadata": metadata or {},
-    }
+    capacity_value = require_int(capacity, "capacity", minimum=1)
+    root_state_values = tuple(require_int(value, "root state", minimum=1) for value in root_states)
     parsed = Instance(
         schema=1,
         name=name,
         group=group,
-        capacity=capacity,
+        capacity=capacity_value,
         states=STATES,
         root=root,
-        root_states=tuple(int(value) for value in root_states),
+        root_states=root_state_values,
         nodes={node_id: _parse_node(node_id, node, STATES) for node_id, node in nodes.items()},
         metadata=dict(metadata or {}),
     )

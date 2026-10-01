@@ -1,0 +1,10 @@
+{
+  "compileall_passed": true,
+  "external_runtime_dependencies": [],
+  "network_required_for_core_reproduction": false,
+  "notes": [
+    "Core implementation and tests use the Python standard library only. Bibliography metadata verification is a documentation workflow and is not required for core reproduction."
+  ],
+  "parse_errors": [],
+  "python_file_count": 27
+}

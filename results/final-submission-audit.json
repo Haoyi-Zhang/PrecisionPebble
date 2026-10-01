@@ -1,0 +1,134 @@
+{
+  "bibliography": {
+    "bib": "references.bib",
+    "cited_key_count": 31,
+    "entry_count": 31,
+    "errors": [],
+    "extra_verification_keys": [],
+    "identified_entries": 31,
+    "minimum_entries": 31,
+    "missing_citations": [],
+    "missing_verification_keys": [],
+    "schema": 2,
+    "tex": "main.tex",
+    "unused_entries": [],
+    "valid": true,
+    "verification_csv": "bibliography-verification.csv",
+    "verification_mismatches": [],
+    "verification_row_count": 31
+  },
+  "clean_replay": {
+    "audit_units": 255792,
+    "logical_match": true,
+    "mismatches": [],
+    "reference_cases": 364,
+    "replay_cases": 364,
+    "retained_counts": {
+      "applicable_contractive_oracle_agreements": 283,
+      "bellman_certificates": 361,
+      "cases": 364,
+      "complete_configuration_oracles": 286,
+      "integer_fixed64_feasible": 36,
+      "integer_infeasible_both": 6,
+      "integer_preparation_lower_than_contiguous": 0,
+      "integer_typed_feasible": 48,
+      "integer_typed_only": 12
+    },
+    "timing": {
+      "elapsed": "0:06.96",
+      "exit_status": 0,
+      "maximum_resident_set_kib": 137748,
+      "scope": "External timing of the six reproduce.py invocations only; summary and comparison run afterward are excluded.",
+      "swaps": 0,
+      "system_seconds": 0.45,
+      "user_seconds": 8.88
+    },
+    "validation_errors": []
+  },
+  "code_quality": {
+    "compileall_passed": true,
+    "external_runtime_dependencies": [],
+    "network_required_for_core_reproduction": false,
+    "notes": [
+      "Core implementation and tests use the Python standard library only. Bibliography metadata verification is a documentation workflow and is not required for core reproduction."
+    ],
+    "parse_errors": [],
+    "python_file_count": 27
+  },
+  "controls": {
+    "negative_passes": 10,
+    "positive_passes": 3,
+    "reference_equation_passes": 5,
+    "valid": true
+  },
+  "core_theorem_status": "unchanged; this audit addresses validation and reproduction issues only",
+  "front_matter": {
+    "basis": "current official acmsmall submission sample uses acmsmall,screen,anonymous,review and does not suppress printacmref; recheck portal and TACO instructions before external submission",
+    "class_options": "acmsmall,screen,review,anonymous",
+    "decision": "retain standard ACM reference strip and class defaults; do not switch to nonacm or fabricate production metadata",
+    "explicit_production_metadata_assigned": false,
+    "visible_unassigned_class_defaults": [
+      "nnnnnnn DOI",
+      "volume 1",
+      "number 1",
+      "empty article number",
+      "compilation month/year"
+    ]
+  },
+  "pdf": {
+    "main_content_end_page_20": true,
+    "main_encrypted": "no",
+    "main_missing_character": false,
+    "main_overfull": false,
+    "main_page_size": "486 x 720 pts",
+    "main_pages": 22,
+    "main_undefined_references": false,
+    "supplement_encrypted": "no",
+    "supplement_missing_character": false,
+    "supplement_overfull": false,
+    "supplement_pages": 7,
+    "visual_inspection": "all 22 main pages and all 7 supplement pages rendered at 180 dpi and inspected; key pages also inspected with Poppler"
+  },
+  "project_key": "preparation-aware-weighted-pebbling-for-precision-changing-operator",
+  "release_scan": {
+    "private_path_or_attachment_id_hits": [],
+    "top_level_entries": [
+      "CURRENT-STATE.md",
+      "artifact",
+      "paper",
+      "research-plan.md"
+    ]
+  },
+  "requested_p2_repairs": {
+    "audit_units_scope": "named mixed instrumentation; not a conservative whole-flow bound",
+    "bellman_checker_contract": "fresh recursive recomputation followed by exact key/cost comparison",
+    "budget_gates": [
+      "recovery start",
+      "before case submission",
+      "after candidate completion",
+      "before complete exit"
+    ],
+    "case_body_cpu_cap_seconds": 2700,
+    "changed_claimed_optimum_errors": [
+      "claimed/event cost mismatch: claimed={'io': 90, 'work': [0, 1]}, recomputed={'io': 89, 'work': [0, 1]}",
+      "claimed/certificate terminal-cost mismatch: claimed={'io': 90, 'work': [0, 1]}, recomputed={'io': 89, 'work': [0, 1]}"
+    ],
+    "changed_claimed_optimum_through_actual_checker": true,
+    "event_checker_contract": "normalized one-shot traces only",
+    "raw_duplicate_json_key_rejection_claimed": false,
+    "recovery_identity_binding": "index order, case identity, input SHA-256, evaluation configuration",
+    "strict_numeric_validation_executed": true,
+    "valley_trace_io": 33,
+    "valley_trace_peak": 18,
+    "valley_trace_source": "Frozen from the deterministic configuration-oracle predecessor reconstruction; replayed separately by the event checker."
+  },
+  "schema": 3,
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "ok": true,
+    "reported_seconds": 0.336,
+    "returncode": 0,
+    "test_count": 47
+  },
+  "valid": true
+}

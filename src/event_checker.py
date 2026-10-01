@@ -5,7 +5,7 @@ from fractions import Fraction
 from typing import Any
 
 from .cost import Cost
-from .model import Instance, Recipe
+from .model import Instance, Recipe, require_int
 
 
 @dataclass
@@ -36,6 +36,13 @@ def _recipe_by_name(instance: Instance, node_id: str, name: str) -> Recipe:
 
 
 def check_events(instance: Instance, events: list[dict[str, Any]]) -> EventCheck:
+    """Replay one normalized, one-shot trace under the stated move contract.
+
+    The checker deliberately does not accept recomputation or repeated source loads.
+    Its input is therefore the normal form established by Lemmas 4.1--4.2, not an
+    arbitrary execution from a more general pebble game. Acceptance proves only
+    legality and the recomputed cost/peak of this supplied trace.
+    """
     red: dict[str, int] = {}
     blue: dict[str, int] = {}
     produced: dict[str, int] = {}
@@ -52,14 +59,20 @@ def check_events(instance: Instance, events: list[dict[str, Any]]) -> EventCheck
 
     for index, raw_event in enumerate(events):
         try:
-            event_type = str(raw_event["event"])
+            if not isinstance(raw_event, dict):
+                return fail(index, "event must be a JSON object")
+            event_type = raw_event.get("event")
+            if not isinstance(event_type, str):
+                return fail(index, "event type must be a string")
             before = resident()
             added_io = 0
             added_work = Fraction(0, 1)
             event_peak = before
             if event_type == "load":
-                node_id = str(raw_event["node"])
-                state = int(raw_event["state"])
+                node_id = raw_event.get("node")
+                if not isinstance(node_id, str):
+                    return fail(index, "load node must be a string")
+                state = require_int(raw_event.get("state"), "load state", minimum=1)
                 node = instance.node(node_id)
                 if node_id in red:
                     return fail(index, f"load of already resident value {node_id}")
@@ -83,7 +96,9 @@ def check_events(instance: Instance, events: list[dict[str, Any]]) -> EventCheck
                 added_io = size
                 cost = cost + Cost(size, Fraction(0, 1))
             elif event_type == "store":
-                node_id = str(raw_event["node"])
+                node_id = raw_event.get("node")
+                if not isinstance(node_id, str):
+                    return fail(index, "store node must be a string")
                 node = instance.node(node_id)
                 if node.kind == "source":
                     return fail(index, f"source {node_id} need not be stored")
@@ -97,19 +112,26 @@ def check_events(instance: Instance, events: list[dict[str, Any]]) -> EventCheck
                 added_io = size
                 cost = cost + Cost(size, Fraction(0, 1))
             elif event_type == "delete":
-                node_id = str(raw_event["node"])
+                node_id = raw_event.get("node")
+                if not isinstance(node_id, str):
+                    return fail(index, "delete node must be a string")
                 if node_id not in red:
                     return fail(index, f"delete of nonresident value {node_id}")
                 del red[node_id]
             elif event_type == "compute":
-                node_id = str(raw_event["node"])
+                node_id = raw_event.get("node")
+                if not isinstance(node_id, str):
+                    return fail(index, "compute node must be a string")
                 node = instance.node(node_id)
                 if node.kind != "op":
                     return fail(index, f"cannot compute source {node_id}")
                 if node_id in produced:
                     return fail(index, f"operator {node_id} is recomputed")
-                recipe = _recipe_by_name(instance, node_id, str(raw_event["recipe"]))
-                if int(raw_event["output"]) != recipe.output:
+                recipe_name = raw_event.get("recipe")
+                if not isinstance(recipe_name, str):
+                    return fail(index, "compute recipe must be a string")
+                recipe = _recipe_by_name(instance, node_id, recipe_name)
+                if require_int(raw_event.get("output"), "compute output state", minimum=1) != recipe.output:
                     return fail(index, f"event output disagrees with recipe for {node_id}")
                 for child_id, required_state in zip(node.operands, recipe.inputs):
                     if red.get(child_id) != required_state:

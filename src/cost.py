@@ -4,6 +4,8 @@ from dataclasses import dataclass
 from fractions import Fraction
 from typing import Any, Optional
 
+from .model import require_fraction_pair, require_int
+
 
 @dataclass(frozen=True, order=True)
 class Cost:
@@ -24,8 +26,11 @@ class Cost:
 
     @staticmethod
     def from_json(raw: dict[str, Any]) -> "Cost":
-        num, den = raw["work"]
-        return Cost(int(raw["io"]), Fraction(int(num), int(den)))
+        if not isinstance(raw, dict):
+            raise ValueError("cost must be a JSON object")
+        io = require_int(raw.get("io"), "cost io", minimum=0)
+        work = require_fraction_pair(raw.get("work"), "cost work", nonnegative=True)
+        return Cost(io, work)
 
 
 MaybeCost = Optional[Cost]

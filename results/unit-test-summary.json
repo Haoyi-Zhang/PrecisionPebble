@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m unittest discover -s tests -v",
+  "ok": true,
+  "reported_seconds": 0.336,
+  "returncode": 0,
+  "test_count": 47
+}

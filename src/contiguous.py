@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 from fractions import Fraction
 from itertools import permutations, product
 
@@ -7,12 +8,22 @@ from .cost import Cost, MaybeCost
 from .model import Instance
 
 
-def contiguous_policy(instance: Instance) -> tuple[MaybeCost, int | None]:
-    """Literal complete-child recurrence with optional spill of completed roots."""
+@dataclass(frozen=True)
+class ContiguousResult:
+    cost: MaybeCost
+    root_state: int | None
+    evaluated_states: int
+    enumerated_alternatives: int
+
+
+def evaluate_contiguous_policy(instance: Instance) -> ContiguousResult:
+    """Evaluate the literal complete-child recurrence and report its counters."""
 
     memo: dict[tuple[str, int, int], MaybeCost] = {}
+    alternatives = 0
 
     def value(node_id: str, state: int, budget: int) -> MaybeCost:
+        nonlocal alternatives
         key = (node_id, state, budget)
         if key in memo:
             return memo[key]
@@ -35,6 +46,7 @@ def contiguous_policy(instance: Instance) -> tuple[MaybeCost, int | None]:
                     for index in order
                 ]
                 for cut_mask in product(*cut_options):
+                    alternatives += 1
                     held = 0
                     total = Cost.zero()
                     feasible = True
@@ -68,4 +80,11 @@ def contiguous_policy(instance: Instance) -> tuple[MaybeCost, int | None]:
         if terminal is None or candidate < terminal or (candidate == terminal and (root_state is None or state < root_state)):
             terminal = candidate
             root_state = state
-    return terminal, root_state
+    return ContiguousResult(terminal, root_state, len(memo), alternatives)
+
+
+def contiguous_policy(instance: Instance) -> tuple[MaybeCost, int | None]:
+    """Compatibility wrapper returning only cost and root state."""
+
+    result = evaluate_contiguous_policy(instance)
+    return result.cost, result.root_state

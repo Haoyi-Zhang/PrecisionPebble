@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "control-expansive-valley",
   "group": "control",
   "instance_file": "campaign/281-control-expansive-valley.json",
@@ -288,7 +288,212 @@
       ]
     },
     "certificate": null,
-    "certificate_check": null
+    "certificate_check": null,
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 35,
+        "work": [
+          0,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 35,
+          "work": [
+            0,
+            1
+          ]
+        },
+        "peak": 17,
+        "error": null,
+        "final_root_state": 64,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "sr",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "mr",
+              "recipe": "shrink-r",
+              "output": 64
+            },
+            "resident_before": 16,
+            "event_peak": 17,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "store",
+              "node": "mr"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "delete",
+              "node": "mr"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "sl",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "ml",
+              "recipe": "shrink-l",
+              "output": 64
+            },
+            "resident_before": 16,
+            "event_peak": 17,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "fl",
+              "recipe": "expand-l",
+              "output": 64
+            },
+            "resident_before": 1,
+            "event_peak": 9,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "load",
+              "node": "mr",
+              "state": 64
+            },
+            "resident_before": 8,
+            "event_peak": 9,
+            "resident_after": 9,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "compute",
+              "node": "fr",
+              "recipe": "expand-r",
+              "output": 64
+            },
+            "resident_before": 9,
+            "event_peak": 17,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "z",
+              "recipe": "join",
+              "output": 64
+            },
+            "resident_before": 16,
+            "event_peak": 17,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "store",
+              "node": "z"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": null
+    }
   },
   "contiguous": {
     "cost": {
@@ -298,7 +503,9 @@
         1
       ]
     },
-    "root_state": 64
+    "root_state": 64,
+    "evaluated_states": 11,
+    "enumerated_alternatives": 18
   },
   "oracle": {
     "status": "complete",
@@ -357,7 +564,7 @@
     ],
     "discovered_states": 64,
     "expanded_states": 43,
-    "cpu_seconds": 0.0006038789999998073
+    "cpu_seconds": 0.0005216929999999342
   },
   "oracle_event_check": {
     "valid": true,
@@ -516,10 +723,36 @@
     "optimizer_states": 11,
     "certificate_alternatives": 0,
     "oracle_states": 64,
-    "event_units": 11,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 86,
-    "cpu_seconds": 0.0011989230000000184
+    "oracle_expanded_states": 43,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 11,
+      "prepared_certificate_alternatives": 0,
+      "prepared_event_replay_steps": 11,
+      "contiguous_states": 11,
+      "contiguous_alternatives": 18,
+      "oracle_expanded_states": 43,
+      "oracle_event_replay_steps": 8,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 102,
+    "case_body_cpu_seconds": 0.0010419440000000169
+  },
+  "record_identity": {
+    "index_order": 281,
+    "name": "control-expansive-valley",
+    "group": "control",
+    "instance_file": "campaign/281-control-expansive-valley.json",
+    "input_sha256": "ebc7e7c5a4e84fe3f98b07c41aefb997131eeb9ed057773b9aecb1fe2f7b13e8"
+  },
+  "evaluation_config": {
+    "exact": false,
+    "certificate": false,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

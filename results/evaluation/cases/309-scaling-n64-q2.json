@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "scaling-n64-q2",
   "group": "scaling",
   "instance_file": "campaign/309-scaling-n64-q2.json",
@@ -67203,6 +67203,1124 @@
         ]
       },
       "root_state": 16
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 294,
+        "work": [
+          930,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 294,
+          "work": [
+            930,
+            1
+          ]
+        },
+        "peak": 84,
+        "error": null,
+        "final_root_state": 16,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 16
+            },
+            "resident_before": 0,
+            "event_peak": 12,
+            "resident_after": 12,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "v8",
+              "state": 16
+            },
+            "resident_before": 12,
+            "event_peak": 20,
+            "resident_after": 20,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v9",
+              "recipe": "p16-v9",
+              "output": 16
+            },
+            "resident_before": 20,
+            "event_peak": 24,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "compute",
+              "node": "v10",
+              "recipe": "p16-v10",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "load",
+              "node": "v11",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 22,
+            "resident_after": 22,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "load",
+              "node": "v12",
+              "state": 16
+            },
+            "resident_before": 22,
+            "event_peak": 34,
+            "resident_after": 34,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "v13",
+              "recipe": "p16-v13",
+              "output": 16
+            },
+            "resident_before": 34,
+            "event_peak": 40,
+            "resident_after": 28,
+            "added_io": 0,
+            "added_work": [
+              51,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "v14",
+              "recipe": "p16-v14",
+              "output": 16
+            },
+            "resident_before": 28,
+            "event_peak": 30,
+            "resident_after": 24,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "compute",
+              "node": "v15",
+              "recipe": "p16-v15",
+              "output": 16
+            },
+            "resident_before": 24,
+            "event_peak": 26,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "compute",
+              "node": "v16",
+              "recipe": "p16-v16",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "v7",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 30,
+            "resident_after": 30,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "compute",
+              "node": "v17",
+              "recipe": "p16-v17",
+              "output": 16
+            },
+            "resident_before": 30,
+            "event_peak": 32,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "load",
+              "node": "v1",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 30,
+            "resident_after": 30,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "load",
+              "node": "v2",
+              "state": 16
+            },
+            "resident_before": 30,
+            "event_peak": 38,
+            "resident_after": 38,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 14,
+            "event": {
+              "event": "compute",
+              "node": "v3",
+              "recipe": "p16-v3",
+              "output": 16
+            },
+            "resident_before": 38,
+            "event_peak": 42,
+            "resident_after": 34,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "event": {
+              "event": "compute",
+              "node": "v4",
+              "recipe": "p16-v4",
+              "output": 16
+            },
+            "resident_before": 34,
+            "event_peak": 36,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 16,
+            "event": {
+              "event": "compute",
+              "node": "v5",
+              "recipe": "p16-v5",
+              "output": 16
+            },
+            "resident_before": 32,
+            "event_peak": 34,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 17,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "p16-v6",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 18,
+            "event": {
+              "event": "compute",
+              "node": "v18",
+              "recipe": "p16-v18",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 14,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 19,
+            "event": {
+              "event": "compute",
+              "node": "v19",
+              "recipe": "p16-v19",
+              "output": 16
+            },
+            "resident_before": 14,
+            "event_peak": 16,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 20,
+            "event": {
+              "event": "compute",
+              "node": "v20",
+              "recipe": "p16-v20",
+              "output": 16
+            },
+            "resident_before": 2,
+            "event_peak": 4,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 21,
+            "event": {
+              "event": "load",
+              "node": "v21",
+              "state": 16
+            },
+            "resident_before": 2,
+            "event_peak": 14,
+            "resident_after": 14,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 22,
+            "event": {
+              "event": "load",
+              "node": "v22",
+              "state": 16
+            },
+            "resident_before": 14,
+            "event_peak": 30,
+            "resident_after": 30,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 23,
+            "event": {
+              "event": "load",
+              "node": "v23",
+              "state": 16
+            },
+            "resident_before": 30,
+            "event_peak": 38,
+            "resident_after": 38,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 24,
+            "event": {
+              "event": "compute",
+              "node": "v24",
+              "recipe": "p16-v24",
+              "output": 16
+            },
+            "resident_before": 38,
+            "event_peak": 42,
+            "resident_after": 34,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 25,
+            "event": {
+              "event": "compute",
+              "node": "v25",
+              "recipe": "p16-v25",
+              "output": 16
+            },
+            "resident_before": 34,
+            "event_peak": 36,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 26,
+            "event": {
+              "event": "load",
+              "node": "v26",
+              "state": 16
+            },
+            "resident_before": 32,
+            "event_peak": 40,
+            "resident_after": 40,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 27,
+            "event": {
+              "event": "load",
+              "node": "v27",
+              "state": 16
+            },
+            "resident_before": 40,
+            "event_peak": 52,
+            "resident_after": 52,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 28,
+            "event": {
+              "event": "load",
+              "node": "v28",
+              "state": 16
+            },
+            "resident_before": 52,
+            "event_peak": 68,
+            "resident_after": 68,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 29,
+            "event": {
+              "event": "compute",
+              "node": "v29",
+              "recipe": "p16-v29",
+              "output": 16
+            },
+            "resident_before": 68,
+            "event_peak": 76,
+            "resident_after": 60,
+            "added_io": 0,
+            "added_work": [
+              68,
+              1
+            ]
+          },
+          {
+            "index": 30,
+            "event": {
+              "event": "compute",
+              "node": "v30",
+              "recipe": "p16-v30",
+              "output": 16
+            },
+            "resident_before": 60,
+            "event_peak": 64,
+            "resident_after": 44,
+            "added_io": 0,
+            "added_work": [
+              36,
+              1
+            ]
+          },
+          {
+            "index": 31,
+            "event": {
+              "event": "compute",
+              "node": "v31",
+              "recipe": "p16-v31",
+              "output": 16
+            },
+            "resident_before": 44,
+            "event_peak": 46,
+            "resident_after": 34,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 32,
+            "event": {
+              "event": "compute",
+              "node": "v32",
+              "recipe": "p16-v32",
+              "output": 16
+            },
+            "resident_before": 34,
+            "event_peak": 36,
+            "resident_after": 32,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 33,
+            "event": {
+              "event": "compute",
+              "node": "v33",
+              "recipe": "p16-v33",
+              "output": 16
+            },
+            "resident_before": 32,
+            "event_peak": 34,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 34,
+            "event": {
+              "event": "compute",
+              "node": "v34",
+              "recipe": "p16-v34",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 35,
+            "event": {
+              "event": "load",
+              "node": "v35",
+              "state": 16
+            },
+            "resident_before": 16,
+            "event_peak": 24,
+            "resident_after": 24,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 36,
+            "event": {
+              "event": "load",
+              "node": "v36",
+              "state": 16
+            },
+            "resident_before": 24,
+            "event_peak": 36,
+            "resident_after": 36,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 37,
+            "event": {
+              "event": "load",
+              "node": "v37",
+              "state": 16
+            },
+            "resident_before": 36,
+            "event_peak": 52,
+            "resident_after": 52,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 38,
+            "event": {
+              "event": "load",
+              "node": "v38",
+              "state": 16
+            },
+            "resident_before": 52,
+            "event_peak": 60,
+            "resident_after": 60,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 39,
+            "event": {
+              "event": "load",
+              "node": "v39",
+              "state": 16
+            },
+            "resident_before": 60,
+            "event_peak": 72,
+            "resident_after": 72,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 40,
+            "event": {
+              "event": "compute",
+              "node": "v40",
+              "recipe": "p16-v40",
+              "output": 16
+            },
+            "resident_before": 72,
+            "event_peak": 76,
+            "resident_after": 56,
+            "added_io": 0,
+            "added_work": [
+              36,
+              1
+            ]
+          },
+          {
+            "index": 41,
+            "event": {
+              "event": "compute",
+              "node": "v41",
+              "recipe": "p16-v41",
+              "output": 16
+            },
+            "resident_before": 56,
+            "event_peak": 58,
+            "resident_after": 38,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 42,
+            "event": {
+              "event": "compute",
+              "node": "v42",
+              "recipe": "p16-v42",
+              "output": 16
+            },
+            "resident_before": 38,
+            "event_peak": 40,
+            "resident_after": 26,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 43,
+            "event": {
+              "event": "compute",
+              "node": "v43",
+              "recipe": "p16-v43",
+              "output": 16
+            },
+            "resident_before": 26,
+            "event_peak": 28,
+            "resident_after": 26,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 44,
+            "event": {
+              "event": "load",
+              "node": "v44",
+              "state": 16
+            },
+            "resident_before": 26,
+            "event_peak": 34,
+            "resident_after": 34,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 45,
+            "event": {
+              "event": "load",
+              "node": "v45",
+              "state": 16
+            },
+            "resident_before": 34,
+            "event_peak": 46,
+            "resident_after": 46,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 46,
+            "event": {
+              "event": "load",
+              "node": "v46",
+              "state": 16
+            },
+            "resident_before": 46,
+            "event_peak": 62,
+            "resident_after": 62,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 47,
+            "event": {
+              "event": "compute",
+              "node": "v47",
+              "recipe": "p16-v47",
+              "output": 16
+            },
+            "resident_before": 62,
+            "event_peak": 68,
+            "resident_after": 40,
+            "added_io": 0,
+            "added_work": [
+              54,
+              1
+            ]
+          },
+          {
+            "index": 48,
+            "event": {
+              "event": "compute",
+              "node": "v48",
+              "recipe": "p16-v48",
+              "output": 16
+            },
+            "resident_before": 40,
+            "event_peak": 42,
+            "resident_after": 36,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 49,
+            "event": {
+              "event": "load",
+              "node": "v49",
+              "state": 16
+            },
+            "resident_before": 36,
+            "event_peak": 52,
+            "resident_after": 52,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 50,
+            "event": {
+              "event": "load",
+              "node": "v50",
+              "state": 16
+            },
+            "resident_before": 52,
+            "event_peak": 60,
+            "resident_after": 60,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 51,
+            "event": {
+              "event": "compute",
+              "node": "v51",
+              "recipe": "p16-v51",
+              "output": 16
+            },
+            "resident_before": 60,
+            "event_peak": 64,
+            "resident_after": 56,
+            "added_io": 0,
+            "added_work": [
+              34,
+              1
+            ]
+          },
+          {
+            "index": 52,
+            "event": {
+              "event": "load",
+              "node": "v52",
+              "state": 16
+            },
+            "resident_before": 56,
+            "event_peak": 72,
+            "resident_after": 72,
+            "added_io": 16,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 53,
+            "event": {
+              "event": "load",
+              "node": "v53",
+              "state": 16
+            },
+            "resident_before": 72,
+            "event_peak": 80,
+            "resident_after": 80,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 54,
+            "event": {
+              "event": "compute",
+              "node": "v54",
+              "recipe": "p16-v54",
+              "output": 16
+            },
+            "resident_before": 80,
+            "event_peak": 84,
+            "resident_after": 60,
+            "added_io": 0,
+            "added_work": [
+              36,
+              1
+            ]
+          },
+          {
+            "index": 55,
+            "event": {
+              "event": "compute",
+              "node": "v55",
+              "recipe": "p16-v55",
+              "output": 16
+            },
+            "resident_before": 60,
+            "event_peak": 62,
+            "resident_after": 54,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 56,
+            "event": {
+              "event": "compute",
+              "node": "v56",
+              "recipe": "p16-v56",
+              "output": 16
+            },
+            "resident_before": 54,
+            "event_peak": 56,
+            "resident_after": 38,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 57,
+            "event": {
+              "event": "compute",
+              "node": "v57",
+              "recipe": "p16-v57",
+              "output": 16
+            },
+            "resident_before": 38,
+            "event_peak": 40,
+            "resident_after": 36,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 58,
+            "event": {
+              "event": "compute",
+              "node": "v58",
+              "recipe": "p16-v58",
+              "output": 16
+            },
+            "resident_before": 36,
+            "event_peak": 38,
+            "resident_after": 28,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 59,
+            "event": {
+              "event": "compute",
+              "node": "v59",
+              "recipe": "p16-v59",
+              "output": 16
+            },
+            "resident_before": 28,
+            "event_peak": 30,
+            "resident_after": 26,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 60,
+            "event": {
+              "event": "compute",
+              "node": "v60",
+              "recipe": "p16-v60",
+              "output": 16
+            },
+            "resident_before": 26,
+            "event_peak": 28,
+            "resident_after": 18,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 61,
+            "event": {
+              "event": "compute",
+              "node": "v61",
+              "recipe": "p16-v61",
+              "output": 16
+            },
+            "resident_before": 18,
+            "event_peak": 20,
+            "resident_after": 16,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 62,
+            "event": {
+              "event": "compute",
+              "node": "v62",
+              "recipe": "p16-v62",
+              "output": 16
+            },
+            "resident_before": 16,
+            "event_peak": 18,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 63,
+            "event": {
+              "event": "compute",
+              "node": "v63",
+              "recipe": "p16-v63",
+              "output": 16
+            },
+            "resident_before": 4,
+            "event_peak": 6,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              18,
+              1
+            ]
+          },
+          {
+            "index": 64,
+            "event": {
+              "event": "store",
+              "node": "v63"
+            },
+            "resident_before": 2,
+            "event_peak": 2,
+            "resident_after": 2,
+            "added_io": 2,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 3004,
+        "checked_alternatives": 7069,
+        "terminal_cost": {
+          "io": 294,
+          "work": [
+            930,
+            1
+          ]
+        },
+        "root_state": 16
+      }
     }
   },
   "contiguous": {
@@ -67213,7 +68331,9 @@
         1
       ]
     },
-    "root_state": 16
+    "root_state": 16,
+    "evaluated_states": 2988,
+    "enumerated_alternatives": 7043
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -67227,10 +68347,36 @@
     "optimizer_states": 3004,
     "certificate_alternatives": 7069,
     "oracle_states": 0,
-    "event_units": 65,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 10138,
-    "cpu_seconds": 0.16071898499999993
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 3004,
+      "prepared_certificate_alternatives": 7069,
+      "prepared_event_replay_steps": 65,
+      "contiguous_states": 2988,
+      "contiguous_alternatives": 7043,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 20169,
+    "case_body_cpu_seconds": 0.12376075400000008
+  },
+  "record_identity": {
+    "index_order": 309,
+    "name": "scaling-n64-q2",
+    "group": "scaling",
+    "instance_file": "campaign/309-scaling-n64-q2.json",
+    "input_sha256": "eb6a7a864f84b653a544f66d8b2c1ceca409a4c8e2bc4be3142798c608c33026"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

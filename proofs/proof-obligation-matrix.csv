@@ -1,0 +1,17 @@
+id,obligation,criterion,status,pattern_checks,evidence
+O1,Operational semantics,"states, allocation, atomic recipes, transfers, and objective are defined",covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O2,Feasibility domain,"purity, non-overwrite, rooted in-tree, and unique consumer are explicit",covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O3,Contraction scope,output allocation is no larger than every input allocation,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O4,Normalization,an optimal schedule can be put in one-computation/spill-forest normal form,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O5,Transfer identity,the normal form has an exact edge/component transfer accounting,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O6,Serialization exchange,components can be serialized without increasing capacity or I/O under contraction,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O7,DP soundness,every recurrence choice realizes a feasible schedule with the claimed cost,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O8,DP completeness,every normalized optimum is represented by a recurrence choice,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O9,Complexity,capacity dependence and encoding assumptions are stated as pseudopolynomial,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O10,Separation upper bound,a concrete unrestricted schedule attains 23t (89 at t=1),covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O11,Separation lower bound,every complete-subtree schedule costs at least 25t (91 at t=1),covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O12,Expansive counterexample,33/35/49 values are justified and contraction is not claimed necessary,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O13,NP membership,certificate size and polynomial-time verification are specified,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O14,Reduction construction,PARTITION mapping is polynomial and all weights/capacities are encoded explicitly,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
+O15,Reduction iff,both directions of the compulsory-floor equivalence are proved,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O16,Claim boundary,no weak/strong NP qualifier or full-dichotomy claim is made,covered,yes;yes,paper/main.tex; artifact/proofs/core.md

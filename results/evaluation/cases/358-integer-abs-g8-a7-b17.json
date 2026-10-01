@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "integer-abs-g8-a7-b17",
   "group": "integer",
   "instance_file": "campaign/358-integer-abs-g8-a7-b17.json",
@@ -4066,6 +4066,894 @@
         ]
       },
       "root_state": 16
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 1114,
+        "work": [
+          12336,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 1114,
+          "work": [
+            12336,
+            1
+          ]
+        },
+        "peak": 136,
+        "error": null,
+        "final_root_state": 16,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "s2",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "load",
+              "node": "s3",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "e1",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "store",
+              "node": "e1"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "delete",
+              "node": "e1"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "load",
+              "node": "s6",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "load",
+              "node": "s7",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "compute",
+              "node": "e3",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 8,
+            "event": {
+              "event": "store",
+              "node": "e3"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 9,
+            "event": {
+              "event": "delete",
+              "node": "e3"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 10,
+            "event": {
+              "event": "load",
+              "node": "s4",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 11,
+            "event": {
+              "event": "load",
+              "node": "s5",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 12,
+            "event": {
+              "event": "compute",
+              "node": "e2",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 13,
+            "event": {
+              "event": "load",
+              "node": "e3",
+              "state": 8
+            },
+            "resident_before": 8,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 14,
+            "event": {
+              "event": "compute",
+              "node": "r0_1",
+              "recipe": "reduce-8-to-8",
+              "output": 8
+            },
+            "resident_before": 16,
+            "event_peak": 20,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              96,
+              1
+            ]
+          },
+          {
+            "index": 15,
+            "event": {
+              "event": "store",
+              "node": "r0_1"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 16,
+            "event": {
+              "event": "delete",
+              "node": "r0_1"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 17,
+            "event": {
+              "event": "load",
+              "node": "s10",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 18,
+            "event": {
+              "event": "load",
+              "node": "s11",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 19,
+            "event": {
+              "event": "compute",
+              "node": "e5",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 20,
+            "event": {
+              "event": "store",
+              "node": "e5"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 21,
+            "event": {
+              "event": "delete",
+              "node": "e5"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 22,
+            "event": {
+              "event": "load",
+              "node": "s8",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 23,
+            "event": {
+              "event": "load",
+              "node": "s9",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 24,
+            "event": {
+              "event": "compute",
+              "node": "e4",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 25,
+            "event": {
+              "event": "load",
+              "node": "e5",
+              "state": 8
+            },
+            "resident_before": 8,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 26,
+            "event": {
+              "event": "compute",
+              "node": "r0_2",
+              "recipe": "reduce-8-to-8",
+              "output": 8
+            },
+            "resident_before": 16,
+            "event_peak": 20,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              96,
+              1
+            ]
+          },
+          {
+            "index": 27,
+            "event": {
+              "event": "store",
+              "node": "r0_2"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 28,
+            "event": {
+              "event": "delete",
+              "node": "r0_2"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 29,
+            "event": {
+              "event": "load",
+              "node": "s14",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 30,
+            "event": {
+              "event": "load",
+              "node": "s15",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 31,
+            "event": {
+              "event": "compute",
+              "node": "e7",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 32,
+            "event": {
+              "event": "store",
+              "node": "e7"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 33,
+            "event": {
+              "event": "delete",
+              "node": "e7"
+            },
+            "resident_before": 8,
+            "event_peak": 8,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 34,
+            "event": {
+              "event": "load",
+              "node": "s12",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 35,
+            "event": {
+              "event": "load",
+              "node": "s13",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 36,
+            "event": {
+              "event": "compute",
+              "node": "e6",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 37,
+            "event": {
+              "event": "load",
+              "node": "e7",
+              "state": 8
+            },
+            "resident_before": 8,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 38,
+            "event": {
+              "event": "compute",
+              "node": "r0_3",
+              "recipe": "reduce-8-to-8",
+              "output": 8
+            },
+            "resident_before": 16,
+            "event_peak": 20,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              96,
+              1
+            ]
+          },
+          {
+            "index": 39,
+            "event": {
+              "event": "store",
+              "node": "r0_3"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 4,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 40,
+            "event": {
+              "event": "delete",
+              "node": "r0_3"
+            },
+            "resident_before": 4,
+            "event_peak": 4,
+            "resident_after": 0,
+            "added_io": 0,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 41,
+            "event": {
+              "event": "load",
+              "node": "s0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 64,
+            "resident_after": 64,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 42,
+            "event": {
+              "event": "load",
+              "node": "s1",
+              "state": 64
+            },
+            "resident_before": 64,
+            "event_peak": 128,
+            "resident_after": 128,
+            "added_io": 64,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 43,
+            "event": {
+              "event": "compute",
+              "node": "e0",
+              "recipe": "absdiff-64-to-8",
+              "output": 8
+            },
+            "resident_before": 128,
+            "event_peak": 136,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              1472,
+              1
+            ]
+          },
+          {
+            "index": 44,
+            "event": {
+              "event": "load",
+              "node": "e1",
+              "state": 8
+            },
+            "resident_before": 8,
+            "event_peak": 16,
+            "resident_after": 16,
+            "added_io": 8,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 45,
+            "event": {
+              "event": "compute",
+              "node": "r0_0",
+              "recipe": "reduce-8-to-8",
+              "output": 8
+            },
+            "resident_before": 16,
+            "event_peak": 20,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              96,
+              1
+            ]
+          },
+          {
+            "index": 46,
+            "event": {
+              "event": "load",
+              "node": "r0_1",
+              "state": 8
+            },
+            "resident_before": 4,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 47,
+            "event": {
+              "event": "compute",
+              "node": "r1_0",
+              "recipe": "reduce-8-to-16",
+              "output": 16
+            },
+            "resident_before": 8,
+            "event_peak": 12,
+            "resident_after": 4,
+            "added_io": 0,
+            "added_work": [
+              64,
+              1
+            ]
+          },
+          {
+            "index": 48,
+            "event": {
+              "event": "load",
+              "node": "r0_2",
+              "state": 8
+            },
+            "resident_before": 4,
+            "event_peak": 8,
+            "resident_after": 8,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 49,
+            "event": {
+              "event": "load",
+              "node": "r0_3",
+              "state": 8
+            },
+            "resident_before": 8,
+            "event_peak": 12,
+            "resident_after": 12,
+            "added_io": 4,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 50,
+            "event": {
+              "event": "compute",
+              "node": "r1_1",
+              "recipe": "reduce-8-to-16",
+              "output": 16
+            },
+            "resident_before": 12,
+            "event_peak": 16,
+            "resident_after": 8,
+            "added_io": 0,
+            "added_work": [
+              64,
+              1
+            ]
+          },
+          {
+            "index": 51,
+            "event": {
+              "event": "compute",
+              "node": "r2_0",
+              "recipe": "reduce-16-to-16",
+              "output": 16
+            },
+            "resident_before": 8,
+            "event_peak": 10,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              48,
+              1
+            ]
+          },
+          {
+            "index": 52,
+            "event": {
+              "event": "store",
+              "node": "r2_0"
+            },
+            "resident_before": 2,
+            "event_peak": 2,
+            "resident_after": 2,
+            "added_io": 2,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 255,
+        "checked_alternatives": 1496,
+        "terminal_cost": {
+          "io": 1114,
+          "work": [
+            12336,
+            1
+          ]
+        },
+        "root_state": 16
+      }
     }
   },
   "contiguous": {
@@ -4076,7 +4964,9 @@
         1
       ]
     },
-    "root_state": 16
+    "root_state": 16,
+    "evaluated_states": 179,
+    "enumerated_alternatives": 1208
   },
   "oracle": null,
   "oracle_event_check": null,
@@ -4084,20 +4974,7 @@
     "cost": null,
     "root_state": null,
     "events": [],
-    "event_check": {
-      "valid": false,
-      "cost": {
-        "io": 0,
-        "work": [
-          0,
-          1
-        ]
-      },
-      "peak": 0,
-      "error": "root is not stored at termination",
-      "final_root_state": null,
-      "trace": []
-    },
+    "event_check": null,
     "semantic": {
       "applicable": false,
       "valid": true,
@@ -4140,10 +5017,36 @@
     "optimizer_states": 255,
     "certificate_alternatives": 1496,
     "oracle_states": 0,
-    "event_units": 53,
-    "semantic_units": 75,
-    "fixed64_optimizer_states": 7,
-    "charged_units": 1886,
-    "cpu_seconds": 0.02213559300000001
+    "oracle_expanded_states": 0,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 255,
+      "prepared_certificate_alternatives": 1496,
+      "prepared_event_replay_steps": 53,
+      "contiguous_states": 179,
+      "contiguous_alternatives": 1208,
+      "oracle_expanded_states": 0,
+      "oracle_event_replay_steps": 0,
+      "typed_semantic_node_evaluations": 75,
+      "fixed64_optimizer_states": 7,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 3273,
+    "case_body_cpu_seconds": 0.011547752999999883
+  },
+  "record_identity": {
+    "index_order": 358,
+    "name": "integer-abs-g8-a7-b17",
+    "group": "integer",
+    "instance_file": "campaign/358-integer-abs-g8-a7-b17.json",
+    "input_sha256": "9e1b7c098d2e6aea5ef12b5b5c71d96a67f92720f2506d912e22cfaf3bd07338"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": false,
+    "semantic": true,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

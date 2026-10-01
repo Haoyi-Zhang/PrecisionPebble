@@ -1,8 +1,8 @@
-group,cases,max_nodes,oracles,certificates,charged_units
-small,256,5,256,256,7332
-extended,16,7,16,16,1442
-separation,8,10,8,8,2336
-control,4,12,4,3,3413
-hardness,2,14,2,0,51643
-scaling,24,64,0,24,47200
-integer,54,31,0,54,53475
+group,cases,max_nodes,oracles,certificates,audit_units
+small,256,5,256,256,10744
+extended,16,7,16,16,1967
+separation,8,10,8,8,2728
+control,4,12,4,3,2258
+hardness,2,14,2,0,42114
+scaling,24,64,0,24,93000
+integer,54,31,0,54,102981

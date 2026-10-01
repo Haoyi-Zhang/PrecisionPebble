@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "extended-s00-p3",
   "group": "extended",
   "instance_file": "campaign/257-extended-s00-p3.json",
@@ -580,6 +580,179 @@
         ]
       },
       "root_state": 16
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 14,
+        "work": [
+          136,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 14,
+          "work": [
+            136,
+            1
+          ]
+        },
+        "peak": 18,
+        "error": null,
+        "final_root_state": 16,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 16
+            },
+            "resident_before": 0,
+            "event_peak": 12,
+            "resident_after": 12,
+            "added_io": 12,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "v1",
+              "recipe": "p16-v1",
+              "output": 16
+            },
+            "resident_before": 12,
+            "event_peak": 18,
+            "resident_after": 6,
+            "added_io": 0,
+            "added_work": [
+              51,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "compute",
+              "node": "v2",
+              "recipe": "p16-v2",
+              "output": 16
+            },
+            "resident_before": 6,
+            "event_peak": 8,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 3,
+            "event": {
+              "event": "compute",
+              "node": "v3",
+              "recipe": "p16-v3",
+              "output": 16
+            },
+            "resident_before": 2,
+            "event_peak": 4,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 4,
+            "event": {
+              "event": "compute",
+              "node": "v4",
+              "recipe": "p16-v4",
+              "output": 16
+            },
+            "resident_before": 2,
+            "event_peak": 4,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 5,
+            "event": {
+              "event": "compute",
+              "node": "v5",
+              "recipe": "p16-v5",
+              "output": 16
+            },
+            "resident_before": 2,
+            "event_peak": 4,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 6,
+            "event": {
+              "event": "compute",
+              "node": "v6",
+              "recipe": "p16-v6",
+              "output": 16
+            },
+            "resident_before": 2,
+            "event_peak": 4,
+            "resident_after": 2,
+            "added_io": 0,
+            "added_work": [
+              17,
+              1
+            ]
+          },
+          {
+            "index": 7,
+            "event": {
+              "event": "store",
+              "node": "v6"
+            },
+            "resident_before": 2,
+            "event_peak": 2,
+            "resident_after": 2,
+            "added_io": 2,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 14,
+        "checked_alternatives": 33,
+        "terminal_cost": {
+          "io": 14,
+          "work": [
+            136,
+            1
+          ]
+        },
+        "root_state": 16
+      }
     }
   },
   "contiguous": {
@@ -590,7 +763,9 @@
         1
       ]
     },
-    "root_state": 16
+    "root_state": 16,
+    "evaluated_states": 14,
+    "enumerated_alternatives": 33
   },
   "oracle": {
     "status": "complete",
@@ -650,7 +825,7 @@
     ],
     "discovered_states": 41,
     "expanded_states": 23,
-    "cpu_seconds": 0.00035069000000009787
+    "cpu_seconds": 0.00030275800000001407
   },
   "oracle_event_check": {
     "valid": true,
@@ -810,10 +985,36 @@
     "optimizer_states": 14,
     "certificate_alternatives": 33,
     "oracle_states": 41,
-    "event_units": 8,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 96,
-    "cpu_seconds": 0.0015089980000000391
+    "oracle_expanded_states": 23,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 14,
+      "prepared_certificate_alternatives": 33,
+      "prepared_event_replay_steps": 8,
+      "contiguous_states": 14,
+      "contiguous_alternatives": 33,
+      "oracle_expanded_states": 23,
+      "oracle_event_replay_steps": 8,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 133,
+    "case_body_cpu_seconds": 0.0012480299999999556
+  },
+  "record_identity": {
+    "index_order": 257,
+    "name": "extended-s00-p3",
+    "group": "extended",
+    "instance_file": "campaign/257-extended-s00-p3.json",
+    "input_sha256": "4c590c1e4e6deedf327b30f6268302d160d221be861bd76b00b9aeb92dc1d88e"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

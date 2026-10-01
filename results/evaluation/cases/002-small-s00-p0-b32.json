@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "small-s00-p0-b32",
   "group": "small",
   "instance_file": "campaign/002-small-s00-p0-b32.json",
@@ -177,6 +177,94 @@
         ]
       },
       "root_state": 64
+    },
+    "claim_check": {
+      "valid": true,
+      "errors": [],
+      "claimed_cost": {
+        "io": 2,
+        "work": [
+          1,
+          1
+        ]
+      },
+      "event_check": {
+        "valid": true,
+        "cost": {
+          "io": 2,
+          "work": [
+            1,
+            1
+          ]
+        },
+        "peak": 2,
+        "error": null,
+        "final_root_state": 64,
+        "trace": [
+          {
+            "index": 0,
+            "event": {
+              "event": "load",
+              "node": "v0",
+              "state": 64
+            },
+            "resident_before": 0,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          },
+          {
+            "index": 1,
+            "event": {
+              "event": "compute",
+              "node": "v1",
+              "recipe": "fixed-v1",
+              "output": 64
+            },
+            "resident_before": 1,
+            "event_peak": 2,
+            "resident_after": 1,
+            "added_io": 0,
+            "added_work": [
+              1,
+              1
+            ]
+          },
+          {
+            "index": 2,
+            "event": {
+              "event": "store",
+              "node": "v1"
+            },
+            "resident_before": 1,
+            "event_peak": 1,
+            "resident_after": 1,
+            "added_io": 1,
+            "added_work": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "certificate_check": {
+        "valid": true,
+        "error": null,
+        "checked_states": 2,
+        "checked_alternatives": 1,
+        "terminal_cost": {
+          "io": 2,
+          "work": [
+            1,
+            1
+          ]
+        },
+        "root_state": 64
+      }
     }
   },
   "contiguous": {
@@ -187,7 +275,9 @@
         1
       ]
     },
-    "root_state": 64
+    "root_state": 64,
+    "evaluated_states": 2,
+    "enumerated_alternatives": 1
   },
   "oracle": {
     "status": "complete",
@@ -217,7 +307,7 @@
     ],
     "discovered_states": 4,
     "expanded_states": 4,
-    "cpu_seconds": 3.120499999997861e-05
+    "cpu_seconds": 2.5477999999967693e-05
   },
   "oracle_event_check": {
     "valid": true,
@@ -292,10 +382,36 @@
     "optimizer_states": 2,
     "certificate_alternatives": 1,
     "oracle_states": 4,
-    "event_units": 3,
-    "semantic_units": 0,
-    "fixed64_optimizer_states": 0,
-    "charged_units": 10,
-    "cpu_seconds": 0.00030558600000007985
+    "oracle_expanded_states": 4,
+    "audit_unit_components": {
+      "prepared_optimizer_states": 2,
+      "prepared_certificate_alternatives": 1,
+      "prepared_event_replay_steps": 3,
+      "contiguous_states": 2,
+      "contiguous_alternatives": 1,
+      "oracle_expanded_states": 4,
+      "oracle_event_replay_steps": 3,
+      "typed_semantic_node_evaluations": 0,
+      "fixed64_optimizer_states": 0,
+      "fixed64_event_replay_steps": 0,
+      "fixed64_semantic_node_evaluations": 0
+    },
+    "audit_units": 16,
+    "case_body_cpu_seconds": 0.0002511920000000112
+  },
+  "record_identity": {
+    "index_order": 2,
+    "name": "small-s00-p0-b32",
+    "group": "small",
+    "instance_file": "campaign/002-small-s00-p0-b32.json",
+    "input_sha256": "1e6f404b20b369b6878e5ae6bba5e3c1047b097e6126a3562792616a9f8f9c3d"
+  },
+  "evaluation_config": {
+    "exact": true,
+    "certificate": true,
+    "oracle": true,
+    "semantic": false,
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0
   }
 }

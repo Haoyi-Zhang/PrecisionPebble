@@ -44,6 +44,65 @@ class ModelTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "capacity"):
             self._load_raw(raw)
 
+
+    def test_fractional_capacity_is_rejected_without_truncation(self) -> None:
+        raw = self._base()
+        raw["capacity"] = 31.9
+        with self.assertRaisesRegex(ValueError, "capacity must be an integer"):
+            self._load_raw(raw)
+
+    def test_boolean_capacity_is_rejected(self) -> None:
+        raw = self._base()
+        raw["capacity"] = True
+        with self.assertRaisesRegex(ValueError, "capacity must be an integer"):
+            self._load_raw(raw)
+
+    def test_fractional_allocation_is_rejected_without_truncation(self) -> None:
+        raw = self._base()
+        raw["nodes"]["sa"]["weights"]["64"] = 64.9
+        with self.assertRaisesRegex(ValueError, "allocation.*must be an integer"):
+            self._load_raw(raw)
+
+    def test_boolean_allocation_is_rejected(self) -> None:
+        raw = self._base()
+        raw["nodes"]["sa"]["weights"]["64"] = False
+        with self.assertRaisesRegex(ValueError, "allocation.*must be an integer"):
+            self._load_raw(raw)
+
+    def test_fractional_state_label_is_rejected_without_truncation(self) -> None:
+        raw = self._base()
+        raw["root_states"] = [64.9]
+        with self.assertRaisesRegex(ValueError, r"root_states\[0\] must be an integer"):
+            self._load_raw(raw)
+
+    def test_boolean_state_label_is_rejected(self) -> None:
+        raw = self._base()
+        raw["nodes"]["b"]["recipes"][0]["output"] = True
+        with self.assertRaisesRegex(ValueError, "output must be an integer"):
+            self._load_raw(raw)
+
+    def test_fractional_work_numerator_is_rejected(self) -> None:
+        raw = self._base()
+        raw["nodes"]["b"]["recipes"][0]["work"] = [-0.5, 1]
+        with self.assertRaisesRegex(ValueError, "work numerator must be an integer"):
+            self._load_raw(raw)
+
+    def test_boolean_work_denominator_is_rejected(self) -> None:
+        raw = self._base()
+        raw["nodes"]["b"]["recipes"][0]["work"] = [1, True]
+        with self.assertRaisesRegex(ValueError, "work denominator must be an integer"):
+            self._load_raw(raw)
+
+    def test_valid_integer_fraction_is_preserved_exactly(self) -> None:
+        raw = self._base()
+        raw["nodes"]["b"]["recipes"][0]["work"] = [1, 2]
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "instance.json"
+            path.write_text(json.dumps(raw), encoding="utf-8")
+            instance = load_instance(path)
+        self.assertEqual(instance.nodes["b"].recipes[0].work.numerator, 1)
+        self.assertEqual(instance.nodes["b"].recipes[0].work.denominator, 2)
+
     def test_missing_root_is_rejected(self) -> None:
         raw = self._base()
         raw["root"] = "missing"

@@ -11,19 +11,17 @@ from typing import Any
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
+from src.campaign import validate_complete_campaign  # noqa: E402
 from src.pipeline import write_json  # noqa: E402
 
 GROUP_ORDER = ["small", "extended", "separation", "control", "hardness", "scaling", "integer"]
 
 
-def load_results(path: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    manifest = json.loads((path / "manifest.json").read_text(encoding="utf-8"))
-    if not manifest.get("complete"):
-        raise SystemExit("summary requires a complete campaign")
-    cases = [json.loads(item.read_text(encoding="utf-8")) for item in sorted((path / "cases").glob("*.json"))]
-    if len(cases) != manifest["expected_cases"] or any(case["status"] != "checked" for case in cases):
-        raise SystemExit("campaign records are missing or failed")
-    return cases, manifest
+def load_results(path: Path, repo: Path = REPO) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    validation = validate_complete_campaign(repo, path)
+    if not validation.valid or validation.manifest is None:
+        raise SystemExit("invalid complete campaign: " + "; ".join(validation.errors))
+    return validation.cases, validation.manifest
 
 
 def main() -> int:
@@ -50,7 +48,7 @@ def main() -> int:
                 "max_nodes": max(case["instance"]["nodes"] for case in selected),
                 "oracles": sum(case["oracle"] is not None for case in selected),
                 "certificates": sum(case["prepared"]["certificate_check"] is not None for case in selected),
-                "charged_units": sum(case["metrics"]["charged_units"] for case in selected),
+                "audit_units": sum(case["metrics"]["audit_units"] for case in selected),
             }
         )
 
@@ -102,7 +100,7 @@ def main() -> int:
                 for case in cases
             ),
             "certificates": sum(case["prepared"]["certificate_check"] is not None for case in cases),
-            "charged_units": sum(case["metrics"]["charged_units"] for case in cases),
+            "audit_units": sum(case["metrics"]["audit_units"] for case in cases),
             "optimizer_states": sum(case["metrics"]["optimizer_states"] for case in cases),
             "certificate_alternatives": sum(case["metrics"]["certificate_alternatives"] for case in cases),
             "oracle_states": sum(case["metrics"]["oracle_states"] for case in cases),
@@ -111,7 +109,7 @@ def main() -> int:
             "max_nodes": max(case["instance"]["nodes"] for case in cases),
             "max_recipes": max(case["instance"]["recipes"] for case in cases),
             "max_capacity": max(case["instance"]["capacity"] for case in cases),
-            "case_cpu_seconds": sum(case["metrics"]["cpu_seconds"] for case in cases),
+            "case_body_cpu_seconds": sum(case["metrics"]["case_body_cpu_seconds"] for case in cases),
             "manifest": manifest,
         },
         "coverage": coverage,

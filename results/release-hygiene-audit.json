@@ -1,0 +1,27 @@
+{
+  "expected_root_entries": [
+    "CURRENT-STATE.md",
+    "artifact",
+    "paper",
+    "research-plan.md"
+  ],
+  "forbidden_entries": [],
+  "private_path_or_attachment_id_hits": [],
+  "required_files": {
+    "artifact/README.md": true,
+    "artifact/reproduce.py": true,
+    "paper/main.pdf": true,
+    "paper/main.tex": true,
+    "paper/supplement.pdf": true,
+    "paper/supplement.tex": true
+  },
+  "root_entries": [
+    "CURRENT-STATE.md",
+    "artifact",
+    "paper",
+    "research-plan.md"
+  ],
+  "root_entries_match": true,
+  "schema": 2,
+  "valid": true
+}

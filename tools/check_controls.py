@@ -12,6 +12,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
 from src.bellman_checker import check_certificate  # noqa: E402
+from src.claim_checker import check_solution_claim  # noqa: E402
 from src.event_checker import check_events  # noqa: E402
 from src.generators import integer_instance, separation_instance  # noqa: E402
 from src.model import load_instance  # noqa: E402
@@ -38,16 +39,32 @@ def main() -> int:
     separation = load_instance(locate("control-separation-89-91"))
     valley = load_instance(locate("control-expansive-valley"))
     solution = PreparationAwareOptimizer(separation, exact=True).solve()
-    valley_oracle = configuration_oracle(valley, state_cap=50_000, cpu_cap=15.0)
 
     positives = []
     valid_certificate = check_certificate(separation, solution.certificate)
     positives.append({"name": "valid-certificate", "accepted": valid_certificate["valid"]})
-    valley_check = check_events(valley, valley_oracle.events)
+
+    valid_claim = check_solution_claim(
+        separation,
+        solution.cost.to_json() if solution.cost is not None else None,
+        solution.events,
+        solution.certificate,
+    )
+    positives.append({"name": "valid-cost-trace-certificate-claim", "accepted": valid_claim["valid"]})
+
+    valley_fixture = json.loads((REPO / "instances" / "witnesses" / "expansive-valley-33.json").read_text(encoding="utf-8"))
+    valley_check = check_events(valley, valley_fixture["events"])
     positives.append(
         {
-            "name": "valid-expansive-valley-witness",
-            "accepted": valley_oracle.cost is not None and valley_oracle.cost.io == 33 and valley_check.valid,
+            "name": "frozen-oracle-reconstructed-expansive-valley-witness",
+            "source": valley_fixture["provenance"],
+            "accepted": (
+                valley_check.valid
+                and valley_check.cost.io == valley_fixture["expected_io"] == 33
+                and valley_check.peak == valley_fixture["expected_peak"] == 18
+            ),
+            "observed_io": valley_check.cost.io,
+            "observed_peak": valley_check.peak,
         }
     )
 
@@ -86,9 +103,18 @@ def main() -> int:
     missing_store = solution.events[:-1]
     negatives.append({"name": "removed-final-store", "rejected": not check_events(separation, missing_store).valid})
 
-    actual = check_events(separation, solution.events).cost
-    fake_claim = {"io": actual.io + 1, "work": [actual.work.numerator, actual.work.denominator]}
-    negatives.append({"name": "changed-claimed-optimum", "rejected": fake_claim != actual.to_json()})
+    actual_claim = solution.cost.to_json() if solution.cost is not None else None
+    assert actual_claim is not None
+    fake_claim = copy.deepcopy(actual_claim)
+    fake_claim["io"] += 1
+    fake_claim_check = check_solution_claim(separation, fake_claim, solution.events, solution.certificate)
+    negatives.append(
+        {
+            "name": "changed-claimed-optimum",
+            "rejected": not fake_claim_check["valid"],
+            "checker_errors": fake_claim_check["errors"],
+        }
+    )
 
     corrupted = copy.deepcopy(solution.certificate)
     finite_key = next(key for key, value in corrupted["states"].items() if value["cost"] is not None)
@@ -98,7 +124,7 @@ def main() -> int:
     missing = copy.deepcopy(solution.certificate)
     removed_key = next(iter(missing["states"]))
     del missing["states"][removed_key]
-    negatives.append({"name": "removed-table-dependency", "rejected": not check_certificate(separation, missing)["valid"]})
+    negatives.append({"name": "removed-table-state", "rejected": not check_certificate(separation, missing)["valid"]})
 
     extra = copy.deepcopy(solution.certificate)
     extra["states"]["unexpected|8|1"] = {"cost": None, "choice": None}
@@ -122,14 +148,16 @@ def main() -> int:
     negatives.append({"name": "literal-eq6-rejects-typed-instance", "rejected": typed_rejected})
 
     report = {
-        "schema": 1,
+        "schema": 2,
         "positive_checks": positives,
         "reference_equation_checks": reference_checks,
         "negative_checks": negatives,
         "positive_passes": sum(item["accepted"] for item in positives),
         "reference_equation_passes": sum(item["accepted"] for item in reference_checks),
         "negative_passes": sum(item["rejected"] for item in negatives),
-        "valid": all(item["accepted"] for item in positives) and all(item["accepted"] for item in reference_checks) and all(item["rejected"] for item in negatives),
+        "valid": all(item["accepted"] for item in positives)
+        and all(item["accepted"] for item in reference_checks)
+        and all(item["rejected"] for item in negatives),
     }
     write_json(output, report)
     print(json.dumps(report, indent=2))

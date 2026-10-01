@@ -1,53 +1,73 @@
 {
-  "schema": 1,
+  "schema": 2,
+  "index_sha256": "b7ffe0cdf6a358c953c2ead01f312bccdf575b4eba679b031551a34a17d4f279",
+  "campaign_config": {
+    "oracle_state_cap": 50000,
+    "oracle_case_cpu_cap_seconds": 15.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  },
   "expected_cases": 364,
   "checked_cases": 364,
+  "incomplete_cases": 0,
   "complete": true,
-  "cumulative_charged_units": 166841,
-  "cumulative_case_cpu_seconds": 2.7715453049999996,
-  "total_invocation_cpu_seconds": 3.3424122279999997,
-  "max_rss_kib": 112296,
+  "terminal_status": "complete",
+  "cumulative_audit_units": 255792,
+  "cumulative_case_body_cpu_seconds": 2.7025297780000006,
+  "total_invocation_process_cpu_seconds": 3.3015951589999997,
+  "max_rss_kib": 137748,
   "invocations": [
     {
-      "new_cases": 64,
-      "cpu_seconds": 0.04370031900000004,
-      "max_rss_kib": 95528
+      "new_cases_checked": 64,
+      "candidate_cases_evaluated": 64,
+      "invocation_process_cpu_seconds": 0.04983444100000001,
+      "max_rss_kib": 95276
     },
     {
-      "new_cases": 64,
-      "cpu_seconds": 0.055342679000000006,
-      "max_rss_kib": 93996
+      "new_cases_checked": 64,
+      "candidate_cases_evaluated": 64,
+      "invocation_process_cpu_seconds": 0.06368385399999998,
+      "max_rss_kib": 96932
     },
     {
-      "new_cases": 64,
-      "cpu_seconds": 0.06366919100000001,
-      "max_rss_kib": 94112
+      "new_cases_checked": 64,
+      "candidate_cases_evaluated": 64,
+      "invocation_process_cpu_seconds": 0.07073002799999994,
+      "max_rss_kib": 98852
     },
     {
-      "new_cases": 64,
-      "cpu_seconds": 0.07084773999999994,
-      "max_rss_kib": 93992
+      "new_cases_checked": 64,
+      "candidate_cases_evaluated": 64,
+      "invocation_process_cpu_seconds": 0.11829248999999997,
+      "max_rss_kib": 100652
     },
     {
-      "new_cases": 64,
-      "cpu_seconds": 2.2605825139999998,
-      "max_rss_kib": 112296
+      "new_cases_checked": 64,
+      "candidate_cases_evaluated": 64,
+      "invocation_process_cpu_seconds": 2.1875395049999997,
+      "max_rss_kib": 123376
     },
     {
-      "new_cases": 44,
-      "cpu_seconds": 0.848269785,
-      "max_rss_kib": 102572
+      "new_cases_checked": 44,
+      "candidate_cases_evaluated": 44,
+      "invocation_process_cpu_seconds": 0.8115148409999999,
+      "max_rss_kib": 137748
     }
   ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 2700-second campaign cap.",
+    "invocation_process_cpu_seconds": "Process CPU for one reproduce.py invocation, including resume validation, JSON I/O, case bodies, and manifest writing; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
   "limits": {
     "address_limit_bytes": 3221225472,
     "affinity": [
       0
     ],
     "workers": 1,
-    "campaign_unit_cap": 600000,
-    "campaign_cpu_cap_seconds": 2700.0,
     "oracle_state_cap": 50000,
-    "oracle_cpu_cap_seconds": 15.0
+    "oracle_case_cpu_cap_seconds": 15.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
   }
 }

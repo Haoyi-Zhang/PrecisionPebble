@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "instance": "control-expansive-valley",
+  "provenance": "Frozen from the deterministic configuration-oracle predecessor reconstruction; replayed separately by the event checker.",
+  "expected_io": 33,
+  "expected_peak": 18,
+  "events": [
+    {"event": "load", "node": "sl", "state": 64},
+    {"event": "compute", "node": "ml", "recipe": "shrink-l", "output": 64},
+    {"event": "load", "node": "sr", "state": 64},
+    {"event": "compute", "node": "mr", "recipe": "shrink-r", "output": 64},
+    {"event": "compute", "node": "fl", "recipe": "expand-l", "output": 64},
+    {"event": "compute", "node": "fr", "recipe": "expand-r", "output": 64},
+    {"event": "compute", "node": "z", "recipe": "join", "output": 64},
+    {"event": "store", "node": "z"}
+  ]
+}
