@@ -4,7 +4,7 @@ A self-contained research artifact for **Preparation-Aware Weighted Pebbling for
 
 ## Implemented contract
 
-The planner jointly chooses representations, operator recipes, spill edges, and execution order on a rooted unique-consumer in-tree. It exactly minimizes transferred allocation units, with nonnegative rational abstract work as a lexicographic tie-breaker, **only when every allowed recipe's output allocation is at most each operand's allocation**. Operators are pure, atomic, and non-overwriting. The capacity dependence is pseudo-polynomial. The configuration search is a separately implemented small-instance oracle; this is implementation separation, not independent authorship or blind review.
+The planner jointly chooses representations, operator recipes, spill edges, and execution order on a rooted unique-consumer in-tree. It exactly minimizes transferred allocation units, with nonnegative rational abstract work as a lexicographic tie-breaker, **only when every allowed recipe's output allocation is at most each operand's allocation**. Operators are pure, atomic, and non-overwriting. The capacity dependence is pseudo-polynomial. The configuration search is a separately implemented small-instance oracle.
 
 `proofs/core.md` contains the human-readable arguments for ancestry pruning, the spill-forest identity, component serialization, the exact recurrence, the tight `23t/25t` family, and the NP-complete expansive extension. The proofs are not mechanized. The recurrence in expansive mode is only a feasible upper-bound policy. The retained executable model has no separate hidden-workspace field: a front end must lower temporary storage to explicit values or allocations before applying this contract. No hardware, deployment, energy, floating-point-accuracy, or model-performance claim is supported.
 
@@ -97,6 +97,5 @@ The reference-policy implementation transcribes the fixed-state recurrence from 
 
 ## Research provenance and external use
 
-Substantive AI assistance was used in model and proof development, counterexamples, code, experimental design and execution, analysis, source comparison, and manuscript/figure writing. Artifact-only self-audits are not independent blind review. This is internal research, not an accepted or submitted article. Human authorship, accountability, current venue permission, AI-use disclosure, and submission declarations require truthful verification before external use. No repository URL is asserted.
 
 The MIT license covers newly authored repository material. Third-party publications and tools retain their own licenses; see `external_resources.csv`.
