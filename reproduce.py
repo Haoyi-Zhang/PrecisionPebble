@@ -112,8 +112,9 @@ def _manifest(
                 f"against the configured {config['cumulative_case_body_cpu_cap_seconds']:g}-second campaign cap."
             ),
             "invocation_process_cpu_seconds": (
-                "Process CPU for one reproduce.py invocation, including resume validation, JSON I/O, "
-                "case bodies, and manifest writing; it is recorded separately and is not the cap quantity."
+                "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and "
+                "validation, but excluding startup, initial recovery, and terminal manifest/print work; "
+                "it is recorded separately and is not the cap quantity."
             ),
             "external_timing": (
                 "Elapsed time and process-tree resource measurements, when retained, are collected by an "

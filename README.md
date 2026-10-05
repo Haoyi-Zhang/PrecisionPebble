@@ -46,7 +46,7 @@ The runner checks its caps at resume start, before submitting each case, after a
 The timing fields intentionally distinguish three quantities:
 
 - `case_body_cpu_seconds`: process CPU measured inside `evaluate_case`; only this sum is compared with the 2,700-second campaign cap;
-- `invocation_process_cpu_seconds`: process CPU for an entire `reproduce.py` invocation, including recovery checks and JSON I/O;
+- `invocation_process_cpu_seconds`: post-recovery orchestration CPU, including case bodies and in-segment result I/O/validation, but excluding startup, initial recovery, and terminal manifest/print work;
 - external timing: elapsed time and process-tree resource measurements collected outside the runner.
 
 ## Instrumented audit units
