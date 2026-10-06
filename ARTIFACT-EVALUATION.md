@@ -21,7 +21,7 @@ python3 tools/check_controls.py --output results/reviewer-controls.json
 python3 tools/check_reference_equation.py --output results/reviewer-reference-equation.json
 ```
 
-Expected retained outcomes are 47 passing unit tests, three accepted positive controls, ten rejected negative/invalid controls, and five passing literal reference-equation cases.
+The current suite defines 57 unit tests, including ten claim-evidence regressions. On Windows, 49 portable tests passed; the eight campaign-integrity tests require the POSIX `resource` module and were not executed there. The controls retain three accepted positive objects, ten rejected negative/invalid objects, and five passing literal reference-equation cases. The full POSIX suite is included in the prepared hosted workflow; a local portable run is not that workflow's result.
 
 ## Clean replay
 

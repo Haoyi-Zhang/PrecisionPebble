@@ -18,8 +18,10 @@ def check_solution_claim(
 
     A finite claim must equal the cost recomputed from the normalized event trace.
     When a Bellman certificate is supplied, its separately recomputed terminal
-    cost must agree as well. An infeasibility claim may carry no execution trace and
-    must be accompanied by an infeasible certificate when a certificate is supplied.
+    cost must agree as well. Without a certificate, a finite trace establishes
+    feasibility and its cost, not optimality. An infeasibility claim requires an
+    exact, contractive certificate with explicit infinity and no execution trace.
+    Upper-bound certificates are outside this entry point's infeasibility contract.
     """
 
     errors: list[str] = []
@@ -36,6 +38,11 @@ def check_solution_claim(
             pass
         elif events:
             errors.append("infeasibility claim unexpectedly carries events")
+        if claimed_cost_json is None:
+            if certificate is None:
+                errors.append("infeasibility claim requires an exact Bellman certificate")
+            elif not isinstance(certificate, dict) or certificate.get("exact_mode") is not True or not instance.contractive:
+                errors.append("infeasibility certification requires exact mode and allocation contraction")
     else:
         event_check = check_events(instance, events)
         if not event_check.valid:
@@ -51,7 +58,7 @@ def check_solution_claim(
         certificate_check = check_certificate(instance, certificate)
         if not certificate_check["valid"]:
             errors.append(f"Bellman certificate rejected: {certificate_check['error']}")
-        elif certificate_check["terminal_cost"] != claimed_cost_json:
+        elif cost_from_json(certificate_check["terminal_cost"]) != claimed:
             errors.append(
                 "claimed/certificate terminal-cost mismatch: "
                 f"claimed={claimed_cost_json}, recomputed={certificate_check['terminal_cost']}"

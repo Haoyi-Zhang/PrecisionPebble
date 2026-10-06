@@ -21,11 +21,12 @@ cost model as absent prior work, presenting an application-specific correction a
 a wholesale refutation, and using representation labels to imply numerical-error
 or hardware-performance results that were never evaluated.
 
-The decisive comparison with the weighted-pebbling anchor is executable in two
-ways: a literal implementation of its restricted recurrence and a standalone
-four-rule WRBPG enumerator.  These checks establish the finite 89/91 instance and
-support the symbolic 23t/25t argument; they do not re-run or dispute the anchor's
-DWT-specific hardware study.
+The decisive comparison with the weighted-pebbling anchor uses a literal
+implementation of its restricted recurrence and a separately implemented
+configuration oracle. Both share the local instance parser; neither is claimed
+to be an isolated standalone implementation. These checks establish the finite
+89/91 instance and support the symbolic 23t/25t argument; they do not re-run or
+dispute the anchor's DWT-specific hardware study.
 
 The rematerialization, checkpointing, distributed materialization, mixed-precision,
 bit-width, scratchpad, placement, and compression literature is included because a

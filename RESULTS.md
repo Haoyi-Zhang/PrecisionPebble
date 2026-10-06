@@ -1,6 +1,6 @@
 # Retained results
 
-## Clean campaign and replay
+## Retained historical campaign and replay
 
 The repaired evaluation contains 364 deterministic instances, all with status `checked`. The configuration oracle completes on 286 instances. Of these, 283 are allocation-contractive and agree with the preparation-aware recurrence; the other three are deliberately outside the exact theorem. The separately implemented Bellman checker validates 361 certificates, including infeasible tables.
 
@@ -8,7 +8,7 @@ A second clean directory reproduces all 364 logical records. `tools/compare_repl
 
 ## Audit counter and timing
 
-The campaign records 255,792 **instrumented audit units**. This is the explicit sum of prepared optimizer states, certificate alternatives, prepared event steps, contiguous-policy states and alternatives, oracle expanded states and replay steps, typed semantic evaluations, and fixed-64 optimizer/event/semantic work. It is not a conservative bound on all instructions or all execution paths.
+The historical campaign records 255,792 **instrumented audit units**. This is the explicit sum of prepared optimizer states, certificate alternatives, prepared event steps, contiguous-policy states and alternatives, oracle expanded states and replay steps, typed semantic evaluations, and fixed-64 optimizer/event/semantic work. It is not a conservative bound on all instructions or all execution paths.
 
 The retained totals include 31,161 prepared optimizer states, 69,035 Bellman alternatives, and 60,065 discovered oracle states. The campaign uses 2.642924087 cumulative case-body process CPU seconds, the quantity governed by the 2,700-second cap. Six invocations use 3.231044784 process CPU seconds inside the complete runner. External timing totals 9.08 process CPU seconds and 6.75 summed elapsed seconds, with 137,708 KiB maximum process-tree RSS. These timing and memory values are host-dependent.
 
@@ -50,3 +50,9 @@ The changed-claimed-optimum control no longer performs a stand-alone inequality 
 Small fixtures confirm that fractional capacities and allocations (`31.9`, `64.9`), fractional work numerators (`-0.5`), and booleans in integer fields are rejected rather than truncated; `[1,2]` is preserved exactly. Additional fixtures confirm that an over-budget final case is persisted as `incomplete`, a subsequent empty run remains incomplete, input changes invalidate recovery through their digest, and summary/comparison require frozen-index identity rather than record counts alone.
 
 The universal theorems remain human-readable proofs in `proofs/core.md`; no test count or executable certificate is described as a mechanized proof.
+
+## Current checker behavior and local evaluation
+
+Missing state costs, terminal costs, and root-state fields are rejected instead of being interpreted as explicit infinity. The joined checker's infeasibility contract requires an exact contractive certificate, including for the fixed-64 projection; upper-bound certificates are outside that contract. Joined cost checks compare exact rational values, accepting equivalent pairs such as `[1,3]` and `[2,6]`.
+
+Ten targeted regressions passed after these corrections; seven had failed before the code change. A bounded Windows CPython 3.12.14 direct evaluation of all 364 frozen case bodies matched every historical logical record, preserving costs, witnesses, certificates, semantic checks, and the 255,792-unit counter. It did not exercise the POSIX launcher. Forty-nine portable tests passed, while the eight POSIX campaign-integrity tests could not load on Windows. The local results do not replace historical Linux timing measurements. See the README for the local resource/timing scopes and the prepared, unexecuted hosted workflow.

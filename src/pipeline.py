@@ -77,7 +77,7 @@ def evaluate_case(
             fixed_instance,
             cost_to_json(fixed_solution.cost),
             fixed_solution.events,
-            None,
+            fixed_solution.certificate if fixed_solution.cost is None else None,
         )
         if not fixed_claim["valid"]:
             errors.extend(f"fixed-64 claim: {message}" for message in fixed_claim["errors"])

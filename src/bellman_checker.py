@@ -130,7 +130,7 @@ def check_certificate(instance: Instance, certificate: dict[str, Any]) -> dict[s
             errors.append(f"state {key} record is not an object")
             continue
         try:
-            supplied_cost = cost_to_json(cost_from_json(record.get("cost")))
+            supplied_cost = cost_to_json(cost_from_json(record["cost"]))
         except (KeyError, TypeError, ValueError) as exc:
             errors.append(f"state {key} malformed cost: {exc}")
             continue
@@ -140,13 +140,15 @@ def check_certificate(instance: Instance, certificate: dict[str, Any]) -> dict[s
                 break
 
     try:
-        supplied_terminal = cost_to_json(cost_from_json(certificate.get("terminal_cost")))
+        supplied_terminal = cost_to_json(cost_from_json(certificate["terminal_cost"]))
     except (KeyError, TypeError, ValueError) as exc:
         supplied_terminal = "<malformed>"
         errors.append(f"malformed terminal cost: {exc}")
     if supplied_terminal != cost_to_json(terminal):
         errors.append(f"terminal cost mismatch: supplied={supplied_terminal}, expected={cost_to_json(terminal)}")
     supplied_root_state = certificate.get("root_state")
+    if "root_state" not in certificate:
+        errors.append("certificate root_state is missing; explicit null is required for infeasibility")
     if supplied_root_state is not None:
         try:
             supplied_root_state = require_int(supplied_root_state, "certificate root_state", minimum=1)

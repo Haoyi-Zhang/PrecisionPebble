@@ -15,8 +15,8 @@ JSON numerical fields are fail-closed. Capacities, allocations, representation l
 The three executable checks have different contracts.
 
 - `src/event_checker.py` replays one normalized, one-shot trace: a source is loaded at most once and an operator is computed at most once. This is the trace class justified by the paper's normalization lemmas, not an arbitrary recomputing pebble-game execution. The checker recomputes legality, capacity, peak allocation, transferred units, rational work, and the final stored root.
-- `src/bellman_checker.py` recursively evaluates the recurrence into a fresh memo, derives the expected reachable key set and costs, and then compares that mapping with the supplied certificate. It does not trust a claimed external table-dependency order.
-- `src/claim_checker.py` connects a claimed optimum to the actual event and certificate checks. The changed-optimum negative control passes a deliberately altered cost through this entry point and is rejected by both the recomputed trace cost and the recomputed certificate terminal cost.
+- `src/bellman_checker.py` recursively evaluates the recurrence into a fresh memo, derives the expected reachable key set and costs, and then compares that mapping with the supplied certificate. It requires explicit cost fields (JSON `null` denotes infinity), a terminal cost, and a root-state field; omitted fields do not certify infinity. It does not trust a claimed external table-dependency order.
+- `src/claim_checker.py` compares exact rational costs, so equivalent numerator/denominator pairs agree. A finite trace without a certificate establishes feasibility and its cost, not optimality. An infeasibility claim requires an exact contractive Bellman certificate; an absent witness or failed upper-bound policy is insufficient. The changed-optimum negative control is rejected by both the recomputed trace cost and certificate terminal cost. Fixed-64 infeasibility checks now also supply their exact certificate.
 
 The positive expansive-valley witness in `instances/witnesses/expansive-valley-33.json` was frozen from deterministic configuration-oracle predecessor reconstruction. It is then replayed by the event checker, which confirms I/O 33 and peak allocation 18. It is not described as a hand-authored trace or an independently produced research result.
 
@@ -67,7 +67,7 @@ The per-component values are stored in `metrics.audit_unit_components`, and `aud
 
 The frozen campaign contains 364 deterministic constructed instances: 256 structural-grid cases, 16 larger structural cases, eight analytic separation cases, four controls, two hardness controls, 24 scaling cases, and 54 exact-integer IR cases. They are not a sampled natural-workload benchmark. Observed maxima are 64 vertices, 117 recipes, capacity 1,024, and four representation labels `{8,16,32,64}`.
 
-The repaired clean campaign and clean replay both contain:
+The retained historical campaign and historical clean replay both contain:
 
 - 364 checked cases;
 - 286 complete configuration searches;
@@ -80,8 +80,14 @@ The repaired clean campaign and clean replay both contain:
 
 All 54 integer-IR instances remain: 48 are feasible with typed choices, 36 at fixed 64 bits, 12 are typed-only, and six are infeasible in both. All 36 jointly feasible cases have lower I/O under typed planning than fixed-64 planning; **none** has lower I/O from preparation than from the typed-contiguous policy. That absence is a retained negative result.
 
-The complete campaign uses 2.642924087 cumulative case-body CPU seconds and 3.231044784 cumulative invocation-process CPU seconds. The six external invocations total 9.08 process CPU seconds, 6.75 summed elapsed seconds, and 137,708 KiB maximum process-tree RSS on the retained host. These host-dependent values are not compared for logical replay equality.
-The post-repair clean replay records 2.702529778 case-body CPU seconds, 3.301595159 invocation CPU seconds, 8.88 user plus 0.45 system CPU seconds externally, 6.96 seconds elapsed, and 137,748 KiB peak RSS. It retains 255,792 audit units and matches all 364 logical records; the timing/RSS changes are the only observed differences.
+The historical campaign uses 2.642924087 cumulative case-body CPU seconds and 3.231044784 cumulative invocation-process CPU seconds. The six external invocations total 9.08 process CPU seconds, 6.75 summed elapsed seconds, and 137,708 KiB maximum process-tree RSS on the retained host. These host-dependent values are not compared for logical replay equality.
+The historical clean replay records 2.702529778 case-body CPU seconds, 3.301595159 invocation CPU seconds, 8.88 user plus 0.45 system CPU seconds externally, 6.96 seconds elapsed, and 137,748 KiB peak RSS. It retains 255,792 audit units and matches all 364 logical records.
+
+A separate Windows CPython 3.12.14 evaluation after the checker corrections ran the same 364 frozen case bodies and matched every retained logical record, including the 255,792 audit units. It used a 60-second wall deadline and a 3 GiB Windows job committed-memory cap. This direct evaluation did not exercise the POSIX launcher's resource or recovery code. Its 2.3125 case-body CPU seconds, 5.393 seconds of externally measured elapsed time, and 163,565,568-byte peak job committed memory have different scopes from the historical Linux timings and RSS. Locally, 49 portable tests passed, including ten new claim regressions; the eight POSIX campaign-integrity tests could not import Windows' unavailable `resource` module. These local checks are not a hosted workflow run.
+
+## Hosted scientific check definition
+
+`.github/workflows/scientific-checks.yml` is configured for the standalone artifact-root repository on pushes to `main`, pull requests, and manual dispatch. It runs the complete test suite, controls, printed-equation checks, six campaign chunks, summarization, and logical replay comparison on Ubuntu 24.04. The whole scientific shell has a 300-second wall deadline, a 240-second per-process CPU limit, and a 3 GiB address-space limit; the campaign retains its own cumulative and oracle caps. Raw logs and JSON outputs are uploaded on success or failure. The workflow has been prepared, not executed remotely by this local evaluation.
 
 ## Files and boundaries
 
