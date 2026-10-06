@@ -26,7 +26,7 @@ The 54 cases cover sums, dot products, and sums of absolute differences. Forty-e
 
 The absence of preparation gains in this finite generated set is a retained negative result. These cases establish precision-dependent feasibility and transfer costs within the declared exact-integer contract, not natural-workload prevalence or hardware speedup.
 
-## Coverage table
+## Historical coverage table (retained)
 
 | Group | Cases | Max vertices | Complete oracles | Certificates | Audit units |
 |---|---:|---:|---:|---:|---:|
@@ -55,4 +55,6 @@ The universal theorems remain human-readable proofs in `proofs/core.md`; no test
 
 Missing state costs, terminal costs, and root-state fields are rejected instead of being interpreted as explicit infinity. The joined checker's infeasibility contract requires an exact contractive certificate, including for the fixed-64 projection; upper-bound certificates are outside that contract. Joined cost checks compare exact rational values, accepting equivalent pairs such as `[1,3]` and `[2,6]`.
 
-Ten targeted regressions passed after these corrections; seven had failed before the code change. A bounded Windows CPython 3.12.14 direct evaluation of all 364 frozen case bodies matched every historical logical record, preserving costs, witnesses, certificates, semantic checks, and the 255,792-unit counter. It did not exercise the POSIX launcher. Forty-nine portable tests passed, while the eight POSIX campaign-integrity tests could not load on Windows. The local results do not replace historical Linux timing measurements. See the README for the local resource/timing scopes and the prepared, unexecuted hosted workflow.
+Ten targeted regressions passed after these corrections; seven had failed before the code change. A bounded Windows CPython 3.12.14 direct evaluation of all 364 frozen case bodies matched every historical logical record, preserving costs, witnesses, certificates, semantic checks, and the 255,792-unit counter. It did not exercise the POSIX launcher. Forty-nine portable tests passed, while the eight POSIX campaign-integrity tests could not load on Windows. These local results do not replace historical Linux timing measurements.
+
+The current Linux reproduction passed all 57 tests with no skips and matched all 364 historical scientific case records through six resumable chunks. The three positive, ten negative, and five literal-equation controls passed. Its [native measurement receipt](results/measurements/linux-37439076455.json) separates case-body CPU, post-recovery invocation CPU, and single-process RSS; no new external whole-run timing is available. The historical coverage, integer outcomes, negative observations, and measurements above remain unchanged. See the README for the current timing scopes and finite single-platform limits.

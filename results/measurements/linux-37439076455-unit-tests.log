@@ -1,0 +1,389 @@
+test_duplicate_doi_is_rejected (test_bibliography_audit.BibliographyAuditTests.test_duplicate_doi_is_rejected) ... ok
+test_parser_handles_nested_title_braces_and_optional_cite_argument (test_bibliography_audit.BibliographyAuditTests.test_parser_handles_nested_title_braces_and_optional_cite_argument) ... ok
+test_reports_missing_and_unused_keys (test_bibliography_audit.BibliographyAuditTests.test_reports_missing_and_unused_keys) ... ok
+test_valid_bibliography (test_bibliography_audit.BibliographyAuditTests.test_valid_bibliography) ... ok
+test_verification_identifier_mismatch_is_rejected (test_bibliography_audit.BibliographyAuditTests.test_verification_identifier_mismatch_is_rejected) ... ok
+test_verification_ledger_matches_bibliography (test_bibliography_audit.BibliographyAuditTests.test_verification_ledger_matches_bibliography) ... ok
+test_budget_reached_between_chunks_blocks_next_submission (test_campaign_integrity.CampaignIntegrityTest.test_budget_reached_between_chunks_blocks_next_submission) ... ok
+test_compare_rejects_nonexistent_and_empty_campaigns (test_campaign_integrity.CampaignIntegrityTest.test_compare_rejects_nonexistent_and_empty_campaigns) ... ok
+test_compare_rejects_same_directory (test_campaign_integrity.CampaignIntegrityTest.test_compare_rejects_same_directory) ... ok
+test_compare_rejects_when_both_campaigns_miss_the_same_case (test_campaign_integrity.CampaignIntegrityTest.test_compare_rejects_when_both_campaigns_miss_the_same_case) ... ok
+test_cost_parser_rejects_fractional_and_boolean_fields (test_campaign_integrity.CampaignIntegrityTest.test_cost_parser_rejects_fractional_and_boolean_fields) ... ok
+test_final_case_over_budget_stays_incomplete_on_empty_resume (test_campaign_integrity.CampaignIntegrityTest.test_final_case_over_budget_stays_incomplete_on_empty_resume) ... checked 001/2 case-0 audit_units=1 case_body_cpu=0.1000s
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 1,
+    "cumulative_case_body_cpu_cap_seconds": 10.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 1,
+  "incomplete_cases": 0,
+  "complete": false,
+  "terminal_status": "chunk-complete",
+  "cumulative_audit_units": 1,
+  "cumulative_case_body_cpu_seconds": 0.1,
+  "total_invocation_process_cpu_seconds": 0.0008325129999999792,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 1,
+      "candidate_cases_evaluated": 1,
+      "invocation_process_cpu_seconds": 0.0008325129999999792,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 10-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 1,
+    "cumulative_case_body_cpu_cap_seconds": 10.0
+  }
+}
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 1,
+    "cumulative_case_body_cpu_cap_seconds": 10.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 1,
+  "incomplete_cases": 0,
+  "complete": false,
+  "terminal_status": "budget-exhausted-before-submit",
+  "cumulative_audit_units": 1,
+  "cumulative_case_body_cpu_seconds": 0.1,
+  "total_invocation_process_cpu_seconds": 0.0011432219999999715,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 1,
+      "candidate_cases_evaluated": 1,
+      "invocation_process_cpu_seconds": 0.0008325129999999792,
+      "max_rss_kib": 23644
+    },
+    {
+      "new_cases_checked": 0,
+      "candidate_cases_evaluated": 0,
+      "invocation_process_cpu_seconds": 0.00031070899999999235,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 10-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 1,
+    "cumulative_case_body_cpu_cap_seconds": 10.0
+  },
+  "message": "a campaign cap has been reached while cases remain"
+}
+checked 001/2 case-0 audit_units=1 case_body_cpu=0.1000s
+checked 002/2 case-1 audit_units=1 case_body_cpu=0.1000s
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 2,
+  "incomplete_cases": 0,
+  "complete": true,
+  "terminal_status": "complete",
+  "cumulative_audit_units": 2,
+  "cumulative_case_body_cpu_seconds": 0.2,
+  "total_invocation_process_cpu_seconds": 0.0014336839999999906,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 2,
+      "candidate_cases_evaluated": 2,
+      "invocation_process_cpu_seconds": 0.0014336839999999906,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 2700-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  }
+}
+checked 001/2 case-0 audit_units=1 case_body_cpu=0.1000s
+checked 002/2 case-1 audit_units=1 case_body_cpu=0.1000s
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 2,
+  "incomplete_cases": 0,
+  "complete": true,
+  "terminal_status": "complete",
+  "cumulative_audit_units": 2,
+  "cumulative_case_body_cpu_seconds": 0.2,
+  "total_invocation_process_cpu_seconds": 0.000844215000000037,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 2,
+      "candidate_cases_evaluated": 2,
+      "invocation_process_cpu_seconds": 0.000844215000000037,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 2700-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  }
+}
+checked 001/2 case-0 audit_units=1 case_body_cpu=0.4000s
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 10,
+    "cumulative_case_body_cpu_cap_seconds": 1.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 1,
+  "incomplete_cases": 1,
+  "complete": false,
+  "terminal_status": "budget-exceeded-after-candidate",
+  "cumulative_audit_units": 2,
+  "cumulative_case_body_cpu_seconds": 1.1,
+  "total_invocation_process_cpu_seconds": 0.0009144360000000185,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 1,
+      "candidate_cases_evaluated": 2,
+      "invocation_process_cpu_seconds": 0.0009144360000000185,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 1-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 10,
+    "cumulative_case_body_cpu_cap_seconds": 1.0
+  },
+  "message": "case case-1 was retained as incomplete after crossing a cap"
+}ok
+test_resume_binds_checked_record_to_input_digest (test_campaign_integrity.CampaignIntegrityTest.test_resume_binds_checked_record_to_input_digest) ... ok
+test_summary_rejects_same_count_with_wrong_identity (test_campaign_integrity.CampaignIntegrityTest.test_summary_rejects_same_count_with_wrong_identity) ... ok
+test_bare_infeasibility_claim_is_rejected (test_claims.ClaimEvidenceTest.test_bare_infeasibility_claim_is_rejected) ... ok
+test_equivalent_nonzero_rational_claim_is_accepted (test_claims.ClaimEvidenceTest.test_equivalent_nonzero_rational_claim_is_accepted) ... ok
+test_equivalent_zero_rational_claim_is_accepted (test_claims.ClaimEvidenceTest.test_equivalent_zero_rational_claim_is_accepted) ... ok
+test_explicit_infinity_certificate_is_accepted (test_claims.ClaimEvidenceTest.test_explicit_infinity_certificate_is_accepted) ... ok
+test_finite_trace_without_certificate_is_a_feasibility_check (test_claims.ClaimEvidenceTest.test_finite_trace_without_certificate_is_a_feasibility_check) ... ok
+test_missing_infeasible_root_state_is_rejected (test_claims.ClaimEvidenceTest.test_missing_infeasible_root_state_is_rejected) ... ok
+test_missing_infinite_state_cost_is_rejected (test_claims.ClaimEvidenceTest.test_missing_infinite_state_cost_is_rejected) ... ok
+test_missing_infinite_terminal_cost_is_rejected (test_claims.ClaimEvidenceTest.test_missing_infinite_terminal_cost_is_rejected) ... ok
+test_upper_bound_certificate_is_outside_infeasibility_contract (test_claims.ClaimEvidenceTest.test_upper_bound_certificate_is_outside_infeasibility_contract) ... ok
+test_wrong_rational_claim_is_rejected (test_claims.ClaimEvidenceTest.test_wrong_rational_claim_is_rejected) ... ok
+test_certificate_corruption_is_rejected (test_core.CoreResultsTest.test_certificate_corruption_is_rejected) ... ok
+test_expansive_valley_discriminates_policies (test_core.CoreResultsTest.test_expansive_valley_discriminates_policies) ... ok
+test_integer_target_values_and_semantics (test_core.CoreResultsTest.test_integer_target_values_and_semantics) ... ok
+test_separation_values_and_witness (test_core.CoreResultsTest.test_separation_values_and_witness) ... ok
+test_boolean_allocation_is_rejected (test_model.ModelTest.test_boolean_allocation_is_rejected) ... ok
+test_boolean_capacity_is_rejected (test_model.ModelTest.test_boolean_capacity_is_rejected) ... ok
+test_boolean_state_label_is_rejected (test_model.ModelTest.test_boolean_state_label_is_rejected) ... ok
+test_boolean_work_denominator_is_rejected (test_model.ModelTest.test_boolean_work_denominator_is_rejected) ... ok
+test_campaign_contract (test_model.ModelTest.test_campaign_contract) ... ok
+test_cycle_is_rejected (test_model.ModelTest.test_cycle_is_rejected) ... ok
+test_disconnected_node_is_rejected (test_model.ModelTest.test_disconnected_node_is_rejected) ... ok
+test_duplicate_recipe_name_is_rejected (test_model.ModelTest.test_duplicate_recipe_name_is_rejected) ... ok
+test_fractional_allocation_is_rejected_without_truncation (test_model.ModelTest.test_fractional_allocation_is_rejected_without_truncation) ... ok
+test_fractional_capacity_is_rejected_without_truncation (test_model.ModelTest.test_fractional_capacity_is_rejected_without_truncation) ... ok
+test_fractional_state_label_is_rejected_without_truncation (test_model.ModelTest.test_fractional_state_label_is_rejected_without_truncation) ... ok
+test_fractional_work_numerator_is_rejected (test_model.ModelTest.test_fractional_work_numerator_is_rejected) ... ok
+test_json_round_trip (test_model.ModelTest.test_json_round_trip) ... ok
+test_missing_operand_is_rejected (test_model.ModelTest.test_missing_operand_is_rejected) ... ok
+test_missing_root_is_rejected (test_model.ModelTest.test_missing_root_is_rejected) ... ok
+test_motzkin_grid_count (test_model.ModelTest.test_motzkin_grid_count) ... ok
+test_negative_work_is_rejected (test_model.ModelTest.test_negative_work_is_rejected) ... ok
+test_nonpositive_capacity_is_rejected (test_model.ModelTest.test_nonpositive_capacity_is_rejected) ... ok
+test_nonpositive_weight_is_rejected (test_model.ModelTest.test_nonpositive_weight_is_rejected) ... ok
+test_shared_operand_is_rejected (test_model.ModelTest.test_shared_operand_is_rejected) ... ok
+test_source_root_is_rejected (test_model.ModelTest.test_source_root_is_rejected) ... ok
+test_undeclared_root_state_is_rejected (test_model.ModelTest.test_undeclared_root_state_is_rejected) ... ok
+test_undeclared_source_state_is_rejected (test_model.ModelTest.test_undeclared_source_state_is_rejected) ... ok
+test_valid_integer_fraction_is_preserved_exactly (test_model.ModelTest.test_valid_integer_fraction_is_preserved_exactly) ... ok
+test_wrong_recipe_arity_is_rejected (test_model.ModelTest.test_wrong_recipe_arity_is_rejected) ... ok
+test_zero_work_denominator_is_rejected (test_model.ModelTest.test_zero_work_denominator_is_rejected) ... ok
+test_concrete_separation_is_89_versus_91 (test_reference_eq6.ReferenceEquationTest.test_concrete_separation_is_89_versus_91) ... ok
+test_parameter_family_is_23t_versus_25t (test_reference_eq6.ReferenceEquationTest.test_parameter_family_is_23t_versus_25t) ... ok
+test_typed_instance_is_rejected (test_reference_eq6.ReferenceEquationTest.test_typed_instance_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 0.613s
+
+OK
+
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 10,
+    "cumulative_case_body_cpu_cap_seconds": 1.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 1,
+  "incomplete_cases": 1,
+  "complete": false,
+  "terminal_status": "incomplete-case-retained",
+  "cumulative_audit_units": 2,
+  "cumulative_case_body_cpu_seconds": 1.1,
+  "total_invocation_process_cpu_seconds": 0.0012560030000000055,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 1,
+      "candidate_cases_evaluated": 2,
+      "invocation_process_cpu_seconds": 0.0009144360000000185,
+      "max_rss_kib": 23644
+    },
+    {
+      "new_cases_checked": 0,
+      "candidate_cases_evaluated": 0,
+      "invocation_process_cpu_seconds": 0.0003415669999999871,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 1-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 10,
+    "cumulative_case_body_cpu_cap_seconds": 1.0
+  },
+  "message": "recovery is blocked by retained non-checked cases: ['case-1']"
+}
+checked 001/2 case-0 audit_units=1 case_body_cpu=0.1000s
+{
+  "schema": 2,
+  "index_sha256": "eec1eb627394550dc93bdfbaff8555518aae57b0f6c869fb647ec627373bec07",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  },
+  "expected_cases": 2,
+  "checked_cases": 1,
+  "incomplete_cases": 0,
+  "complete": false,
+  "terminal_status": "chunk-complete",
+  "cumulative_audit_units": 1,
+  "cumulative_case_body_cpu_seconds": 0.1,
+  "total_invocation_process_cpu_seconds": 0.0010871090000000305,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 1,
+      "candidate_cases_evaluated": 1,
+      "invocation_process_cpu_seconds": 0.0010871090000000305,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 2700-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  }
+}
+checked 001/1 case-0 audit_units=1 case_body_cpu=0.1000s
+{
+  "schema": 2,
+  "index_sha256": "6e794f98a0ec44dfc22095477cd9459b6b5ef585fd2956b72dd81da41382dc9b",
+  "campaign_config": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  },
+  "expected_cases": 1,
+  "checked_cases": 1,
+  "incomplete_cases": 0,
+  "complete": true,
+  "terminal_status": "complete",
+  "cumulative_audit_units": 1,
+  "cumulative_case_body_cpu_seconds": 0.1,
+  "total_invocation_process_cpu_seconds": 0.0009154379999999906,
+  "max_rss_kib": 23644,
+  "invocations": [
+    {
+      "new_cases_checked": 1,
+      "candidate_cases_evaluated": 1,
+      "invocation_process_cpu_seconds": 0.0009154379999999906,
+      "max_rss_kib": 23644
+    }
+  ],
+  "timing_semantics": {
+    "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 2700-second campaign cap.",
+    "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity.",
+    "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest."
+  },
+  "limits": {
+    "oracle_state_cap": 10,
+    "oracle_case_cpu_cap_seconds": 1.0,
+    "audit_unit_cap": 600000,
+    "cumulative_case_body_cpu_cap_seconds": 2700.0
+  }
+}

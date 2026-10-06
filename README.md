@@ -85,9 +85,11 @@ The historical clean replay records 2.702529778 case-body CPU seconds, 3.3015951
 
 A separate Windows CPython 3.12.14 evaluation after the checker corrections ran the same 364 frozen case bodies and matched every retained logical record, including the 255,792 audit units. It used a 60-second wall deadline and a 3 GiB Windows job committed-memory cap. This direct evaluation did not exercise the POSIX launcher's resource or recovery code. Its 2.3125 case-body CPU seconds, 5.393 seconds of externally measured elapsed time, and 163,565,568-byte peak job committed memory have different scopes from the historical Linux timings and RSS. Locally, 49 portable tests passed, including ten new claim regressions; the eight POSIX campaign-integrity tests could not import Windows' unavailable `resource` module. These local checks are not a hosted workflow run.
 
+The current Ubuntu 24.04/Python 3.12 reproduction passed all 57 tests without skips, including the eight POSIX campaign-integrity tests, and completed six chunks of 64/64/64/64/64/44 cases. All 364 records match the historical scientific fields, including exact rational costs, infeasibility, traces, certificates, input digests, and the 255,792 audit units; only case-body and oracle CPU measurements are excluded from case equality. Three positive controls, ten negative controls, and five literal-equation checks passed. The native manifest records 4.871249816 cumulative case-body CPU seconds, 5.946416986 post-recovery invocation CPU seconds, and 65,572 KiB maximum single runner-process RSS across the chunks. It supplies no external whole-run elapsed or process-tree resource measurement. The [native receipt](results/measurements/linux-37439076455.json) and matching unit-test log retain these distinct scopes; the historical records and tables above are kept unchanged. This is one synthetic finite campaign on one Linux platform. The separately implemented configuration oracle shares the instance parser and written event contract; it is not an independent complete system.
+
 ## Hosted scientific check definition
 
-`.github/workflows/scientific-checks.yml` is configured for the standalone artifact-root repository on pushes to `main`, pull requests, and manual dispatch. It runs the complete test suite, controls, printed-equation checks, six campaign chunks, summarization, and logical replay comparison on Ubuntu 24.04. The whole scientific shell has a 300-second wall deadline, a 240-second per-process CPU limit, and a 3 GiB address-space limit; the campaign retains its own cumulative and oracle caps. Raw logs and JSON outputs are uploaded on success or failure. The workflow has been prepared, not executed remotely by this local evaluation.
+`.github/workflows/scientific-checks.yml` is configured for the standalone artifact-root repository on pushes to `main`, pull requests, and manual dispatch. It runs the complete test suite, controls, printed-equation checks, six campaign chunks, summarization, and logical replay comparison on Ubuntu 24.04. The whole scientific shell has a 300-second wall deadline, a 240-second per-process CPU limit, and a 3 GiB address-space limit; the campaign retains its own cumulative and oracle caps. Raw logs and JSON outputs are uploaded on success or failure.
 
 ## Files and boundaries
 
@@ -96,6 +98,7 @@ A separate Windows CPython 3.12.14 evaluation after the checker corrections ran 
 - `instances/`: exact frozen inputs and the fixed valley witness.
 - `results/evaluation/`: retained clean campaign records and manifest.
 - `results/summary/`: tables derived only after complete index-bound validation.
+- `results/measurements/`: current native Linux receipt and raw unit-test log; unchanged case records are not duplicated.
 - `tests/`: model, checker, campaign-integrity, bibliography, and reference-equation fixtures.
 - `tools/`: input construction, controls, summarization, replay comparison, and bibliography audit.
 
