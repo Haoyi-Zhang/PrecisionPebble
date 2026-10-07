@@ -12,6 +12,16 @@ JSON numerical fields are fail-closed. Capacities, allocations, representation l
 
 ## Checker responsibilities
 
+During one solve, the planner reuses sorted recipe descriptors containing the
+original recipe, operand allocations, and simultaneous allocation footprint.
+Descriptors are discarded on return or exception; direct `value()` calls do
+not retain them. Operand permutations remain lazy, and candidate order,
+uncut ties, memo keys, certificates, and audit-unit definitions are unchanged.
+The fixed-instance requirement of memoized values is unchanged. This metadata
+reuse has no measured runtime claim. The separate finite descriptor controls
+run with `python3 -B tests/recipe_descriptor_regression.py -v` and in the hosted
+scientific workflow in addition to its unchanged campaign and test suite.
+
 The three executable checks have different contracts.
 
 - `src/event_checker.py` replays one normalized, one-shot trace: a source is loaded at most once and an operator is computed at most once. This is the trace class justified by the paper's normalization lemmas, not an arbitrary recomputing pebble-game execution. The checker recomputes legality, capacity, peak allocation, transferred units, rational work, and the final stored root.

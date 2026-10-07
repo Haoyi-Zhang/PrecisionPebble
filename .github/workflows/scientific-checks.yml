@@ -44,6 +44,13 @@ jobs:
           python -B tools/summarize.py --results "$raw/replay" --output "$raw/summary" 2>&1 | tee "$raw/summary.log"
           python -B tools/compare_replay.py --reference results/evaluation --replay "$raw/replay" --output "$raw/comparison.json" 2>&1 | tee "$raw/comparison.log"
           CHECKS
+      - name: Finite recipe descriptor controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          ulimit -v 3145728
+          ulimit -t 240
+          timeout --signal=TERM --kill-after=5s 30s python -B tests/recipe_descriptor_regression.py -v 2>&1 | tee "$RUNNER_TEMP/scientific-output/recipe-descriptors.log"
       - name: Upload raw outputs on success or failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

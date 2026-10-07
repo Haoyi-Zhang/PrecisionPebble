@@ -38,9 +38,28 @@ class PreparationAwareOptimizer:
             raise ValueError("exact mode requires every allowed recipe to be allocation-contractive")
         self._memo: dict[StateKey, MaybeCost] = {}
         self._choices: dict[StateKey, dict[str, Any] | None] = {}
+        self._recipe_descriptors: dict[tuple[str, int], tuple[tuple[Recipe, tuple[int, ...], int], ...]] | None = None
 
     def _recipe_candidates(self, node_id: str, output_state: int) -> list[Recipe]:
         return [recipe for recipe in self.instance.node(node_id).recipes if recipe.output == output_state]
+
+    def _descriptors(self, node_id: str, output_state: int) -> tuple[tuple[Recipe, tuple[int, ...], int], ...]:
+        key = (node_id, output_state)
+        cache = self._recipe_descriptors
+        if cache is not None and key in cache:
+            return cache[key]
+        node = self.instance.node(node_id)
+        descriptors = []
+        for recipe in sorted(self._recipe_candidates(node_id, output_state), key=lambda item: item.name):
+            weights = tuple(
+                self.instance.node(child).weight(input_state)
+                for child, input_state in zip(node.operands, recipe.inputs)
+            )
+            descriptors.append((recipe, weights, node.weight(recipe.output) + sum(weights)))
+        result = tuple(descriptors)
+        if cache is not None:
+            cache[key] = result
+        return result
 
     def value(self, node_id: str, state: int, budget: int) -> MaybeCost:
         key = StateKey(node_id, state, budget)
@@ -65,13 +84,8 @@ class PreparationAwareOptimizer:
         best: MaybeCost = None
         best_choice: dict[str, Any] | None = None
         best_tie: tuple[Any, ...] | None = None
-        for recipe in sorted(self._recipe_candidates(node_id, state), key=lambda item: item.name):
-            input_weights = [
-                self.instance.node(child).weight(input_state)
-                for child, input_state in zip(node.operands, recipe.inputs)
-            ]
-            output_weight = node.weight(recipe.output)
-            if output_weight + sum(input_weights) > budget:
+        for recipe, input_weights, footprint in self._descriptors(node_id, state):
+            if footprint > budget:
                 continue
             for order in permutations(range(len(node.operands))):
                 held = 0
@@ -83,7 +97,7 @@ class PreparationAwareOptimizer:
                     child_id = node.operands[operand_index]
                     child_state = recipe.inputs[operand_index]
                     child = self.instance.node(child_id)
-                    child_weight = child.weight(child_state)
+                    child_weight = input_weights[operand_index]
                     residual = budget - held
                     direct = self.value(child_id, child_state, residual)
                     prepared: MaybeCost = None
@@ -136,6 +150,15 @@ class PreparationAwareOptimizer:
         return best
 
     def solve(self) -> SolveResult:
+        # Model dictionaries are mutable; allocation metadata belongs to this
+        # solve only. Direct value() calls do not retain descriptor metadata.
+        self._recipe_descriptors = {}
+        try:
+            return self._solve()
+        finally:
+            self._recipe_descriptors = None
+
+    def _solve(self) -> SolveResult:
         best: MaybeCost = None
         best_state: int | None = None
         for state in sorted(self.instance.root_states):
