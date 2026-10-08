@@ -75,6 +75,18 @@ The per-component values are stored in `metrics.audit_unit_components`, and `aud
 
 ## Retained evidence
 
+The configuration oracle sorts each eligible operator's recipe tuple once per
+search invocation and reuses that order. Matching, allocation/capacity checks,
+queue serials, strict cost improvements and predecessor choices remain
+configuration-specific. The cache is not shared across calls or with the planner
+or checkers. `tests/test_oracle_recipe_order.py` compares all 286 retained oracle
+records, replays each finite witness, and exercises recipe-order and cap controls.
+`results/oracle-recipe-comparison.json` records matched complete results and 168
+simulated-clock/state-cap comparisons. On the 286 existing inputs, recipe-sort
+builds decrease from 16,296 to 595. These operation counts do not measure runtime,
+physical RAM, transfer cost or extra preparation benefit. The historical timings
+and the integer-IR zero-preparation-improvement outcome below are unchanged.
+
 The frozen campaign contains 364 deterministic constructed instances: 256 structural-grid cases, 16 larger structural cases, eight analytic separation cases, four controls, two hardness controls, 24 scaling cases, and 54 exact-integer IR cases. They are not a sampled natural-workload benchmark. Observed maxima are 64 vertices, 117 recipes, capacity 1,024, and four representation labels `{8,16,32,64}`.
 
 The retained historical campaign and historical clean replay both contain:

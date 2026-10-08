@@ -56,6 +56,8 @@ def configuration_oracle(
     heapq.heappush(queue, (Cost.zero(), serial, initial))
     expanded = 0
     start = time.process_time()
+    # Instance recipes are fixed for this invocation; matching stays per config.
+    recipe_order = {}
 
     def resident_memory(assigned: tuple[int, ...], red_mask: int) -> int:
         total = 0
@@ -220,7 +222,9 @@ def configuration_oracle(
                     break
             if not operands_present:
                 continue
-            for recipe in sorted(node.recipes, key=lambda item: item.name):
+            if position not in recipe_order:
+                recipe_order[position] = tuple(sorted(node.recipes, key=lambda item: item.name))
+            for recipe in recipe_order[position]:
                 matches = True
                 for child_id, required_state in zip(node.operands, recipe.inputs):
                     child_slot = assigned[index[child_id]]
