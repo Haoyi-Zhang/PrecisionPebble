@@ -8,8 +8,8 @@ O6,Serialization exchange,components can be serialized without increasing capaci
 O7,DP soundness,every recurrence choice realizes a feasible schedule with the claimed cost,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
 O8,DP completeness,every normalized optimum is represented by a recurrence choice,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
 O9,Complexity,capacity dependence and encoding assumptions are stated as pseudopolynomial,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
-O10,Separation upper bound,a concrete unrestricted schedule attains 23t (89 at t=1),covered,yes;yes,paper/main.tex; artifact/proofs/core.md
-O11,Separation lower bound,every complete-subtree schedule costs at least 25t (91 at t=1),covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O10,Separation upper bound,a concrete unrestricted schedule attains 23t for x=2t and r=t (23 at t=1; capacity 8); the x=8 and t=r=1 control attains 89 at capacity 32,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
+O11,Separation lower bound,every complete-subtree schedule costs at least 25t for x=2t and r=t (25 at t=1; capacity 8); the x=8 and t=r=1 control costs at least 91 at capacity 32,covered,yes;yes,paper/main.tex; artifact/proofs/core.md
 O12,Expansive counterexample,33/35/49 values are justified and contraction is not claimed necessary,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
 O13,NP membership,certificate size and polynomial-time verification are specified,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md
 O14,Reduction construction,PARTITION mapping is polynomial and all weights/capacities are encoded explicitly,covered,yes;yes;yes,paper/main.tex; artifact/proofs/core.md

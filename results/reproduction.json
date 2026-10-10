@@ -48,7 +48,7 @@
     "timing_semantics": {
       "case_body_cpu_seconds": "Per-case process CPU measured inside evaluate_case; this is the quantity accumulated against the configured 2700-second campaign cap.",
       "external_timing": "Elapsed time and process-tree resource measurements, when retained, are collected by an external timing command and are not inferred from this manifest.",
-      "invocation_process_cpu_seconds": "Process CPU for one reproduce.py invocation, including resume validation, JSON I/O, case bodies, and manifest writing; it is recorded separately and is not the cap quantity."
+      "invocation_process_cpu_seconds": "Post-recovery orchestration CPU, including case bodies and in-segment result I/O and validation, but excluding startup, initial recovery, and terminal manifest/print work; it is recorded separately and is not the cap quantity."
     },
     "total_invocation_process_cpu_seconds": 3.3015951589999997
   },

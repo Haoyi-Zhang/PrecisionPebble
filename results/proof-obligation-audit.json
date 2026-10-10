@@ -77,7 +77,7 @@
     {
       "id": "O10",
       "obligation": "Separation upper bound",
-      "criterion": "a concrete unrestricted schedule attains 23t (89 at t=1)",
+      "criterion": "a concrete unrestricted schedule attains 23t for x=2t and r=t (23 at t=1; capacity 8); the x=8 and t=r=1 control attains 89 at capacity 32",
       "status": "covered",
       "pattern_checks": "yes;yes",
       "evidence": "paper/main.tex; artifact/proofs/core.md"
@@ -85,7 +85,7 @@
     {
       "id": "O11",
       "obligation": "Separation lower bound",
-      "criterion": "every complete-subtree schedule costs at least 25t (91 at t=1)",
+      "criterion": "every complete-subtree schedule costs at least 25t for x=2t and r=t (25 at t=1; capacity 8); the x=8 and t=r=1 control costs at least 91 at capacity 32",
       "status": "covered",
       "pattern_checks": "yes;yes",
       "evidence": "paper/main.tex; artifact/proofs/core.md"
