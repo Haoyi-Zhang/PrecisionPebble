@@ -21,7 +21,7 @@ python3 tools/check_controls.py --output results/reviewer-controls.json
 python3 tools/check_reference_equation.py --output results/reviewer-reference-equation.json
 ```
 
-Default discovery defines 60 unit tests, including three oracle-recipe controls; six descriptor controls are invoked separately. The retained Linux measurement covers 57 tests, including ten claim-evidence regressions, and does not record these added controls. Its Windows counterpart covers 49 portable tests; eight campaign-integrity tests require the POSIX `resource` module. The retained controls include three accepted positive objects, ten rejected negative/invalid objects, and five passing literal reference-equation cases. The Linux receipt and raw unit-test log in `results/measurements/` record 57 passes without skips. These retained measurements are distinct from execution of the supplied suite.
+Default discovery includes three oracle-recipe controls and two added bibliography-ledger controls; six descriptor controls are invoked separately. The retained Linux measurement covers 57 tests, including ten claim-evidence regressions, and does not record these added controls. Its Windows counterpart covers 49 portable tests; eight campaign-integrity tests require the POSIX `resource` module. The retained controls include three accepted positive objects, ten rejected negative/invalid objects, and five passing literal reference-equation cases. The Linux receipt and raw unit-test log in `results/measurements/` record 57 passes without skips. These retained measurements are distinct from execution of the supplied suite.
 
 ## Clean replay
 
@@ -50,9 +50,19 @@ python3 tools/audit_bibliography.py \
   --tex ../paper/main.tex \
   --bib ../paper/references.bib \
   --verification bibliography-verification.csv \
-  --minimum 31 \
-  --output results/reviewer-bibliography-audit.json
+  --minimum 51 \
+  --allow-ledger-identifiers \
+  --output results/reviewer-bibliography-audit-current.json
 ```
+
+The current ledger covers all 51 cited keys: 31 historical rows are retained,
+and 20 additional rows record primary-source metadata and bounded citation
+context, not complete-source reading. The explicit ledger-identifier option
+uses a DOI or primary-source record URL where the frozen formal citation omits
+an inline identifier; it does not waive key, title, year, date, status, or
+existing-identifier consistency checks. This audit checks local consistency,
+not source truth or citation entailment. Historical audit results and the
+separate full-text reading cohort remain unchanged.
 
 ## Interpretation
 

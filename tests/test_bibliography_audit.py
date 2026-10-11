@@ -150,9 +150,50 @@ class BibliographyAuditTests(unittest.TestCase):
                 "alpha,2020,Alpha,https://example.org/wrong,context,official record checked,2026-09-19,retained and cited,\n",
                 encoding="utf-8",
             )
-            report = audit(tex, bib, minimum=1, verification_path=ledger)
-            self.assertFalse(report["valid"])
-            self.assertTrue(any("identifier" in item for item in report["verification_mismatches"]))
+            for allow_ledger_identifiers in (False, True):
+                report = audit(
+                    tex, bib, minimum=1, verification_path=ledger,
+                    allow_ledger_identifiers=allow_ledger_identifiers,
+                )
+                self.assertFalse(report["valid"])
+                self.assertTrue(any("identifier" in item for item in report["verification_mismatches"]))
+
+    def test_ledger_identifier_requires_explicit_mode_and_matching_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            tex, bib, ledger = (root / name for name in ("main.tex", "references.bib", "ledger.csv"))
+            tex.write_text(r"Evidence~\cite{alpha}.", encoding="utf-8")
+            bib.write_text(
+                "@article{alpha, author={A. Author}, title={Alpha}, journal={Journal}, year={2020}}\n",
+                encoding="utf-8",
+            )
+            header = "key,year,title,identifier,manuscript_role,verification_basis,checked_on,status,notes\n"
+            row = "alpha,2020,Alpha,https://example.org/alpha,context,primary record and bounded context,2026-09-19,retained and cited,\n"
+            ledger.write_text(header + row, encoding="utf-8")
+            self.assertFalse(audit(tex, bib, 1, ledger)["valid"])
+            report = audit(tex, bib, 1, ledger, allow_ledger_identifiers=True)
+            self.assertTrue(report["valid"])
+            self.assertEqual(report["ledger_identifier_keys"], ["alpha"])
+            self.assertEqual(report["identified_entries"], 1)
+            ledger.write_text(header + row.replace("alpha,2020,Alpha,", "alpha,2020,Wrong title,"), encoding="utf-8")
+            self.assertFalse(audit(tex, bib, 1, ledger, allow_ledger_identifiers=True)["valid"])
+
+    def test_ledger_identifier_mode_rejects_missing_ledger_and_nonrecord_labels(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            tex, bib, ledger = (root / name for name in ("main.tex", "references.bib", "ledger.csv"))
+            tex.write_text(r"Evidence~\cite{alpha}.", encoding="utf-8")
+            bib.write_text(
+                "@article{alpha, author={A. Author}, title={Alpha}, journal={Journal}, year={2020}}\n",
+                encoding="utf-8",
+            )
+            self.assertFalse(audit(tex, bib, 1, allow_ledger_identifiers=True)["valid"])
+            ledger.write_text(
+                "key,year,title,identifier,manuscript_role,verification_basis,checked_on,status,notes\n"
+                "alpha,2020,Alpha,unverified-label,context,bounded context,2026-09-19,retained and cited,\n",
+                encoding="utf-8",
+            )
+            self.assertFalse(audit(tex, bib, 1, ledger, allow_ledger_identifiers=True)["valid"])
 
 
 if __name__ == "__main__":

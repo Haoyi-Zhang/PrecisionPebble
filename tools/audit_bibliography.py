@@ -10,6 +10,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 ENTRY_START = re.compile(r"@(?P<kind>[A-Za-z]+)\s*\{\s*(?P<key>[^,\s]+)\s*,", re.MULTILINE)
 FIELD = re.compile(r"(?P<name>[A-Za-z][A-Za-z0-9_-]*)\s*=\s*(?P<value>\{(?:[^{}]|\{[^{}]*\})*\}|\"[^\"]*\"|[^,\n]+)\s*,?", re.DOTALL)
@@ -104,6 +105,26 @@ def _canonical_ledger_identifier(value: str) -> tuple[str, str]:
     return "literal", lower
 
 
+def _is_record_identifier(value: str) -> bool:
+    """Recognize a DOI or source-record URL, not an arbitrary ledger label."""
+    kind, identifier = _canonical_ledger_identifier(value)
+    if kind == "doi":
+        return re.fullmatch(r"10\.\d{4,9}/\S+", identifier) is not None
+    if kind == "url":
+        try:
+            parsed = urlsplit(identifier)
+            return (
+                parsed.scheme in {"http", "https"}
+                and bool(parsed.hostname)
+                and parsed.username is None
+                and parsed.password is None
+                and not any(character.isspace() for character in identifier)
+            )
+        except ValueError:
+            return False
+    return False
+
+
 def _verification_rows(path: Path) -> tuple[dict[str, dict[str, str]], list[str]]:
     errors: list[str] = []
     with path.open(newline="", encoding="utf-8") as handle:
@@ -128,12 +149,34 @@ def _verification_rows(path: Path) -> tuple[dict[str, dict[str, str]], list[str]
     return rows, errors
 
 
-def audit(tex_path: Path, bib_path: Path, minimum: int, verification_path: Path | None = None) -> dict[str, Any]:
+def audit(
+    tex_path: Path,
+    bib_path: Path,
+    minimum: int,
+    verification_path: Path | None = None,
+    allow_ledger_identifiers: bool = False,
+) -> dict[str, Any]:
     tex = tex_path.read_text(encoding="utf-8")
     bib = parse_bibtex(bib_path.read_text(encoding="utf-8"))
     cited = cited_keys(tex)
     keys = set(bib)
     errors: list[str] = []
+    ledger: dict[str, dict[str, str]] = {}
+    if verification_path is not None:
+        ledger, ledger_errors = _verification_rows(verification_path)
+        errors.extend(ledger_errors)
+    elif allow_ledger_identifiers:
+        errors.append("ledger identifiers require a verification ledger")
+
+    # Explicit opt-in keeps formal citations without an inline optional DOI/URL
+    # bound to a dated source record. Existing BibTeX identifiers still must
+    # agree exactly; the ledger's title/year/status/date checks remain below.
+    ledger_identifier_keys = {
+        key for key in keys & set(ledger)
+        if allow_ledger_identifiers
+        and not _canonical_identifier(bib[key]["fields"])[0]
+        and _is_record_identifier(ledger[key]["identifier"])
+    }
 
     missing = sorted(cited - keys)
     unused = sorted(keys - cited)
@@ -150,9 +193,18 @@ def audit(tex_path: Path, bib_path: Path, minimum: int, verification_path: Path 
         for required in ("author", "title", "year"):
             if not fields.get(required):
                 errors.append(f"{key}: missing {required}")
-        if entry["kind"] not in {"book", "inbook"} and not any(fields.get(name) for name in ("doi", "url", "eprint")):
+        if (
+            entry["kind"] not in {"book", "inbook"}
+            and not any(fields.get(name) for name in ("doi", "url", "eprint"))
+            and key not in ledger_identifier_keys
+        ):
             errors.append(f"{key}: missing DOI, URL, or eprint identifier")
-        doi = _normalize_doi(fields.get("doi", ""))
+        doi_value = fields.get("doi", "")
+        if key in ledger_identifier_keys:
+            kind, value = _canonical_ledger_identifier(ledger[key]["identifier"])
+            if kind == "doi":
+                doi_value = value
+        doi = _normalize_doi(doi_value)
         if doi:
             if doi in dois:
                 errors.append(f"duplicate DOI {doi}: {dois[doi]} and {key}")
@@ -166,8 +218,6 @@ def audit(tex_path: Path, bib_path: Path, minimum: int, verification_path: Path 
     verification_name = None
     if verification_path is not None:
         verification_name = verification_path.name
-        ledger, ledger_errors = _verification_rows(verification_path)
-        errors.extend(ledger_errors)
         verification_count = len(ledger)
         ledger_keys = set(ledger)
         missing_verification = sorted(keys - ledger_keys)
@@ -186,7 +236,7 @@ def audit(tex_path: Path, bib_path: Path, minimum: int, verification_path: Path 
                 verification_mismatches.append(f"{key}: title mismatch")
             bib_id = _canonical_identifier(fields)
             ledger_id = _canonical_ledger_identifier(row["identifier"])
-            if bib_id != ledger_id:
+            if key not in ledger_identifier_keys and bib_id != ledger_id:
                 verification_mismatches.append(f"{key}: identifier {row['identifier']!r} != {bib_id[1]!r}")
             if row["status"].casefold() != "retained and cited":
                 verification_mismatches.append(f"{key}: status is not 'retained and cited'")
@@ -208,13 +258,15 @@ def audit(tex_path: Path, bib_path: Path, minimum: int, verification_path: Path 
         "bib": bib_path.name,
         "verification_csv": verification_name,
         "minimum_entries": minimum,
+        "allow_ledger_identifiers": allow_ledger_identifiers,
+        "ledger_identifier_keys": sorted(ledger_identifier_keys),
         "entry_count": len(keys),
         "cited_key_count": len(cited),
         "identified_entries": sum(
             1
             for entry in bib.values()
             if any(entry["fields"].get(name) for name in ("doi", "url", "eprint", "isbn"))
-        ),
+        ) + len(ledger_identifier_keys),
         "verification_row_count": verification_count,
         "missing_citations": missing,
         "unused_entries": unused,
@@ -231,7 +283,11 @@ def main() -> int:
     parser.add_argument("--tex", default="../paper/main.tex")
     parser.add_argument("--bib", default="../paper/references.bib")
     parser.add_argument("--verification")
-    parser.add_argument("--minimum", type=int, default=30)
+    parser.add_argument("--minimum", type=int, default=50)
+    parser.add_argument(
+        "--allow-ledger-identifiers", action="store_true",
+        help="allow a dated ledger DOI/source URL only when BibTeX has no identifier",
+    )
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
 
@@ -249,7 +305,10 @@ def main() -> int:
     output = resolve(args.output)
     assert tex_path is not None and bib_path is not None and output is not None
 
-    report = audit(tex_path, bib_path, args.minimum, verification_path)
+    report = audit(
+        tex_path, bib_path, args.minimum, verification_path,
+        allow_ledger_identifiers=args.allow_ledger_identifiers,
+    )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
