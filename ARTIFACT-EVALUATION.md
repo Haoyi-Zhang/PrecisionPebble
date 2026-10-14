@@ -21,7 +21,7 @@ python3 tools/check_controls.py --output results/reviewer-controls.json
 python3 tools/check_reference_equation.py --output results/reviewer-reference-equation.json
 ```
 
-Default discovery includes three oracle-recipe controls and two added bibliography-ledger controls; six descriptor controls are invoked separately. The retained Linux measurement covers 57 tests, including ten claim-evidence regressions, and does not record these added controls. Its Windows counterpart covers 49 portable tests; eight campaign-integrity tests require the POSIX `resource` module. The retained controls include three accepted positive objects, ten rejected negative/invalid objects, and five passing literal reference-equation cases. The Linux receipt and raw unit-test log in `results/measurements/` record 57 passes without skips. These retained measurements are distinct from execution of the supplied suite.
+Default discovery includes three oracle-recipe controls, two added bibliography-ledger controls, and current semantic-admission controls for the complete five-pattern integer profile; six descriptor controls are invoked separately. The retained Linux measurement covers 57 tests, including ten claim-evidence regressions, and predates these added controls. Its Windows counterpart covers 49 portable tests; eight campaign-integrity tests require the POSIX `resource` module. The retained controls include three accepted positive objects, ten rejected negative/invalid objects, and five passing literal reference-equation cases. The Linux receipt and raw unit-test log in `results/measurements/` record 57 passes without skips. These retained measurements are distinct from execution of the supplied suite.
 
 ## Clean replay
 

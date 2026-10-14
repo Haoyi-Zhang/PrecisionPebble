@@ -10,6 +10,8 @@ The planner jointly chooses representations, operator recipes, spill edges, and 
 
 JSON numerical fields are fail-closed. Capacities, allocations, representation labels, event states, and rational-cost numerators/denominators must be JSON integers; booleans and fractional numbers are rejected rather than truncated. Rational pairs such as `[1, 2]` remain exact `Fraction(1, 2)` values. The parser does **not** claim to detect duplicate object keys in raw JSON text.
 
+Integer-family inputs are admitted only when `operator_family` agrees with the family name, `source_length` and `bound` are JSON integers, and `semantic_patterns` contains each of the five supported controls exactly once. An empty, partial, duplicated, unknown, or ill-typed profile is rejected while loading the case, before optimization or result accounting. This admission rule protects the stated 240/180 semantic-check denominators; it does not turn the five finite patterns into the all-input range proof.
+
 ## Checker responsibilities
 
 During one solve, the planner reuses sorted recipe descriptors containing the

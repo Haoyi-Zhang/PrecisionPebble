@@ -35,13 +35,16 @@ def _source_arrays(instance: Instance, pattern: str) -> dict[str, list[int]]:
 
 def _apply(kind: str, left: list[int], right: list[int] | None = None) -> list[int]:
     if kind == "product":
-        assert right is not None and len(left) == len(right)
+        if right is None or len(left) != len(right):
+            raise ValueError("product operands must have equal lengths")
         return [a * b for a, b in zip(left, right)]
     if kind == "absdiff":
-        assert right is not None and len(left) == len(right)
+        if right is None or len(left) != len(right):
+            raise ValueError("absdiff operands must have equal lengths")
         return [abs(a - b) for a, b in zip(left, right)]
     if kind == "reduce":
-        assert right is not None and len(left) == len(right) and len(left) % 2 == 0
+        if right is None or len(left) != len(right) or len(left) % 2 != 0:
+            raise ValueError("reduce operands must have equal, even lengths")
         return [
             left[index] + left[index + 1] + right[index] + right[index + 1]
             for index in range(0, len(left), 2)

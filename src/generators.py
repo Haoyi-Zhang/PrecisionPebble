@@ -400,7 +400,8 @@ def small_grid_instances() -> list[Instance]:
     shapes: list[Shape] = []
     for size in range(2, 6):
         shapes.extend(motzkin_shapes(size))
-    assert len(shapes) == 16
+    if len(shapes) != 16:
+        raise RuntimeError("unexpected small-grid shape count")
     instances: list[Instance] = []
     for shape_index, shape in enumerate(shapes):
         for profile in range(4):
@@ -573,7 +574,8 @@ def integer_instance(family: str, groups: int, bound: int, capacity_multiplier: 
         values = next_values
         level += 1
     root, root_length, root_interval = values[0]
-    assert root_length == 1
+    if root_length != 1:
+        raise RuntimeError("integer reduction did not produce a scalar root")
     root_states = [
         state
         for state in STATES
@@ -677,5 +679,6 @@ def all_campaign_instances() -> list[tuple[Instance, dict[str, bool]]]:
         result.append((instance, {"oracle": False, "certificate": True, "semantic": False, "exact": True}))
     for instance in integer_instances():
         result.append((instance, {"oracle": False, "certificate": True, "semantic": True, "exact": True}))
-    assert len(result) == 364
+    if len(result) != 364:
+        raise RuntimeError("unexpected campaign instance count")
     return result

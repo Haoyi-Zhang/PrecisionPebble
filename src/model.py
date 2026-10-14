@@ -8,6 +8,13 @@ from pathlib import Path
 from typing import Any, Iterable
 
 STATES = (8, 16, 32, 64)
+INTEGER_SEMANTIC_PATTERNS = (
+    "zero",
+    "positive",
+    "negative",
+    "alternating",
+    "pseudorandom-9137",
+)
 _CANONICAL_NONNEGATIVE_INT = re.compile(r"0|[1-9][0-9]*")
 
 
@@ -324,6 +331,24 @@ def validate_instance(instance: Instance) -> None:
         raise ValueError("the retained campaign requires an internal root")
     if not instance.root_states or any(state not in instance.states for state in instance.root_states):
         raise ValueError("invalid root states")
+
+    family = instance.metadata.get("family")
+    if isinstance(family, str) and family.startswith("integer-"):
+        operator_family = instance.metadata.get("operator_family")
+        expected_operator_family = family.removeprefix("integer-")
+        if operator_family not in {"sum", "dot", "abs"} or operator_family != expected_operator_family:
+            raise ValueError("integer semantic operator_family must agree with family")
+        require_int(instance.metadata.get("source_length"), "integer semantic source_length", minimum=1)
+        require_int(instance.metadata.get("bound"), "integer semantic bound", minimum=0)
+        patterns = instance.metadata.get("semantic_patterns")
+        if not isinstance(patterns, list):
+            raise ValueError("integer semantic_patterns must be a JSON array")
+        if any(not isinstance(pattern, str) or not pattern for pattern in patterns):
+            raise ValueError("integer semantic_patterns must contain nonempty strings")
+        if len(patterns) != len(set(patterns)):
+            raise ValueError("integer semantic_patterns must not contain duplicates")
+        if set(patterns) != set(INTEGER_SEMANTIC_PATTERNS):
+            raise ValueError("integer semantic_patterns must contain the complete supported profile")
 
     consumers: dict[str, int] = {node_id: 0 for node_id in instance.nodes}
     for node in instance.nodes.values():
