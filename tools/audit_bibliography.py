@@ -49,9 +49,15 @@ def parse_bibtex(text: str) -> dict[str, dict[str, Any]]:
     return result
 
 
+def _strip_comments(text: str) -> str:
+    """Remove ordinary TeX comments, preserving line endings and escaped percent."""
+    # Only an even run of immediately preceding backslashes starts a comment.
+    return re.sub(r"(?<!\\)((?:\\\\)*)%[^\r\n]*", r"\1", text)
+
+
 def cited_keys(tex: str) -> set[str]:
     keys: set[str] = set()
-    for group in CITE.findall(tex):
+    for group in CITE.findall(_strip_comments(tex)):
         for key in group.split(","):
             stripped = key.strip()
             if stripped and stripped != "*":

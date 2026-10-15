@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.audit_bibliography import audit, cited_keys, parse_bibtex
+from tools.audit_bibliography import audit, cited_keys, parse_bibtex, _strip_comments
 
 
 class BibliographyAuditTests(unittest.TestCase):
@@ -194,6 +194,48 @@ class BibliographyAuditTests(unittest.TestCase):
                 encoding="utf-8",
             )
             self.assertFalse(audit(tex, bib, 1, ledger, allow_ledger_identifiers=True)["valid"])
+
+
+class CitationCommentTests(unittest.TestCase):
+    def test_current_supported_commands(self) -> None:
+        tex = (r"\cite{a}\citep[p.~7]{b}\citet*{c}\citeauthor{d}"
+               r"\citeyear{e}\nocite{f}\nocite{*}\cite*{a,b}")
+        self.assertEqual(cited_keys(tex), set("abcdef"))
+        self.assertEqual(cited_keys(r"\citealt{x}\cite [see]{x}"), set())
+
+    def test_comments_and_literal_percent(self) -> None:
+        tex = (r"\cite{alpha}% \citep{hidden}" + "\r\n"
+               + r"\% \citet{beta} % \cite{hidden}" + "\n"
+               + r"% \nocite{hidden}")
+        self.assertEqual(cited_keys(tex), {"alpha", "beta"})
+
+    def test_backslash_parity(self) -> None:
+        for count in range(6):
+            with self.subTest(backslashes=count):
+                tex = "\\" * count + r"% \cite{appel1987}" + "\n" + r"\cite{alpha}"
+                self.assertEqual(cited_keys(tex), {"alpha", "appel1987"} if count % 2 else {"alpha"})
+
+    def test_line_endings_are_preserved(self) -> None:
+        self.assertEqual(_strip_comments("a% hidden\r\nb% hidden\rc% hidden\n% eof"), "a\r\nb\rc\n")
+
+    def test_comment_only_missing_key_and_unused_entry(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            tex, bib = root / "main.tex", root / "references.bib"
+            bib.write_text(
+                "@article{alpha, author={A}, title={Alpha}, journal={J}, year={2020}, doi={10.1000/a}}\n",
+                encoding="utf-8",
+            )
+            tex.write_text(r"\cite{alpha} % \cite{appel1987}", encoding="utf-8")
+            self.assertEqual(cited_keys(tex.read_text(encoding="utf-8")), {"alpha"})
+            report = audit(tex, bib, minimum=1)
+            self.assertTrue(report["valid"])
+            self.assertEqual(report["missing_citations"], [])
+            tex.write_text(r"% \cite{alpha,appel1987}", encoding="utf-8")
+            report = audit(tex, bib, minimum=1)
+            self.assertFalse(report["valid"])
+            self.assertEqual(report["missing_citations"], [])
+            self.assertEqual(report["unused_entries"], ["alpha"])
 
 
 if __name__ == "__main__":
