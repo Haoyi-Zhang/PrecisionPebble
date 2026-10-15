@@ -1,6 +1,6 @@
 # Preparation-aware weighted pebbling
 
-A self-contained research artifact for **Preparation-Aware Weighted Pebbling for Precision-Changing Operator Trees**. This directory is the root of the standalone `tight-pebbling-bounds-precision` repository. It does not require the manuscript directory, a private cache, an online account, a solver service, a model API, or a network connection.
+A self-contained research artifact for **Preparation-Aware Weighted Pebbling for Precision-Changing Operator Trees**. This directory is the root of the standalone `PrecisionPebble` repository. It does not require the manuscript directory, a private cache, an online account, a solver service, a model API, or a network connection.
 
 ## Implemented contract
 
@@ -37,18 +37,20 @@ The positive expansive-valley witness in `instances/witnesses/expansive-valley-3
 A Linux/POSIX environment with Python 3.10 or newer and its standard library is required. No package installation is needed. The runner uses one CPU worker, a 3 GiB address-space limit, and no GPU or network access. Run the following commands sequentially from this directory:
 
 ```sh
-rm -rf results/replay
+work=$(mktemp -d "${TMPDIR:-/tmp}/precision-pebble.XXXXXX")
 for step in 1 2 3 4 5 6; do
-  python3 reproduce.py --output results/replay --chunk 64 || exit "$?"
+  python3 reproduce.py --output "$work/replay" --chunk 64 || exit "$?"
 done
-python3 tools/check_controls.py --output results/replay-controls.json
-python3 tools/check_reference_equation.py --output results/replay-reference-equation.json
+python3 tools/check_controls.py --output "$work/controls.json"
+python3 tools/check_reference_equation.py --output "$work/reference-equation.json"
 python3 -m unittest discover -s tests -v
-python3 tools/summarize.py --results results/replay --output results/replay-summary
+python3 -B tests/recipe_descriptor_regression.py -v
+python3 tools/summarize.py --results "$work/replay" --output "$work/summary"
 python3 tools/compare_replay.py \
   --reference results/evaluation \
-  --replay results/replay \
-  --output results/replay-comparison.json
+  --replay "$work/replay" \
+  --output "$work/comparison.json"
+printf 'Replay outputs: %s\n' "$work"
 ```
 
 A fresh replay directory is required for a clean replay. Existing output is treated as recovery state, not silently overwritten. Every retained case record is bound to its frozen index position, name, group, input path, input SHA-256 digest, and evaluation configuration. The summary and comparison tools validate that identity against the frozen index; matching record counts alone are insufficient. Empty or nonexistent campaigns, identical reference/replay directories, missing records on both sides, stale inputs, and unexpected files are rejected.
@@ -128,7 +130,6 @@ The recorded Ubuntu 24.04/Python 3.12 reproduction passed all 57 tests without s
 
 The reference-policy implementation transcribes the fixed-state recurrence from Bhattacharjee et al., SPAA 2025, DOI 10.1145/3694906.3743342; it is not their software and does not reproduce their devices or workloads. No external baseline internals were modified.
 
-## Research provenance and external use
+## License and external use
 
-
-The MIT license covers newly authored repository material. Third-party publications and tools retain their own licenses; see `external_resources.csv`.
+The MIT license in `LICENSE` covers newly authored repository material. Third-party publications and tools retain their own licenses; see `RIGHTS-AND-LICENSES.md` and `external_resources.csv`.
