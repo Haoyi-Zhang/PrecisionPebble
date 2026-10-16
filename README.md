@@ -4,6 +4,12 @@ A self-contained research artifact for **Preparation-Aware Weighted Pebbling for
 
 ## Implemented contract
 
+The paper's separation and valley schematics are generated directly by
+`scripts/draw_schematics.py` as embedded-font vectors in `figures/`. Optional
+plotting dependencies are in `scripts/requirements-schematics.txt`. Run the
+renderer with `--check` for exact figure freshness; the paper Makefile uses this
+gate before compilation. Plotting packages are separate from scientific kernels.
+
 The planner jointly chooses representations, operator recipes, spill edges, and execution order on a rooted unique-consumer in-tree. It exactly minimizes transferred allocation units, with nonnegative rational abstract work as a lexicographic tie-breaker, **only when every allowed recipe's output allocation is at most each operand's allocation**. Operators are pure, atomic, and non-overwriting. The capacity dependence is pseudo-polynomial. The configuration search is a separately implemented small-instance oracle.
 
 `proofs/core.md` contains the human-readable arguments for ancestry pruning, the spill-forest identity, component serialization, the exact recurrence, the tight `23t/25t` family, and the NP-complete expansive extension. The proofs are not mechanized. The recurrence in expansive mode is only a feasible upper-bound policy. The retained executable model has no separate hidden-workspace field: a front end must lower temporary storage to explicit values or allocations before applying this contract. No hardware, deployment, energy, floating-point-accuracy, or model-performance claim is supported.
