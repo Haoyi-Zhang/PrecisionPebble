@@ -139,3 +139,7 @@ The reference-policy implementation transcribes the fixed-state recurrence from 
 ## License and external use
 
 The MIT license in `LICENSE` covers newly authored repository material. Third-party publications and tools retain their own licenses; see `RIGHTS-AND-LICENSES.md` and `external_resources.csv`.
+
+## Source repository
+
+[PrecisionPebble](https://github.com/Haoyi-Zhang/PrecisionPebble)
